@@ -3,7 +3,7 @@ package com.example.kcttwarehousemobilesystem
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
-//hi this is a comment
+//hi this is a comment by kjq
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
