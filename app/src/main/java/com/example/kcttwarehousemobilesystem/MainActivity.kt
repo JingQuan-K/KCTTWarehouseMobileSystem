@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 //pepek busuk haha
 //sohai 7 sohai
 
+//jibai
+
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
