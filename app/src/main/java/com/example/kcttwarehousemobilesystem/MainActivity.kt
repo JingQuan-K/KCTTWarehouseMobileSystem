@@ -4,9 +4,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
 //hi this is a comment by kjq
-//pepek busuk haha
-//sohai 7 sohai
-
+//lol
+//hello
+//
 //jibai
 
 class MainActivity : AppCompatActivity() {
