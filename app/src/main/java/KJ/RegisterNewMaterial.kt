@@ -1,0 +1,4 @@
+package KJ
+
+class RegisterNewMaterial {
+}
