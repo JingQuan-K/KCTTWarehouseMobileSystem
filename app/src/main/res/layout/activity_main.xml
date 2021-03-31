@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:text="Create Account!"
         android:textColor="@color/cyan"
+        android:textSize="@dimen/material_emphasis_high_type"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
