@@ -10,9 +10,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create Account!"
+        android:text="@string/create_account_text"
         android:textColor="@color/cyan"
-        android:textSize="100px"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -23,9 +23,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign Up to get started!"
+        android:text="@string/sign_up_text"
         android:textColor="@color/GrayishBlue"
-        android:textSize="60px"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -37,10 +37,10 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Username"
+        android:text="@string/username_title"
         android:textColor="@color/cyan"
-        android:textSize="40px"
-        tools:layout_editor_absoluteX="70dp"
+        android:textSize="25sp"
+        tools:layout_editor_absoluteX="36dp"
         tools:layout_editor_absoluteY="230dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
