@@ -4,4 +4,8 @@
     <string name="sign_up_text">Sign up to get started!</string>
     <string name="username_title">Username</string>
     <string name="username_hint">Username</string>
+    <string name="email_title">E-mail</string>
+    <string name="email_hint">Email Address</string>
+    <string name="password_title">Password</string>
+    <string name="password_hint">Password</string>
 </resources>
