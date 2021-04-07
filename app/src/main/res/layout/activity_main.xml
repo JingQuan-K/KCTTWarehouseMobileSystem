@@ -51,15 +51,18 @@
     <EditText
         android:id="@+id/editTextTextPersonName"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
+        android:layout_height="60dp"
+        android:background="@color/Black"
+        android:ems="15"
         android:inputType="textPersonName"
+        android:hint="@string/username_hint"
+        android:textColorHint="grey"
         android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.169"
+        app:layout_constraintHorizontal_bias="0.35"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.181" />
+        app:layout_constraintVertical_bias="0.173" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
