@@ -118,24 +118,31 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.597" />
 
-    <EditText
-        android:id="@+id/editPassword"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="318dp"
         android:layout_height="60dp"
-        android:background="@color/DarkGrey"
-        android:drawableStart="@drawable/ic_password"
-        android:drawablePadding="12dp"
-        android:ems="15"
-        android:hint="@string/password_hint"
-        android:inputType="textPassword"
-        android:paddingStart="12dp"
-        android:paddingEnd="12dp"
-        android:textColorHint="@color/GrayishBlue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/editEmail"
+        app:layout_constraintVertical_bias="0.149"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/Cyan"
+        app:hintTextColor="@color/GrayishBlue"
+        app:boxStrokeColor="@color/Cyan">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="318dp"
+            android:layout_height="60dp"
+            android:background="@color/DarkGrey"
+            android:drawableStart="@drawable/ic_password"
+            android:drawablePadding="12dp"
+            android:hint="Password"
+            android:inputType="textPassword"
+            tools:ignore="MissingConstraints" />
+    </com.google.android.material.textfield.TextInputLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
