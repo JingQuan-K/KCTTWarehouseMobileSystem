@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">KCTT  Warehouse Mobile System</string>
+    <string name="app_name">KCTT Warehouse Mobile System</string>
     <string name="create_account_text">Create Account!</string>
     <string name="sign_up_text">Sign up to get started!</string>
     <string name="username_title">Username</string>
