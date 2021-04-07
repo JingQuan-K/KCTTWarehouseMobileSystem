@@ -25,11 +25,22 @@
         android:layout_height="wrap_content"
         android:text="Sign Up to get started!"
         android:textColor="@color/GrayishBlue"
+        android:textSize="60px"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.21" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username"
+        android:textColor="@color/cyan"
+        android:textSize="40px"
+        tools:layout_editor_absoluteX="70dp"
+        tools:layout_editor_absoluteY="230dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
