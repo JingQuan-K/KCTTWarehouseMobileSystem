@@ -14,5 +14,6 @@
     <color name="GrayishBlue">#C5C6C7</color>
     <color name="Cyan">#66FCF1</color>
     <color name="DarkModerateCyan">#45A29E</color>
+    <color name="Grey">#707070</color>
     <color name="DarkGrey">#353434</color>
 </resources>
