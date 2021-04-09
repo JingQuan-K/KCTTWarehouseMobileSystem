@@ -16,4 +16,7 @@
 
     //Login
     <string name="welcome_msg">Welcome</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="sign_up_msg">Do not have an account?</string>
+    <string name="sign_up_text_button">Sign Up</string>
 </resources>
