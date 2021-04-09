@@ -1,4 +1,5 @@
 <resources>
+    //Register
     <string name="app_name">KCTT Warehouse Mobile System</string>
     <string name="create_account_text">Create Account</string>
     <string name="sign_up_text">Sign up to get started!</string>
@@ -12,4 +13,7 @@
     <string name="confirm_password_hint">Confirm Password</string>
     <string name="sign_in_msg">I am already a member.</string>
     <string name="sign_in_text_button">Sign In</string>
+
+    //Login
+    <string name="welcome_msg">Welcome</string>
 </resources>
