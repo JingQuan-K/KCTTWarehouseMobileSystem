@@ -19,4 +19,7 @@
     <string name="forgot_password">Forgot password?</string>
     <string name="sign_up_msg">Do not have an account?</string>
     <string name="sign_up_text_button">Sign Up</string>
+
+    //Forget Password
+    <string name="forgot_password_msg">Please enter your email address and we will let you reset your password.</string>
 </resources>
