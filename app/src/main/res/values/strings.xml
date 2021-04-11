@@ -22,4 +22,8 @@
 
     //Forget Password
     <string name="forgot_password_msg">Please enter your email address and we will let you reset your password.</string>
+
+    //Forget Password Continue
+    <string name="tac">TAC</string>
+    <string name="tac_hint">TAC code</string>
 </resources>
