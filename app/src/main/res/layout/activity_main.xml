@@ -17,4 +17,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!--<com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:boxBackgroundColor="@color/InputText"
+        android:textColorHint="@color/LabelColor"
+        android:hint="Material Product ID"
+        app:boxStrokeColor="@color/cyan"
+        app:hintTextColor="@color/cyan"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/LabelColor"/>
+    </com.google.android.material.textfield.TextInputLayout>-->
+
 </androidx.constraintlayout.widget.ConstraintLayout>

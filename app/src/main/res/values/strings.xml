@@ -1,16 +1,14 @@
 <resources>
     <string name="app_name">KCTT  Warehouse Mobile System</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="register_new_material">register new material</string>
-    <string name="add_material_type">+</string>
-    <string name="title_activity_material_list">MaterialList</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="register_new_material">register new material</string>
+    <string name="title_activity_material_list">MaterialList</string>
+    <string name="registerMT">Register Material Type</string>
+    <string name="string_registermt">Register Material type</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="material_idN">Material ID</string>
+    <string name="material_product_id">Material Product ID</string>
+    <string name="material_nameN">Material Name</string>
 </resources>
