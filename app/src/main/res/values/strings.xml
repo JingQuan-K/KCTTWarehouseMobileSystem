@@ -15,7 +15,7 @@
     <string name="sign_in_text_button">Sign In</string>
 
     //Login
-    <string name="welcome_msg">Welcome</string>
+    <string name="welcome_text">Welcome</string>
     <string name="forgot_password">Forgot password?</string>
     <string name="sign_up_msg">Do not have an account?</string>
     <string name="sign_up_text_button">Sign Up</string>
@@ -26,4 +26,8 @@
     //Forget Password Continue
     <string name="tac">TAC</string>
     <string name="tac_hint">TAC code</string>
+
+    //Reset Password
+    <string name="reset_password_text">Reset Password</string>
+    <string name="reset_password_msg">Please enter your new password to reset password.</string>
 </resources>
