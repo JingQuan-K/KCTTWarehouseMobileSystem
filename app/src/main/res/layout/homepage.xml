@@ -5,4 +5,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/DarkCyanBlue"/>
+    android:background="@color/DarkCyanBlue">
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/appbar" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="150dp"
+        android:layout_height="200dp"
+        android:backgroundTint="@color/Cyan"
+        android:drawableTop="@drawable/ic_register_material"
+        android:text="Register Material"
+        android:textColor="@color/Black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.152"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include"
+        app:layout_constraintVertical_bias="0.045"></Button>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
