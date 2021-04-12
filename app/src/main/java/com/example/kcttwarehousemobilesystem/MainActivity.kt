@@ -10,6 +10,7 @@ class MainActivity : AppCompatActivity() {
         //setContentView(R.layout.login)
         //setContentView(R.layout.forget_password)
         //setContentView(R.layout.forget_password_cont)
-        setContentView(R.layout.reset_password)
+        //setContentView(R.layout.reset_password)
+        setContentView(R.layout.homepage)
     }
 }
