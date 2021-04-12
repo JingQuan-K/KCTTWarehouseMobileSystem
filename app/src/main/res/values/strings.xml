@@ -30,4 +30,5 @@
     //Reset Password
     <string name="reset_password_text">Reset Password</string>
     <string name="reset_password_msg">Please enter your new password to reset password.</string>
+    <string name="new_password_title">New Password</string>
 </resources>
