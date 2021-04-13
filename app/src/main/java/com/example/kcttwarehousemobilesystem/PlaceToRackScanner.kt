@@ -16,6 +16,11 @@ private const val CAMERA_REQUEST_CODE = 101
 
 class PlaceToRackScanner : AppCompatActivity() {
 
+    companion object {
+        const val RACK_ID = "rack_id"
+
+    }
+
     private lateinit var codeScanner: CodeScanner
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,13 +57,12 @@ class PlaceToRackScanner : AppCompatActivity() {
 
                 //Do database stuff
 
-                //Display Toast
-                //val toast = Toast.makeText(applicationContext, "Successfully Added to Rack", Toast.LENGTH_LONG)
-                //toast.show()
 
                 //intent
                 val intent = Intent(this@PlaceToRackScanner, MainActivity::class.java)
+                intent.putExtra(RACK_ID, it.text)
                 startActivity(intent)
+
 
             }
 
