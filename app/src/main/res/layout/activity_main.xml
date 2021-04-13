@@ -43,7 +43,7 @@
             app:layout_constraintTop_toBottomOf="@+id/button12" />
 
         <Button
-            android:id="@+id/button8"
+            android:id="@+id/receive_materials_btn"
             android:layout_width="140dp"
             android:layout_height="180dp"
             android:layout_marginStart="50dp"
@@ -63,7 +63,7 @@
             android:drawableTop="@drawable/ic_retrieve_from_rack"
             android:text="Retrieve from Rack"
             android:textColor="@color/Black"
-            app:layout_constraintStart_toEndOf="@+id/button8"
+            app:layout_constraintStart_toEndOf="@+id/receive_materials_btn"
             app:layout_constraintTop_toBottomOf="@+id/button6" />
 
         <Button
@@ -76,7 +76,7 @@
             android:text="Warehouse Map"
             android:textColor="@color/Black"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button8" />
+            app:layout_constraintTop_toBottomOf="@+id/receive_materials_btn" />
 
         <Button
             android:id="@+id/button7"
