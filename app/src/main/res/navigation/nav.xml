@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/login">
+    <fragment
+        android:id="@+id/login"
+        android:name="com.example.kcttwarehousemobilesystem.fragments.login.Login"
+        android:label="Login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_login_to_home_page"
+            app:destination="@id/home_page" />
+    </fragment>
+    <fragment
+        android:id="@+id/home_page"
+        android:name="com.example.kcttwarehousemobilesystem.fragments.homepage.Home_page"
+        android:label="Homepage"
+        tools:layout="@layout/fragment_home_page" />
+</navigation>
