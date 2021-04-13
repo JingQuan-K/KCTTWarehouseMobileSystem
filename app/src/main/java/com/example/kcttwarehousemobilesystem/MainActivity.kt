@@ -2,6 +2,9 @@ package com.example.kcttwarehousemobilesystem
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
 import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.login.*
@@ -24,12 +27,22 @@ class MainActivity : AppCompatActivity() {
 
         //setSupportActionBar(findViewById(R.id.myToolBar))
 
+        //login btn to homepage
         /*btnLogin.setOnClickListener{
             val intent = Intent(this, Homepage::class.java)
             startActivity(intent)
         }*/
-
-
-
     }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.mainmenu, menu)
+        return true;
+    }
+
+    /*override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        var itemView = item.itemId
+
+        when(itemView){
+            R.id.acc_manage_reset -> Toast.
+        }
+    }*/
 }
