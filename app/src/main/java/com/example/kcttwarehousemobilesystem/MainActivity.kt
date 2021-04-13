@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.register.*
 import java.nio.channels.AsynchronousFileChannel.open
 
 class MainActivity : AppCompatActivity() {
-    
+
     lateinit var toggle: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,17 +40,17 @@ class MainActivity : AppCompatActivity() {
         navView.setNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.mItem1 -> Toast.makeText(applicationContext,
-                        "Clicked Item 1", Toast.LENGTH_SHORT).show()
+                    "Clicked Item 1", Toast.LENGTH_SHORT).show()
                 R.id.mItem2 -> Toast.makeText(applicationContext,
-                        "Clicked Item 2", Toast.LENGTH_SHORT).show()
+                    "Clicked Item 2", Toast.LENGTH_SHORT).show()
                 R.id.mItem3 -> Toast.makeText(applicationContext,
-                        "Clicked Item 3", Toast.LENGTH_SHORT).show()
+                    "Clicked Item 3", Toast.LENGTH_SHORT).show()
                 R.id.mItem4 -> Toast.makeText(applicationContext,
-                        "Clicked Item 4", Toast.LENGTH_SHORT).show()
+                    "Clicked Item 4", Toast.LENGTH_SHORT).show()
                 R.id.mItem5 -> Toast.makeText(applicationContext,
-                        "Clicked Item 5", Toast.LENGTH_SHORT).show()
+                    "Clicked Item 5", Toast.LENGTH_SHORT).show()
                 R.id.mItem6 -> Toast.makeText(applicationContext,
-                        "Clicked Item 6", Toast.LENGTH_SHORT).show()
+                    "Clicked Item 6", Toast.LENGTH_SHORT).show()
             }
             true
         }
