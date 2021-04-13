@@ -1,27 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/DarkCyanBlue">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/HeaderColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:logo="@mipmap/ic_logo_header"
+        app:navigationIcon="@drawable/ic_nav">
+
+    </androidx.appcompat.widget.Toolbar>
 
     <Button
         android:id="@+id/button6"
         android:layout_width="140dp"
         android:layout_height="180dp"
+        android:layout_marginTop="16dp"
         android:backgroundTint="@color/Cyan"
         android:drawableTop="@drawable/ic_material_list"
         android:text="Materials List"
         android:textColor="@color/Black"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.814"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="140dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/Cyan"
+        android:drawableTop="@drawable/ic_register_material"
+        android:text="Register Material"
+        android:textColor="@color/Black"
+        app:layout_constraintEnd_toStartOf="@+id/button6"
+        app:layout_constraintHorizontal_bias="0.757"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"></Button>
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="140dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/Cyan"
+        android:drawableTop="@drawable/ic_receive_materials"
+        android:text="Receive Materials"
+        android:textColor="@color/Black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.197"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button7" />
+
+    <Button
+        android:id="@+id/button12"
+        android:layout_width="140dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/Cyan"
+        android:drawableTop="@drawable/ic_retrieve_from_rack"
+        android:text="Retrieve from Rack"
+        android:textColor="@color/Black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.253"
-        app:layout_constraintStart_toEndOf="@+id/button7"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.04" />
+        app:layout_constraintStart_toEndOf="@+id/button8"
+        app:layout_constraintTop_toBottomOf="@+id/button6" />
 
     <Button
         android:id="@+id/button10"
@@ -40,34 +92,6 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/button12"
-        android:layout_width="140dp"
-        android:layout_height="180dp"
-        android:layout_marginTop="5dp"
-        android:backgroundTint="@color/Cyan"
-        android:drawableTop="@drawable/ic_retrieve_from_rack"
-        android:text="Retrieve from Rack"
-        android:textColor="@color/Black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.253"
-        app:layout_constraintStart_toEndOf="@+id/button8"
-        app:layout_constraintTop_toBottomOf="@+id/button6" />
-
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="140dp"
-        android:layout_height="180dp"
-        android:layout_marginTop="5dp"
-        android:backgroundTint="@color/Cyan"
-        android:drawableTop="@drawable/ic_receive_materials"
-        android:text="Receive Materials"
-        android:textColor="@color/Black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.197"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button7" />
-
-    <Button
         android:layout_width="140dp"
         android:layout_height="180dp"
         android:layout_marginTop="5dp"
@@ -82,18 +106,4 @@
         app:layout_constraintTop_toBottomOf="@+id/button12"
         app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="140dp"
-        android:layout_height="180dp"
-        android:backgroundTint="@color/Cyan"
-        android:drawableTop="@drawable/ic_register_material"
-        android:text="Register Material"
-        android:textColor="@color/Black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.197"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.04"></Button>
 </androidx.constraintlayout.widget.ConstraintLayout>
