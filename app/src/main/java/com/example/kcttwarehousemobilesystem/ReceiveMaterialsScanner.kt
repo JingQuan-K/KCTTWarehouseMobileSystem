@@ -8,24 +8,29 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.budiyev.android.codescanner.AutoFocusMode
-import com.budiyev.android.codescanner.CodeScanner
-import com.budiyev.android.codescanner.DecodeCallback
-import com.budiyev.android.codescanner.ScanMode
 import com.budiyev.android.codescanner.*
-import kotlinx.android.synthetic.main.activity_retreive_materials_scanner.*
+import kotlinx.android.synthetic.main.activity_material_details.*
+import kotlinx.android.synthetic.main.scanner.*
 
 private const val CAMERA_REQUEST_CODE = 101
 
-class RetrieveMaterialsScanner : AppCompatActivity() {
+class ReceiveMaterialsScanner : AppCompatActivity() {
 
     private lateinit var codeScanner: CodeScanner
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_retreive_materials_scanner)
+        setContentView(R.layout.scanner)
         setupPermissions()
         codeScanner()
+
+        //Action Bar
+        val actionBar = supportActionBar
+        actionBar!!.title = "Receive Material"
+        actionBar.setDisplayHomeAsUpEnabled(true)
+
+        //set scanner text
+        scanner_text.text = "Scan Material Barcode"
     }
 
     private fun codeScanner(){
@@ -42,7 +47,7 @@ class RetrieveMaterialsScanner : AppCompatActivity() {
 
             decodeCallback = DecodeCallback {
 
-                val intent = Intent(this@RetrieveMaterialsScanner, MaterialDetails::class.java)
+                val intent = Intent(this@ReceiveMaterialsScanner, MaterialDetails::class.java)
                 intent.putExtra(MaterialDetails.MATERIAL_ID, it.text)
                 startActivity(intent)
 
