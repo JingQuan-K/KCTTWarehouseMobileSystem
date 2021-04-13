@@ -23,9 +23,6 @@ class MainActivity : AppCompatActivity() {
 
         //setSupportActionBar(findViewById(R.id.myToolBar))
 
-        //buttonLogin.setOnClickListener {
-
-        //}
         btnLogin.setOnClickListener{
             val intent = Intent(this, Homepage::class.java)
             startActivity(intent)
