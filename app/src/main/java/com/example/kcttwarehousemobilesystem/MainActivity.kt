@@ -17,6 +17,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        map_btn.setOnClickListener {
+            val intent = Intent(this, WarehouseMap::class.java)
+            startActivity(intent)
+        }
+
         //Display Toast if successfully placed material to rack
         val intent = intent
         intent.extras
