@@ -26,11 +26,11 @@ class MainActivity : AppCompatActivity() {
         //setContentView(R.layout.login)
         //setContentView(R.layout.forget_password)
         //setContentView(R.layout.forget_password_cont)
-        setContentView(R.layout.reset_password)
-        //setContentView(R.layout.activity_main)
+        //setContentView(R.layout.reset_password)
+        setContentView(R.layout.activity_main)
         //setContentView(R.layout.fragment_login)
 
-/*        toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
+        toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
@@ -74,6 +74,6 @@ class MainActivity : AppCompatActivity() {
     //main menu
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.mainmenu, menu)
-        return true*/
+        return true
     }
 }
