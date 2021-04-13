@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "937602557815",
+    "project_id": "kctt-warehouse-mobile-system",
+    "storage_bucket": "kctt-warehouse-mobile-system.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:937602557815:android:a1a9dcd2ca2585a544a372",
+        "android_client_info": {
+          "package_name": "com.example.kcttwarehousemobilesystem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "937602557815-o4uo2epuihr2r9cfvbnd62c4s19hfr9n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZ98QjY_Xk3WG17vPfbB0yCD4VisHcDgE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "937602557815-o4uo2epuihr2r9cfvbnd62c4s19hfr9n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

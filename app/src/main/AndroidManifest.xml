@@ -21,6 +21,14 @@
         <activity
             android:name=".ReceiveMaterialsScanner"
             android:parentActivityName=".MainActivity" />
+
+        <activity android:name=".Homepage"></activity>
+
+        <activity android:name=".MainMaterialList"></activity>
+        <activity android:name=".MainMaterialAct" />
+        <activity
+            android:name=".RegisterMaterial"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

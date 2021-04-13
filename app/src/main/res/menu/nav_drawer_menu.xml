@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/mItem1"
+        android:title="Register Material"/>
+
+    <item
+        android:id="@+id/mItem2"
+        android:title="Material List"/>
+
+    <item
+        android:id="@+id/mItem3"
+        android:title="Receive Materials"/>
+
+    <item
+        android:id="@+id/mItem4"
+        android:title="Retrieve from Rack"/>
+
+    <item
+        android:id="@+id/mItem5"
+        android:title="Warehouse Map"/>
+
+    <item
+        android:id="@+id/mItem6"
+        android:title="Report"/>
+</menu>
