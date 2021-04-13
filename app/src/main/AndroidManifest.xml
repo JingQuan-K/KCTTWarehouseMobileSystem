@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KCTTWarehouseMobileSystem">
-        <activity android:name=".MainMaterialAct"></activity>
+        <activity android:name=".MainMaterialList"></activity>
+        <activity android:name=".MainMaterialAct" />
         <activity
             android:name=".RegisterMaterial"
             android:parentActivityName=".MainActivity" />

@@ -11,7 +11,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.kcttwarehousemobilesystem.R
-import com.example.kcttwarehousemobilesystem.snackbar
 import kotlinx.android.synthetic.main.fragment_add_new_product.*
 import kotlinx.android.synthetic.main.fragment_add_new_product.view.*
 
@@ -31,20 +30,22 @@ class add_new_product : Fragment() {
             insertNewProductToDatabase()
         }
 
-        btn_uploadPhoto.setOnClickListener{
+        /*btn_uploadPhoto.setOnClickListener{
             uploadImage()
-        }
+        }*/
         return view
     }
 
-    private fun uploadImage(){
+    /*private fun uploadImage(){
         if(selectedImage == null){
             layout_registerP.snackbar("Select an image first")
             return
         }
 
-        //val parcelFileDescriptor = contentResolver.openFileDescriptor()
-    }
+        val parcelFileDescriptor =
+            contentResolver.openFileDescriptor(selectedImage!!, "r", null)?: return
+        val file = File(cacheDier)
+    }*/
 
     private fun insertNewProductToDatabase() {
         val materialName = txt_materialName.text.toString()
