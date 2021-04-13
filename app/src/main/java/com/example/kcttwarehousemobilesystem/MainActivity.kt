@@ -9,14 +9,14 @@ import android.widget.Toast
 import android.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupActionBarWithNavController
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.login.*
 import kotlinx.android.synthetic.main.register.*
 import java.nio.channels.AsynchronousFileChannel.open
 
 class MainActivity : AppCompatActivity() {
-
-    //private lateinit var toolbar:Toolbar
     
     lateinit var toggle: ActionBarDrawerToggle
 
@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         //setContentView(R.layout.forget_password_cont)
         //setContentView(R.layout.reset_password)
         setContentView(R.layout.activity_main)
+        //setContentView(R.layout.fragment_login)
 
         toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggle)
@@ -39,43 +40,40 @@ class MainActivity : AppCompatActivity() {
             when(it.itemId){
                 R.id.mItem1 -> Toast.makeText(applicationContext,
                         "Clicked Item 1", Toast.LENGTH_SHORT).show()
-                R.id.mItem1 -> Toast.makeText(applicationContext,
+                R.id.mItem2 -> Toast.makeText(applicationContext,
                         "Clicked Item 2", Toast.LENGTH_SHORT).show()
-                R.id.mItem1 -> Toast.makeText(applicationContext,
+                R.id.mItem3 -> Toast.makeText(applicationContext,
                         "Clicked Item 3", Toast.LENGTH_SHORT).show()
-                R.id.mItem1 -> Toast.makeText(applicationContext,
+                R.id.mItem4 -> Toast.makeText(applicationContext,
                         "Clicked Item 4", Toast.LENGTH_SHORT).show()
-                R.id.mItem1 -> Toast.makeText(applicationContext,
+                R.id.mItem5 -> Toast.makeText(applicationContext,
                         "Clicked Item 5", Toast.LENGTH_SHORT).show()
-                R.id.mItem1 -> Toast.makeText(applicationContext,
+                R.id.mItem6 -> Toast.makeText(applicationContext,
                         "Clicked Item 6", Toast.LENGTH_SHORT).show()
             }
             true
         }
-
-        //toolbar=findViewById<Toolbar>(R.id.myToolBar)
-
-        //setSupportActionBar(findViewById(R.id.myToolBar))
-
-        //login btn to homepage
-        /*btnLogin.setOnClickListener{
-            val intent = Intent(this, Homepage::class.java)
-            startActivity(intent)
-        }*/
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(toggle.onOptionsItemSelected(item)){
             return true
         }
+
+        var itemview = item.itemId
+        when(itemview){
+
+            R.id.acc_manage_reset -> Toast.makeText(applicationContext, "Reset Clicked", Toast.LENGTH_SHORT).show()
+            R.id.acc_manage_logout -> Toast.makeText(applicationContext, "Log out Clicked", Toast.LENGTH_SHORT).show()
+        }
+
+        //return false
         return super.onOptionsItemSelected(item)
     }
 
-    //mainmenu gua
-/*    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    //main menu
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.mainmenu, menu)
         return true;
-    }*/
-
-
+    }
 }
