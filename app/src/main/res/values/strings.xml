@@ -1,6 +1,8 @@
 <resources>
     //Header
     <string name="app_name">KCTT</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 
     //Register
     <string name="create_account_text">Create Account</string>
