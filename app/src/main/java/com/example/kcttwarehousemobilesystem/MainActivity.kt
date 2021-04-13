@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.login.*
+import kotlinx.android.synthetic.main.register.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,6 +28,8 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, Homepage::class.java)
             startActivity(intent)
         }
+
+
 
     }
 }
