@@ -11,4 +11,5 @@
     <string name="material_idN">Material ID</string>
     <string name="material_product_id">Material Product ID</string>
     <string name="material_nameN">Material Name</string>
+    <string name="welcome_to_pop_up">Welcome to Pop up</string>
 </resources>

@@ -4,9 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MaterialFragment.add_new_product"
     android:background="@color/DarkCyanBlue"
-    tools:context=".frag_registerProduct">
-
+    android:id="@+id/layout_registerP">
 
     <TextView
         android:id="@+id/material_idN"
@@ -122,6 +122,7 @@
             android:id="@+id/txt_costPI"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
             android:textColor="@color/LabelColor" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -194,4 +195,14 @@
         app:layout_constraintTop_toBottomOf="@+id/material_photo"
         app:strokeColor="@color/cyan"
         app:strokeWidth="2dp" />
+
+    <Button
+        android:id="@+id/testingAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_uploadPhoto"
+        android:text="Testing Add"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

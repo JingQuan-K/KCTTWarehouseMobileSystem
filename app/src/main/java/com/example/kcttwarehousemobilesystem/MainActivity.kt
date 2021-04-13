@@ -15,8 +15,8 @@ class MainActivity : AppCompatActivity() {
         //setContentView(R.layout.activity_register_material)
 
         val btn = findViewById<Button>(R.id.button)
-            btn.setOnClickListener {
-            intent = Intent(this, com.example.kcttwarehousemobilesystem.RegisterMaterial::class.java)
+        btn.setOnClickListener {
+            intent = Intent(this, com.example.kcttwarehousemobilesystem.MainMaterialAct::class.java)
             startActivity(intent)
         }
     }
