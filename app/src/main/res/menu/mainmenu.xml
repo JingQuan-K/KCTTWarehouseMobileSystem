@@ -2,8 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/acc_manage_reset"
-        android:title="Reset Password"
-        app:showAsAction="always">
+        android:title="Reset Password">
     </item>
 
     <item android:id="@+id/acc_manage_logout"
