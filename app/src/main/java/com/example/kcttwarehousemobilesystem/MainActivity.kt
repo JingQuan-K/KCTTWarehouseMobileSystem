@@ -7,6 +7,7 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_forget_password.*
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_register.*
@@ -17,9 +18,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register)
+        //setContentView(R.layout.activity_register)
         //setContentView(R.layout.activity_login)
-        //setContentView(R.layout.forget_password)
+        setContentView(R.layout.activity_forget_password)
         //setContentView(R.layout.forget_password_cont)
         //setContentView(R.layout.reset_password)
         //setContentView(R.layout.activity_main)
@@ -46,7 +47,7 @@ class MainActivity : AppCompatActivity() {
 
         //Register page
         //Sign Up button
-        btnSignUp.setOnClickListener {
+        /*btnSignUp.setOnClickListener {
             val intent = Intent(this, Login::class.java)
             startActivity(intent)
         }
@@ -55,7 +56,14 @@ class MainActivity : AppCompatActivity() {
         textBtnSignIn.setOnClickListener {
             val intent = Intent(this, Login::class.java)
             startActivity(intent)
-        }
+        }*/
+
+        //Forget Password page
+        //Send button
+/*        btnSendForget.setOnClickListener {
+            val intent = Intent(this, Forget_password_cont::class.java)
+            startActivity(intent)
+        }*/
 
 
         //Homepage

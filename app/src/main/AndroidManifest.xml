@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.KCTTWarehouseMobileSystem">
-        <activity android:name=".Forget_password"></activity>
+        <activity android:name=".Forget_password_cont"></activity>
+        <activity android:name=".Forget_password" />
         <activity android:name=".Register" />
         <activity android:name=".Login" />
         <activity android:name=".Reset" />
