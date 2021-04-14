@@ -63,7 +63,11 @@ class MainActivity : AppCompatActivity() {
         var itemview = item.itemId
         when(itemview){
 
-            R.id.acc_manage_reset -> Toast.makeText(applicationContext, "Reset Clicked", Toast.LENGTH_SHORT).show()
+            R.id.acc_manage_reset -> {
+                val intent = Intent(this, reset_password::class.java)
+                startActivity(intent)
+            }
+
             R.id.acc_manage_logout -> Toast.makeText(applicationContext, "Log out Clicked", Toast.LENGTH_SHORT).show()
         }
 
