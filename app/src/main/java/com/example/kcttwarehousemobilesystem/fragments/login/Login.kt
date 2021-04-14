@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.kcttwarehousemobilesystem.R
 import kotlinx.android.synthetic.main.fragment_login.view.*
+import kotlinx.android.synthetic.main.fragment_register.*
 import kotlinx.android.synthetic.main.register.view.*
 
 class Login : Fragment() {
