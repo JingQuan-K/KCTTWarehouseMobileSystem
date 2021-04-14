@@ -7,10 +7,16 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import com.example.kcttwarehousemobilesystem.entity.Material
+import com.example.kcttwarehousemobilesystem.entity.MaterialType
+import com.example.kcttwarehousemobilesystem.entity.Rack
+import com.example.kcttwarehousemobilesystem.entity.UserDatabase
 import kotlinx.android.synthetic.main.activity_forget_password.*
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_register.*
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -47,7 +53,7 @@ class MainActivity : AppCompatActivity() {
 
         //Register page
         //Sign Up button
-        btnSignUp.setOnClickListener {
+/*        btnSignUp.setOnClickListener {
             val intent = Intent(this, Login::class.java)
             startActivity(intent)
         }
@@ -56,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         textBtnSignIn.setOnClickListener {
             val intent = Intent(this, Login::class.java)
             startActivity(intent)
-        }
+        }*/
 
         //Forget Password page
         //Send button
