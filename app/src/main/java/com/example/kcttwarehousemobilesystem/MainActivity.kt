@@ -18,9 +18,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.activity_register)
+        setContentView(R.layout.activity_register)
         //setContentView(R.layout.activity_login)
-        setContentView(R.layout.activity_forget_password)
+        //setContentView(R.layout.activity_forget_password)
         //setContentView(R.layout.forget_password_cont)
         //setContentView(R.layout.reset_password)
         //setContentView(R.layout.activity_main)
