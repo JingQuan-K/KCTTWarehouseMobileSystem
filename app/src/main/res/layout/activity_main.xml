@@ -19,7 +19,7 @@
         android:background="@color/DarkCyanBlue">
 
         <Button
-            android:id="@+id/button6"
+            android:id="@+id/materials_list_btn"
             android:layout_width="140dp"
             android:layout_height="180dp"
             android:layout_marginStart="10dp"
@@ -28,10 +28,11 @@
             android:drawableTop="@drawable/ic_material_list"
             android:text="Materials List"
             android:textColor="@color/Black"
-            app:layout_constraintStart_toEndOf="@+id/button7"
+            app:layout_constraintStart_toEndOf="@+id/register_material_btn"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
+            android:id="@+id/report_btn"
             android:layout_width="140dp"
             android:layout_height="180dp"
             android:layout_marginStart="10dp"
@@ -39,8 +40,8 @@
             android:drawableTop="@drawable/ic_report"
             android:text="Report"
             android:textColor="@color/Black"
-            app:layout_constraintStart_toEndOf="@+id/button10"
-            app:layout_constraintTop_toBottomOf="@+id/button12" />
+            app:layout_constraintStart_toEndOf="@+id/warehouse_map_btn"
+            app:layout_constraintTop_toBottomOf="@+id/retrieve_from_rack_btn" />
 
         <Button
             android:id="@+id/receive_materials_btn"
@@ -52,10 +53,10 @@
             android:text="Receive Materials"
             android:textColor="@color/Black"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button7" />
+            app:layout_constraintTop_toBottomOf="@+id/register_material_btn" />
 
         <Button
-            android:id="@+id/button12"
+            android:id="@+id/retrieve_from_rack_btn"
             android:layout_width="140dp"
             android:layout_height="180dp"
             android:layout_marginStart="10dp"
@@ -64,10 +65,10 @@
             android:text="Retrieve from Rack"
             android:textColor="@color/Black"
             app:layout_constraintStart_toEndOf="@+id/receive_materials_btn"
-            app:layout_constraintTop_toBottomOf="@+id/button6" />
+            app:layout_constraintTop_toBottomOf="@+id/materials_list_btn" />
 
         <Button
-            android:id="@+id/button10"
+            android:id="@+id/warehouse_map_btn"
             android:layout_width="140dp"
             android:layout_height="180dp"
             android:layout_marginStart="52dp"
@@ -79,7 +80,7 @@
             app:layout_constraintTop_toBottomOf="@+id/receive_materials_btn" />
 
         <Button
-            android:id="@+id/button7"
+            android:id="@+id/register_material_btn"
             android:layout_width="140dp"
             android:layout_height="180dp"
             android:layout_marginStart="52dp"

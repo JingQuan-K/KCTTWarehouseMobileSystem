@@ -33,7 +33,7 @@ class ReceiveMaterialsScanner : AppCompatActivity() {
         scanner_text.text = "Scan Material Barcode"
 
         //get quantity
-        val quantity = intent?.extras?.getString(MaterialDetails.QUANTITY)
+        //val quantity = intent?.extras?.getString(MaterialDetails.QUANTITY)
     }
 
     private fun codeScanner(){
