@@ -7,6 +7,7 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -16,12 +17,31 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.register)
-        setContentView(R.layout.login)
+        setContentView(R.layout.activity_login)
         //setContentView(R.layout.forget_password)
         //setContentView(R.layout.forget_password_cont)
         //setContentView(R.layout.reset_password)
         //setContentView(R.layout.activity_main)
         //setContentView(R.layout.fragment_login)
+
+        //Login page
+        //Login button
+        btnLogin.setOnClickListener {
+            val intent = Intent(this, Homepage::class.java)
+            startActivity(intent)
+        }
+
+        textBtnSignUp.setOnClickListener {
+            val intent = Intent(this, Register::class.java)
+            startActivity(intent)
+        }
+
+        textBtnForgotPass.setOnClickListener {
+            val intent = Intent(this, Forget_password::class.java)
+            startActivity(intent)
+        }
+
+
 
         /*toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggle)
