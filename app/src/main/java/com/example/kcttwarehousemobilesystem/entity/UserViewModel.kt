@@ -1,4 +1,4 @@
-package com.example.kcttwarehousemobilesystem.data
+package com.example.kcttwarehousemobilesystem.entity
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
