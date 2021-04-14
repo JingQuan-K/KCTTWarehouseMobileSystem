@@ -6,7 +6,7 @@
     app:startDestination="@id/register_material">
     <fragment
         android:id="@+id/register_material"
-        android:name="com.example.kcttwarehousemobilesystem.MaterialFragment.register_material"
+        android:name="com.example.kcttwarehousemobilesystem.MaterialFragment.Register_material"
         android:label="Register New Material"
         tools:layout="@layout/fragment_register_material" >
         <action
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/add_new_product"
-        android:name="com.example.kcttwarehousemobilesystem.MaterialFragment.add_new_product"
+        android:name="com.example.kcttwarehousemobilesystem.MaterialFragment.Add_new_product"
         android:label="New Poduct"
         tools:layout="@layout/fragment_add_new_product" >
         <action

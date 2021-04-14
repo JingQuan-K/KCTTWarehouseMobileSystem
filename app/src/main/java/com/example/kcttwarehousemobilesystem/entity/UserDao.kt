@@ -23,7 +23,6 @@ interface UserDao {
     @Query("SELECT * FROM user_table")
     fun readAllData(): LiveData<List<User>>
 
-
     @Transaction
     @Query("SELECT * FROM materialType_table WHERE MaterialTypeId = :MaterialTypeId ")
     suspend fun getMaterialAndType(MaterialTypeId:String): List<MaterialAndType>

@@ -10,6 +10,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.kcttwarehousemobilesystem.R
 import com.example.kcttwarehousemobilesystem.entity.MaterialType
 import com.example.kcttwarehousemobilesystem.entity.UserViewModel
@@ -39,41 +41,22 @@ class Register_material : Fragment() {
             //Cancel
             addMTView.cancel_add_materialType.setOnClickListener{
                 displayDialog.dismiss()
+                Toast.makeText(requireContext(),"Cancelled", Toast.LENGTH_LONG).show()
             }
             //Add button clicked update database
             addMTView.add_materialType.setOnClickListener{
-                insertMaterialType()
+                val mt = addMTView.txt_materialType_pop.text.toString()
+
+                if(!(TextUtils.isEmpty(mt))){
+                    val mtToDatabase = MaterialType(7,mt)
+                    mtViewModel.addMaterialType(mtToDatabase)
+                    Toast.makeText(requireContext(),"Successfully added", Toast.LENGTH_LONG).show()
+                }else{
+                    Toast.makeText(requireContext(),"Please fill in a new material type", Toast.LENGTH_LONG).show()
+                }
+                displayDialog.dismiss()
             }
-            //login button click of custom layout
-            /*mDialogView.dialogLoginBtn.setOnClickListener {
-                //dismiss dialog
-                mAlertDialog.dismiss()
-                //get text from EditTexts of custom layout
-                val name = mDialogView.dialogNameEt.text.toString()
-                val email = mDialogView.dialogEmailEt.text.toString()
-                val password = mDialogView.dialogPasswEt.text.toString()
-                //set the input text in TextView
-                mainInfoTv.setText("Name:"+ name +"\nEmail: "+ email +"\nPassword: "+ password)
-            }*/
-
         }
-
-
         return view
-    }
-
-    private fun insertMaterialType() {
-        val mt = txt_materialType_pop.text.toString()
-
-        if(inputCheck(mt)){
-            val mtToDatabase = MaterialType(0,mt)
-            mtViewModel.addMaterialType(mtToDatabase)
-            Toast.makeText(requireContext(),"Successfully added", Toast.LENGTH_LONG).show()
-        }else{
-            Toast.makeText(requireContext(),"Please fill in a new material type", Toast.LENGTH_LONG).show()
-        }
-    }
-    private fun inputCheck(mt: String): Boolean{
-        return !(TextUtils.isEmpty(mt))
     }
 }

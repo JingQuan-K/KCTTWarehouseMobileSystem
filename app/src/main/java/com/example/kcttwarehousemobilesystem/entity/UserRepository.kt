@@ -12,5 +12,4 @@ class UserRepository(private val userDao: UserDao) {
     suspend fun addMaterialType(mt: MaterialType){
         userDao.addMaterialType(mt)
     }
-
 }

@@ -7,7 +7,11 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import com.example.kcttwarehousemobilesystem.entity.Rack
+import com.example.kcttwarehousemobilesystem.entity.UserDatabase
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,6 +26,16 @@ class MainActivity : AppCompatActivity() {
         //setContentView(R.layout.reset_password)
         setContentView(R.layout.activity_main)
         //setContentView(R.layout.fragment_login)
+        val dao = UserDatabase.getDatabase(this).userDao()
+
+        val racks = listOf(
+            Rack("A_01a_01", 1),
+            Rack("A_01a_02", 2)
+        )
+
+        lifecycleScope.launch{
+            racks.forEach{dao.addRack(it)}
+        }
 
         toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggle)
