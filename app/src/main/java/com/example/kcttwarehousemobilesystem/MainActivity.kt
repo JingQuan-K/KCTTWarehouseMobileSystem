@@ -1,5 +1,6 @@
 package com.example.kcttwarehousemobilesystem
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -30,22 +31,68 @@ class MainActivity : AppCompatActivity() {
 
         navView.setNavigationItemSelectedListener {
             when(it.itemId){
-                R.id.mItem1 -> Toast.makeText(applicationContext,
-                        "Clicked Register Material", Toast.LENGTH_SHORT).show()
-                R.id.mItem2 -> Toast.makeText(applicationContext,
-                        "Clicked Materials List", Toast.LENGTH_SHORT).show()
-                R.id.mItem3 -> Toast.makeText(applicationContext,
-                        "Clicked Receive Materials", Toast.LENGTH_SHORT).show()
+                R.id.mItem1 -> {
+                    val intent = Intent(this, MainMaterialAct::class.java)
+                    startActivity(intent)
+                }
+                R.id.mItem2 -> {
+                    val intent = Intent(this, MainMaterialList::class.java)
+                    startActivity(intent)
+                }
+                R.id.mItem3 -> {
+                    val intent = Intent(this, ReceiveMaterialsScanner::class.java)
+                    startActivity(intent)
+                }
                 R.id.mItem4 -> Toast.makeText(applicationContext,
                         "Clicked Retrieve from Rack", Toast.LENGTH_SHORT).show()
-                R.id.mItem5 -> Toast.makeText(applicationContext,
-                        "Clicked Warehouse Map", Toast.LENGTH_SHORT).show()
+                R.id.mItem5 -> {
+                    val intent = Intent(this, WarehouseMap::class.java)
+                    startActivity(intent)
+                }
                 R.id.mItem6 -> Toast.makeText(applicationContext,
                         "Clicked Report", Toast.LENGTH_SHORT).show()
             }
             true
         }
 
+        register_material_btn.setOnClickListener {
+            val intent = Intent(this, MainMaterialAct::class.java)
+            startActivity(intent)
+        }
+
+        materials_list_btn.setOnClickListener {
+            val intent = Intent(this, MainMaterialList::class.java)
+            startActivity(intent)
+        }
+
+        receive_materials_btn.setOnClickListener {
+            val intent = Intent(this, ReceiveMaterialsScanner::class.java)
+            startActivity(intent)
+        }
+
+        retrieve_from_rack_btn.setOnClickListener{
+
+        }
+
+        warehouse_map_btn.setOnClickListener {
+            val intent = Intent(this, WarehouseMap::class.java)
+            startActivity(intent)
+        }
+
+        report_btn.setOnClickListener {
+
+        }
+
+        //Display Toast if successfully placed material to rack
+        val intent = intent
+        intent.extras
+        if (intent.hasExtra(PlaceToRackScanner.RACK_ID))
+        {
+            val rackId = intent?.extras?.getString(PlaceToRackScanner.RACK_ID).toString()
+            val toastMsg = "Successfully Added to Rack $rackId"
+            val toast = Toast.makeText(applicationContext, toastMsg, Toast.LENGTH_LONG)
+            toast.show()
+        }
 
     }
 
