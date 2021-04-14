@@ -5,7 +5,8 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [User::class, Material::class], version = 1, exportSchema = false )
+@Database(entities = [User::class, Material::class,MaterialType::class,Rack::class,Transactions::class], version = 1, exportSchema = false )
+
 abstract class UserDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao
@@ -24,6 +25,7 @@ abstract class UserDatabase : RoomDatabase() {
                     context.applicationContext,
                     UserDatabase::class.java,
                     "user_database"
+
                 ).build()
                 INSTANCE = instance
                 return instance

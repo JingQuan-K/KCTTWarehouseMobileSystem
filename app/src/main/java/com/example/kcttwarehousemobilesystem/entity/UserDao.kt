@@ -9,7 +9,7 @@ interface UserDao {
     suspend fun addUser(user: User)
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun addTransaction(transaction: Transaction)
+    suspend fun addTransaction(transactions: Transactions)
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addMaterial(material: Material)
@@ -19,6 +19,7 @@ interface UserDao {
 
     @Query("SELECT * FROM user_table")
     fun readAllData(): LiveData<List<User>>
+
 
     @Transaction
     @Query("SELECT * FROM materialType_table WHERE MaterialTypeId = :MaterialTypeId ")
