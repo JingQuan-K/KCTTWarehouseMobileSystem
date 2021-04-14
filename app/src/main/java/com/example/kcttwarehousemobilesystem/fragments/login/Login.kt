@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.kcttwarehousemobilesystem.R
 import kotlinx.android.synthetic.main.fragment_login.view.*
+import kotlinx.android.synthetic.main.fragment_register.*
+import kotlinx.android.synthetic.main.register.view.*
 
 class Login : Fragment() {
     override fun onCreateView(
@@ -17,8 +19,8 @@ class Login : Fragment() {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_login, container, false)
 
-        view.btnLogin.setOnClickListener {
-            findNavController().navigate(R.id.action_login_to_home_page)
+        view.btnSignIn.setOnClickListener {
+            findNavController().navigate(R.id.action_login_to_register)
         }
 
         return view

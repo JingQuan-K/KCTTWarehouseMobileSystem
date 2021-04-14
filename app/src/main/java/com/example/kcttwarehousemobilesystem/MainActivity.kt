@@ -31,17 +31,17 @@ class MainActivity : AppCompatActivity() {
         navView.setNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.mItem1 -> Toast.makeText(applicationContext,
-                    "Clicked Item 1", Toast.LENGTH_SHORT).show()
+                        "Clicked Register Material", Toast.LENGTH_SHORT).show()
                 R.id.mItem2 -> Toast.makeText(applicationContext,
-                    "Clicked Item 2", Toast.LENGTH_SHORT).show()
+                        "Clicked Materials List", Toast.LENGTH_SHORT).show()
                 R.id.mItem3 -> Toast.makeText(applicationContext,
-                    "Clicked Item 3", Toast.LENGTH_SHORT).show()
+                        "Clicked Receive Materials", Toast.LENGTH_SHORT).show()
                 R.id.mItem4 -> Toast.makeText(applicationContext,
-                    "Clicked Item 4", Toast.LENGTH_SHORT).show()
+                        "Clicked Retrieve from Rack", Toast.LENGTH_SHORT).show()
                 R.id.mItem5 -> Toast.makeText(applicationContext,
-                    "Clicked Item 5", Toast.LENGTH_SHORT).show()
+                        "Clicked Warehouse Map", Toast.LENGTH_SHORT).show()
                 R.id.mItem6 -> Toast.makeText(applicationContext,
-                    "Clicked Item 6", Toast.LENGTH_SHORT).show()
+                        "Clicked Report", Toast.LENGTH_SHORT).show()
             }
             true
         }

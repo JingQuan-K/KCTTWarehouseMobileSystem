@@ -10,12 +10,12 @@
         android:label="Login"
         tools:layout="@layout/fragment_login" >
         <action
-            android:id="@+id/action_login_to_home_page"
-            app:destination="@id/home_page" />
+            android:id="@+id/action_login_to_register"
+            app:destination="@id/register" />
     </fragment>
     <fragment
-        android:id="@+id/home_page"
-        android:name="com.example.kcttwarehousemobilesystem.fragments.homepage.Home_page"
-        android:label="Homepage"
-        tools:layout="@layout/fragment_home_page" />
+        android:id="@+id/register"
+        android:name="com.example.kcttwarehousemobilesystem.register"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" />
 </navigation>
