@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <style name="PopUpWindow" parent="Theme.AppCompat.Dialog.Alert">
-        <item name="android:background">@color/DarkCyanBlue</item>
-        <item name="android:textColor">@color/cyan</item>
-        <item name="android:windowBackground">@drawable/add_metrial_type_shadow</item>
-        <item name="android:backgroundDimEnabled">false</item>
-    </style>
-</resources>

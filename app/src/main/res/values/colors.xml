@@ -12,12 +12,8 @@
     <color name="Black">#0B0C10</color>
     <color name="DarkCyanBlue">#1F2833</color>
     <color name="GrayishBlue">#C5C6C7</color>
-
     <color name="Cyan">#66FCF1</color>
     <color name="DarkModerateCyan">#45A29E</color>
     <color name="Grey">#707070</color>
     <color name="DarkGrey">#353434</color>
-    <color name="cyan">#66FCF1</color>
-    <color name="LabelColor">#abacb0</color>
-    <color name="InputText">#484848</color>
 </resources>

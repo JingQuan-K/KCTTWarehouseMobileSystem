@@ -1,12 +1,20 @@
 package com.example.kcttwarehousemobilesystem
 
+import android.content.Intent
 import android.os.Bundle
+import android.system.Os.close
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import android.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupActionBarWithNavController
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.login.*
+import kotlinx.android.synthetic.main.register.*
+import java.nio.channels.AsynchronousFileChannel.open
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,22 +39,20 @@ class MainActivity : AppCompatActivity() {
         navView.setNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.mItem1 -> Toast.makeText(applicationContext,
-                        "Clicked Register Material", Toast.LENGTH_SHORT).show()
+                    "Clicked Register Material", Toast.LENGTH_SHORT).show()
                 R.id.mItem2 -> Toast.makeText(applicationContext,
-                        "Clicked Materials List", Toast.LENGTH_SHORT).show()
+                    "Clicked Materials List", Toast.LENGTH_SHORT).show()
                 R.id.mItem3 -> Toast.makeText(applicationContext,
-                        "Clicked Receive Materials", Toast.LENGTH_SHORT).show()
+                    "Clicked Receive Materials", Toast.LENGTH_SHORT).show()
                 R.id.mItem4 -> Toast.makeText(applicationContext,
-                        "Clicked Retrieve from Rack", Toast.LENGTH_SHORT).show()
+                    "Clicked Retrieve from Rack", Toast.LENGTH_SHORT).show()
                 R.id.mItem5 -> Toast.makeText(applicationContext,
-                        "Clicked Warehouse Map", Toast.LENGTH_SHORT).show()
+                    "Clicked Warehouse Map", Toast.LENGTH_SHORT).show()
                 R.id.mItem6 -> Toast.makeText(applicationContext,
-                        "Clicked Report", Toast.LENGTH_SHORT).show()
+                    "Clicked Report", Toast.LENGTH_SHORT).show()
             }
             true
         }
-
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

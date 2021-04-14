@@ -35,15 +35,4 @@
     <string name="reset_password_text">Reset Password</string>
     <string name="reset_password_msg">Please enter your new password to reset password.</string>
     <string name="new_password_title">New Password</string>
-
-    <string name="register_new_material">register new material</string>
-    <string name="title_activity_material_list">MaterialList</string>
-    <string name="registerMT">Register Material Type</string>
-    <string name="string_registermt">Register Material type</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="material_idN">Material ID</string>
-    <string name="material_product_id">Material Product ID</string>
-    <string name="material_nameN">Material Name</string>
-    <string name="welcome_to_pop_up">Welcome to Pop up</string>
 </resources>
