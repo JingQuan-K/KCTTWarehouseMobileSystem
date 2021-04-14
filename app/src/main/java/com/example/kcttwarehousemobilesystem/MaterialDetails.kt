@@ -11,10 +11,13 @@ class MaterialDetails : AppCompatActivity() {
 
     companion object {
         const val MATERIAL_ID = "material_id"
+        const val MATERIAL_NAME = "material_name"
         const val DEFAULT_QUANTITY = "1"
         const val QUANTITY = "quantity"
     }
 
+    private var materialId = 0
+    private var materialName = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_material_details)
@@ -25,10 +28,14 @@ class MaterialDetails : AppCompatActivity() {
         actionBar.setDisplayHomeAsUpEnabled(true)
 
         //get material id from intent
-        val materialId = intent?.extras?.getString(MATERIAL_ID).toString()
+        materialId = intent?.extras?.getInt(MATERIAL_ID).toString().toInt()
+        materialName = intent?.extras?.getString(MATERIAL_NAME).toString()
 
         //set text
-        material_id.text = materialId
+        material_id.text = materialId.toString()
+        material_name.text = materialName
+
+
         //set default quantity
         quantity_textField.text = Editable.Factory.getInstance().newEditable(DEFAULT_QUANTITY)
 
@@ -84,6 +91,7 @@ class MaterialDetails : AppCompatActivity() {
                 if(quantity_textField.text.toString().toInt() > 0 ){
                     val intent = Intent(this, PlaceToRackScanner::class.java)
                     var quantity = quantity_textField.text.toString().toInt()
+                    intent.putExtra(MATERIAL_ID, materialId)
                     intent.putExtra(QUANTITY, quantity)
                     startActivity(intent)
                 }else{
@@ -96,7 +104,21 @@ class MaterialDetails : AppCompatActivity() {
             }
         }
 
-
-
     }
+
+/*    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+        val currentId = materialId
+        outState.putInt("savedCurrentId", materialId)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+
+        val currentId = savedInstanceState.getInt("savedCurrentId", 0)
+        materialId = currentId
+        material_id.text = materialId.toString()
+    }*/
+
 }

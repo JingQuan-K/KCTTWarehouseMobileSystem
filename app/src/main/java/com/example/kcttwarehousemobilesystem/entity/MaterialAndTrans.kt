@@ -1,10 +1,9 @@
 package com.example.kcttwarehousemobilesystem.entity
 
 import androidx.room.Embedded
-import androidx.room.Entity
 import androidx.room.Relation
 
-@Entity
+//Materials with Transaction
 data class MaterialAndTrans(
     @Embedded val material: Material,
     @Relation(

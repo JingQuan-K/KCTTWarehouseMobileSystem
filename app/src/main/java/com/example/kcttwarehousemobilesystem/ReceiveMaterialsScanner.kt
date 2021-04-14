@@ -10,6 +10,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.budiyev.android.codescanner.*
 import com.budiyev.android.codescanner.CodeScanner
+import com.example.kcttwarehousemobilesystem.entity.UserDatabase
 import kotlinx.android.synthetic.main.scanner.*
 
 private const val CAMERA_REQUEST_CODE = 101
@@ -32,8 +33,6 @@ class ReceiveMaterialsScanner : AppCompatActivity() {
         //set scanner text
         scanner_text.text = "Scan Material Barcode"
 
-        //get quantity
-        //val quantity = intent?.extras?.getString(MaterialDetails.QUANTITY)
     }
 
     private fun codeScanner(){
@@ -50,12 +49,18 @@ class ReceiveMaterialsScanner : AppCompatActivity() {
 
             decodeCallback = DecodeCallback {
 
-                //Do database stuff
+                //check if exist in database
+
+                //Get from Database
+                val dao = UserDatabase.getDatabase(this@ReceiveMaterialsScanner).userDao()
+                val materialId = it.text.toInt()
+                val material = dao.getMaterial(materialId)
 
 
                 //intent
                 val intent = Intent(this@ReceiveMaterialsScanner, MaterialDetails::class.java)
-                intent.putExtra(MaterialDetails.MATERIAL_ID, it.text)
+                intent.putExtra(MaterialDetails.MATERIAL_ID, materialId)
+                intent.putExtra(MaterialDetails.MATERIAL_NAME, material.MaterialName)
                 startActivity(intent)
 
 

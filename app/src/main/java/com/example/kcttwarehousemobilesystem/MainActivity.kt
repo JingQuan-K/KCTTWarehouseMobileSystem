@@ -7,7 +7,13 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import com.example.kcttwarehousemobilesystem.entity.Material
+import com.example.kcttwarehousemobilesystem.entity.MaterialType
+import com.example.kcttwarehousemobilesystem.entity.Rack
+import com.example.kcttwarehousemobilesystem.entity.UserDatabase
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,13 +21,31 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.register)
-        //setContentView(R.layout.login)
-        //setContentView(R.layout.forget_password)
-        //setContentView(R.layout.forget_password_cont)
-        //setContentView(R.layout.reset_password)
         setContentView(R.layout.activity_main)
-        //setContentView(R.layout.fragment_login)
+
+        //database stuff
+        val dao = UserDatabase.getDatabase(this).userDao()
+
+        val material_type = listOf(
+                MaterialType(1, "Wood")
+        )
+
+        val materials = listOf(
+                Material(1, "Table One", "photo path", 50, 45.00,100.00, 10, 1),
+                Material(2, "Table Two", "photo path", 50, 100.00,9900.00, 5, 1)
+        )
+
+        val racks = listOf(
+                Rack("A_01a_01", 1),
+                Rack("A_01a_02", 2)
+        )
+
+        lifecycleScope.launch{
+            material_type.forEach{dao.addMaterialType(it)}
+            materials.forEach{dao.addMaterial(it)}
+            racks.forEach{dao.addRack(it)}
+        }
+
 
         toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggle)

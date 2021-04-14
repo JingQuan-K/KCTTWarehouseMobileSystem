@@ -1,10 +1,9 @@
 package com.example.kcttwarehousemobilesystem.entity
 
 import androidx.room.Embedded
-import androidx.room.Entity
 import androidx.room.Relation
 
-@Entity
+//Material on racks
 data class MaterialAndRack(
     @Embedded val material: Material,
     @Relation(
