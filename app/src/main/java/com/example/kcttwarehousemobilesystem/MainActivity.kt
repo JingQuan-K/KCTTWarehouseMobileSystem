@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
         when(itemview){
 
             R.id.acc_manage_reset -> {
-                val intent = Intent(this, reset_password::class.java)
+                val intent = Intent(this, Reset::class.java)
                 startActivity(intent)
             }
 
