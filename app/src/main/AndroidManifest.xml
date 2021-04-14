@@ -10,7 +10,9 @@
         android:roundIcon="@mipmap/ic_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.KCTTWarehouseMobileSystem">
-        <activity android:name=".Homepage"></activity>
+        <activity android:name=".Login"></activity>
+        <activity android:name=".Reset" />
+        <activity android:name=".Homepage" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

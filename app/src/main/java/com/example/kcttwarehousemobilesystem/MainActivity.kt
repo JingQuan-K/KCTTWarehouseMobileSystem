@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.mItem5 -> Toast.makeText(applicationContext,
                     "Clicked Warehouse Map", Toast.LENGTH_SHORT).show()
                 R.id.mItem6 -> Toast.makeText(applicationContext,
-                    "Clicked Report", Toast.LENGTH_SHORT).show()
+                        "Clicked Warehouse Map", Toast.LENGTH_SHORT).show()
             }
             true
         }
