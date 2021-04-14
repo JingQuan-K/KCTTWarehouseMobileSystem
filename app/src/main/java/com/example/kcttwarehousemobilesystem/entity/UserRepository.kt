@@ -9,6 +9,8 @@ class UserRepository(private val userDao: UserDao) {
         userDao.addUser(user)
     }
 
-
+    suspend fun addMaterialType(mt: MaterialType){
+        userDao.addMaterialType(mt)
+    }
 
 }

@@ -15,6 +15,9 @@ interface UserDao {
     suspend fun addMaterial(material: Material)
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun addMaterialType(mt: MaterialType)
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addRack(rack: Rack)
 
     @Query("SELECT * FROM user_table")

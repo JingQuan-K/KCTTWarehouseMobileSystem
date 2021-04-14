@@ -24,4 +24,9 @@ class UserViewModel(application: Application): AndroidViewModel(application) {
         }
     }
 
+    fun addMaterialType(mt: MaterialType){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.addMaterialType(mt)
+        }
+    }
 }
