@@ -2,19 +2,14 @@ package com.example.kcttwarehousemobilesystem
 
 import android.content.Intent
 import android.os.Bundle
-import android.system.Os.close
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-import android.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.setupActionBarWithNavController
+import com.example.kcttwarehousemobilesystem.fragments.login.Login
+import com.example.kcttwarehousemobilesystem.fragments.reset.Reset
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.login.*
-import kotlinx.android.synthetic.main.register.*
-import java.nio.channels.AsynchronousFileChannel.open
 
 class MainActivity : AppCompatActivity() {
 
@@ -68,7 +63,10 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
 
-            R.id.acc_manage_logout -> Toast.makeText(applicationContext, "Log out Clicked", Toast.LENGTH_SHORT).show()
+            R.id.acc_manage_logout -> {
+                val intent = Intent(this, Login::class.java)
+                startActivity(intent)
+            }
         }
 
         //return false

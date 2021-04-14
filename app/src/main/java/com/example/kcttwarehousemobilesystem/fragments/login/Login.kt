@@ -16,12 +16,13 @@ class Login : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view =  inflater.inflate(R.layout.fragment_login, container, false)
+        return inflater.inflate(R.layout.fragment_login, container, false)
+        /*val view =  inflater.inflate(R.layout.fragment_login, container, false)
 
-        /*view.btnSignIn.setOnClickListener {
+        view.btnSignIn.setOnClickListener {
             findNavController().navigate(R.id.action_login_to_register)
-        }*/
+        }
 
-        return view
+        return view*/
     }
 }
