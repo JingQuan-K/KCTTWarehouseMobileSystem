@@ -6,6 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 class Reset : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_reset)
+        setContentView(R.layout.reset_password)
     }
 }
