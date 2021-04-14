@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
 
         //Register page
         //Sign Up button
-        /*btnSignUp.setOnClickListener {
+        btnSignUp.setOnClickListener {
             val intent = Intent(this, Login::class.java)
             startActivity(intent)
         }
@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
         textBtnSignIn.setOnClickListener {
             val intent = Intent(this, Login::class.java)
             startActivity(intent)
-        }*/
+        }
 
         //Forget Password page
         //Send button
