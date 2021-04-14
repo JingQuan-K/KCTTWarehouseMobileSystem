@@ -48,7 +48,7 @@ class Register_material : Fragment() {
                 val mt = addMTView.txt_materialType_pop.text.toString()
 
                 if(!(TextUtils.isEmpty(mt))){
-                    val mtToDatabase = MaterialType(7,mt)
+                    val mtToDatabase = MaterialType(0,mt)
                     mtViewModel.addMaterialType(mtToDatabase)
                     Toast.makeText(requireContext(),"Successfully added", Toast.LENGTH_LONG).show()
                 }else{
