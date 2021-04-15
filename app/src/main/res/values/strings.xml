@@ -46,4 +46,10 @@
     <string name="material_product_id">Material Product ID</string>
     <string name="material_nameN">Material Name</string>
     <string name="welcome_to_pop_up">Welcome to Pop up</string>
+
+    <string name="monthly_stock_report">Monthly Stock Report</string>
+    <string name="product_id">Product ID</string>
+    <string name="stock_in">Stock In</string>
+    <string name="stock_out">Stock Out</string>
+    <string name="total_quantity">Total Quantity</string>
 </resources>

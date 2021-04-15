@@ -9,6 +9,8 @@ data class Transactions(
     val TransactionId: Int,
     val TransactionType: String,
     val Quantity: Int,
+    val StockIn: Int,
+    val StockOut: Int,
     val MaterialId: Int,
     val userId: Int
 )

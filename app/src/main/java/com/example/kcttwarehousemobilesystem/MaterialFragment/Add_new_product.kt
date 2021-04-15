@@ -14,7 +14,7 @@ import com.example.kcttwarehousemobilesystem.R
 import kotlinx.android.synthetic.main.fragment_add_new_product.*
 import kotlinx.android.synthetic.main.fragment_add_new_product.view.*
 
-class add_new_product : Fragment() {
+class Add_new_product : Fragment() {
 
     //private lateinit var mUserViewModel: UserViewModel
     private var selectedImage: Uri? = null
