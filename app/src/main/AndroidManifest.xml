@@ -14,8 +14,6 @@
         <activity android:name=".Reset"></activity>
         <activity android:name=".Register" />
         <activity android:name=".Login" />
-        <activity android:name=".forget_password_cont" />
-        <activity android:name=".forget_password" />
         <activity android:name=".WarehouseMap" />
         <activity
             android:name=".PlaceToRackScanner"

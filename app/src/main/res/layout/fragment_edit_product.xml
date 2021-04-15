@@ -1,14 +1,259 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MaterialFragment.EditProduct">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    android:fillViewport="true">
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        tools:context=".MaterialFragment.EditProduct"
+        android:background="@color/DarkCyanBlue"
+        android:id="@+id/layout_editP">
 
-</FrameLayout>
+
+        <TextView
+            android:id="@+id/material_idE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/material_idN"
+            android:textColor="@color/LabelColor"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toTopOf="@+id/layout_materialIDE"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_materialIDE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="50dp"
+            android:hint="@string/material_product_id"
+            android:textColorHint="@color/LabelColor"
+            app:boxBackgroundColor="@color/InputText"
+            app:boxStrokeColor="@color/cyan"
+            app:hintTextColor="@color/cyan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/material_idE">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txt_materialIDE"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                android:textColor="@color/LabelColor" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/material_nameE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/material_nameN"
+            android:textColor="@color/LabelColor"
+            android:textSize="25sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_materialIDE"
+            app:layout_constraintBottom_toTopOf="@+id/layout_materialNameE"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_materialNameE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="50dp"
+            android:hint="Material Product Name"
+            android:textColorHint="@color/LabelColor"
+            app:boxBackgroundColor="@color/InputText"
+            app:boxStrokeColor="@color/cyan"
+            app:hintTextColor="@color/cyan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/material_nameE">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txt_materialNameE"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/LabelColor" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/material_quantity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Quantity"
+            android:textColor="@color/LabelColor"
+            android:textSize="25sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_materialNameE"
+            app:layout_constraintBottom_toTopOf="@+id/layout_materialQuantity"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_materialQuantity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="50dp"
+            android:hint="@string/total_quantity"
+            android:textColorHint="@color/LabelColor"
+            app:boxBackgroundColor="@color/InputText"
+            app:boxStrokeColor="@color/cyan"
+            app:hintTextColor="@color/cyan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/material_quantity">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txt_quantity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:textColor="@color/LabelColor" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/material_costPIE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cost"
+            android:textColor="@color/LabelColor"
+            android:textSize="25sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_materialQuantity"
+            app:layout_constraintBottom_toTopOf="@+id/layout_materialCostPIE"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_materialCostPIE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="50dp"
+            android:hint="Cost Per Item"
+            android:textColorHint="@color/LabelColor"
+            app:boxBackgroundColor="@color/InputText"
+            app:boxStrokeColor="@color/cyan"
+            app:hintTextColor="@color/cyan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/material_costPIE">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txt_costPIE"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:textColor="@color/LabelColor" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/material_ttlValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Total Value"
+            android:textColor="@color/LabelColor"
+            android:textSize="25sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_materialCostPIE"
+            app:layout_constraintBottom_toTopOf="@+id/layout_materialTtlValue"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_materialTtlValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="50dp"
+            android:hint="Total Value"
+            android:textColorHint="@color/LabelColor"
+            app:boxBackgroundColor="@color/InputText"
+            app:boxStrokeColor="@color/cyan"
+            app:hintTextColor="@color/cyan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/material_ttlValue">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txt_ttlValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:textColor="@color/LabelColor" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/material_reorderLvl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Reorder Level"
+            android:textColor="@color/LabelColor"
+            android:textSize="25sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_materialTtlValue"
+            app:layout_constraintBottom_toTopOf="@+id/layout_materialReorderLvl"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_materialReorderLvl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="25dp"
+            android:hint="Reorder Level"
+            android:textColorHint="@color/LabelColor"
+            app:boxBackgroundColor="@color/InputText"
+            app:boxStrokeColor="@color/cyan"
+            app:hintTextColor="@color/cyan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/material_reorderLvl">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txt_reorderLvl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:textColor="@color/LabelColor" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

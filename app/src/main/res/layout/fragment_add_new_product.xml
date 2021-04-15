@@ -1,210 +1,216 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".MaterialFragment.Add_new_product"
-    android:background="@color/DarkCyanBlue"
-    android:id="@+id/layout_registerP">
-
-    <TextView
-        android:id="@+id/material_idN"
+    android:fillViewport="true">
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="10dp"
-        android:text="@string/material_idN"
-        android:textColor="@color/LabelColor"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/layout_materialID"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_height="match_parent"
+        tools:context=".MaterialFragment.Add_new_product"
+        android:background="@color/DarkCyanBlue"
+        android:id="@+id/layout_registerP">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout_materialID"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="50dp"
-        android:hint="@string/material_product_id"
-        android:textColorHint="@color/LabelColor"
-        app:boxBackgroundColor="@color/InputText"
-        app:boxStrokeColor="@color/cyan"
-        app:hintTextColor="@color/cyan"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/material_idN">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txt_materialID"
+        <TextView
+            android:id="@+id/material_idN"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:editable="false"
-            android:textColor="@color/LabelColor" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/material_idN"
+            android:textColor="@color/LabelColor"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toTopOf="@+id/layout_materialID"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-    <TextView
-        android:id="@+id/material_nameN"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/material_nameN"
-        android:textColor="@color/LabelColor"
-        android:textSize="25sp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layout_materialID"
-        app:layout_constraintBottom_toTopOf="@+id/layout_materialName"/>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout_materialName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="50dp"
-        android:hint="Material Product Name"
-        android:textColorHint="@color/LabelColor"
-        app:boxBackgroundColor="@color/InputText"
-        app:boxStrokeColor="@color/cyan"
-        app:hintTextColor="@color/cyan"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/material_nameN">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txt_materialName"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_materialID"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/LabelColor" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="50dp"
+            android:hint="@string/material_product_id"
+            android:textColorHint="@color/LabelColor"
+            app:boxBackgroundColor="@color/InputText"
+            app:boxStrokeColor="@color/cyan"
+            app:hintTextColor="@color/cyan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/material_idN">
 
-    <TextView
-        android:id="@+id/material_costPI"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Cost"
-        android:textColor="@color/LabelColor"
-        android:textSize="25sp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layout_materialName"
-        app:layout_constraintBottom_toTopOf="@+id/layout_materialCostPI"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txt_materialID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                android:textColor="@color/LabelColor" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout_materialCostPI"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="50dp"
-        android:hint="Cost Per Item"
-        android:textColorHint="@color/LabelColor"
-        app:boxBackgroundColor="@color/InputText"
-        app:boxStrokeColor="@color/cyan"
-        app:hintTextColor="@color/cyan"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/material_costPI">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txt_costPI"
+        <TextView
+            android:id="@+id/material_nameN"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:textColor="@color/LabelColor" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:text="@string/material_nameN"
+            android:textColor="@color/LabelColor"
+            android:textSize="25sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_materialID"
+            app:layout_constraintBottom_toTopOf="@+id/layout_materialName"/>
 
-    <TextView
-        android:id="@+id/material_type"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Material Type"
-        android:textColor="@color/LabelColor"
-        android:textSize="25sp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layout_materialCostPI"
-        app:layout_constraintBottom_toTopOf="@+id/layout_materialType"/>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout_materialType"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="50dp"
-        android:hint="Material Type"
-        android:textColorHint="@color/LabelColor"
-        app:boxBackgroundColor="@color/InputText"
-        app:boxStrokeColor="@color/cyan"
-        app:hintTextColor="@color/cyan"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/material_type">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txt_materialType"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_materialName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:editable="false"
-            android:textColor="@color/LabelColor" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="50dp"
+            android:hint="Material Product Name"
+            android:textColorHint="@color/LabelColor"
+            app:boxBackgroundColor="@color/InputText"
+            app:boxStrokeColor="@color/cyan"
+            app:hintTextColor="@color/cyan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/material_nameN">
 
-    <TextView
-        android:id="@+id/material_photo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Material Type"
-        android:textColor="@color/LabelColor"
-        android:textSize="25sp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layout_materialType"
-        app:layout_constraintBottom_toTopOf="@id/btn_uploadPhoto"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txt_materialName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/LabelColor" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/btn_uploadPhoto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/DarkCyanBlue"
-        android:text="Upload Photo"
-        android:textColor="@color/cyan"
-        android:layout_marginTop="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.095"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/material_photo"
-        app:strokeColor="@color/cyan"
-        app:strokeWidth="2dp" />
+        <TextView
+            android:id="@+id/material_costPI"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cost"
+            android:textColor="@color/LabelColor"
+            android:textSize="25sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_materialName"
+            app:layout_constraintBottom_toTopOf="@+id/layout_materialCostPI"/>
 
-    <Button
-        android:id="@+id/testingAdd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_uploadPhoto"
-        android:text="Testing Add"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_materialCostPI"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="50dp"
+            android:hint="Cost Per Item"
+            android:textColorHint="@color/LabelColor"
+            app:boxBackgroundColor="@color/InputText"
+            app:boxStrokeColor="@color/cyan"
+            app:hintTextColor="@color/cyan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/material_costPI">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txt_costPI"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:textColor="@color/LabelColor" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/material_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Material Type"
+            android:textColor="@color/LabelColor"
+            android:textSize="25sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_materialCostPI"
+            app:layout_constraintBottom_toTopOf="@+id/layout_materialType"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_materialType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="50dp"
+            android:hint="Material Type"
+            android:textColorHint="@color/LabelColor"
+            app:boxBackgroundColor="@color/InputText"
+            app:boxStrokeColor="@color/cyan"
+            app:hintTextColor="@color/cyan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/material_type">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txt_materialType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                android:textColor="@color/LabelColor" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/material_photo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Material Type"
+            android:textColor="@color/LabelColor"
+            android:textSize="25sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_materialType"
+            app:layout_constraintBottom_toTopOf="@id/btn_uploadPhoto"/>
+
+        <Button
+            android:id="@+id/btn_uploadPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/DarkCyanBlue"
+            android:text="Upload Photo"
+            android:textColor="@color/cyan"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.095"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/material_photo"
+            app:strokeColor="@color/cyan"
+            app:strokeWidth="2dp" />
+
+        <Button
+            android:id="@+id/testingAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_uploadPhoto"
+            android:text="Testing Add"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
