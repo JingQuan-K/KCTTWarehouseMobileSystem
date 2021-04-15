@@ -10,7 +10,6 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.budiyev.android.codescanner.*
 import com.budiyev.android.codescanner.CodeScanner
-import com.example.kcttwarehousemobilesystem.entity.UserDatabase
 import kotlinx.android.synthetic.main.scanner.*
 
 private const val CAMERA_REQUEST_CODE = 101
@@ -68,10 +67,10 @@ class PlaceToRackScanner : AppCompatActivity() {
                 val quantity = intent?.extras?.getInt(MaterialDetails.QUANTITY).toString()
 
                 //Update Database (add quantity)
-                val dao = UserDatabase.getDatabase(this@PlaceToRackScanner).userDao()
+/*                val dao = UserDatabase.getDatabase(this@PlaceToRackScanner).userDao()
                 var materialQuantity = dao.getMaterialQuantity(materialId.toInt())
                 materialQuantity += quantity.toInt()
-                dao.setMaterialQuantity(materialQuantity, materialId.toInt())
+                dao.setMaterialQuantity(materialQuantity, materialId.toInt())*/
 
                 //intent
                 val intent = Intent(this@PlaceToRackScanner, MainActivity::class.java)

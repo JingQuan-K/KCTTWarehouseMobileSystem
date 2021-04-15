@@ -29,7 +29,7 @@ interface UserDao {
     fun getMaterial(MaterialId: Int) : Material
 
     @Query("SELECT Quantity FROM material_table WHERE MaterialId = :MaterialId")
-    fun getMaterialQuantity(MaterialId: Int) : Int
+    suspend fun getMaterialQuantity(MaterialId: Int) : Int
 
     @Query("UPDATE material_table SET Quantity = :Quantity WHERE MaterialId = :MaterialId")
     fun setMaterialQuantity(Quantity: Int, MaterialId: Int)
@@ -38,11 +38,17 @@ interface UserDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addRack(rack: Rack)
 
-    @Query("SELECT RackId FROM rack_table, material_table WHERE MaterialName = :MaterialName AND rack_table.MaterialId = material_table.MaterialId")
-    fun getRacksOfMaterial(MaterialName:String): List<String>
+    //@Transaction
+    //@Query("SELECT RackId FROM rack_table, material_table WHERE MaterialName = :MaterialName AND rack_table.MaterialId = material_table.MaterialId")
+    //suspend fun getRacksOfMaterial(MaterialName:String): List<String>
 
+    @Transaction
     @Query("SELECT RackId FROM rack_table WHERE MaterialId = :MaterialId")
-    fun getRackOfMaterial(MaterialId: Int) : String
+    suspend fun getRacksOfMaterial(MaterialId: Int): List<String>
+
+    @Transaction
+    @Query("SELECT RackId FROM rack_table WHERE MaterialId = :MaterialId")
+    suspend fun getRackOfMaterial(MaterialId: Int) : String
 
 
     //getTypeWithMaterials

@@ -32,12 +32,16 @@ class MainActivity : AppCompatActivity() {
 
         val materials = listOf(
                 Material(1, "Table One", "photo path", 50, 45.00,100.00, 10, 1),
-                Material(2, "Table Two", "photo path", 50, 100.00,9900.00, 5, 1)
+                Material(2, "Table Two", "photo path", 50, 100.00,9900.00, 5, 1),
+                Material(12, "Table Twelve", "photo path", 60, 100.00,9900.00, 5, 1),
+                Material(123, "Table ott", "photo path", 60, 100.00,9900.00, 5, 1)
         )
 
         val racks = listOf(
                 Rack("A_01a_01", 1),
-                Rack("A_01a_02", 2)
+                Rack("A_01a_02", 2),
+                Rack("A_02a_01", 12),
+                Rack("A_03a_01", 123)
         )
 
         lifecycleScope.launch{

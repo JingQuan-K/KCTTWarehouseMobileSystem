@@ -1,10 +1,11 @@
 package com.example.kcttwarehousemobilesystem.entity
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 
-class WarehouseMapViewModel(
+/*class WarehouseMapViewModel(
         private val database: UserDao): ViewModel(){
 
     //private val repo: WarehouseMapRepository
@@ -36,7 +37,7 @@ class WarehouseMapViewModel(
 
     }
 
-}
+}*/
 
 /*class WarehouseMapViewModel: ViewModel(){
 
@@ -47,3 +48,40 @@ class WarehouseMapViewModel(
     }
 
 }*/
+
+class WarehouseMapViewModel(private val database: UserDao,application: Application): AndroidViewModel(application) {
+
+    private val repository: UserRepository
+
+    var rackList: List<String> = listOf()
+    var rack: String = "lol";
+
+    init {
+        val userDao = UserDatabase.getDatabase(application).userDao()
+        repository = UserRepository(userDao)
+
+    }
+
+    fun search(materialId:String){
+        viewModelScope.launch {
+
+            //var temp = repository.getRacksOfMaterial(materialName)
+            //rackList = listOf(temp.toString())
+            var temp = materialId.toInt()
+            rackList = database.getRacksOfMaterial(temp)
+        }
+    }
+
+    fun searchById() {
+
+        viewModelScope.launch {
+            //val id = materialId.toInt()
+            var temp = database.getRackOfMaterial(1)
+            //val temp = database.getMaterialQuantity(1)
+            rack = temp
+
+
+        }
+
+    }
+}

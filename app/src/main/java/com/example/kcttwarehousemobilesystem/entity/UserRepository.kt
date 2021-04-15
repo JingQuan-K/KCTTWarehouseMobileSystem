@@ -9,6 +9,25 @@ class UserRepository(private val userDao: UserDao) {
         userDao.addUser(user)
     }
 
+    suspend fun addMaterialType(mt: MaterialType){
+        userDao.addMaterialType(mt)
+    }
+
+    suspend fun addMaterial(mt: Material){
+        userDao.addMaterial(mt)
+    }
+
+    suspend fun addRack(mt: Rack){
+        userDao.addRack(mt)
+    }
+
+    suspend fun getRackOfMaterial(materialId:Int){
+        userDao.getRackOfMaterial(materialId)
+    }
 
 
+
+    suspend fun getMaterialQuantity(materialId: Int){
+        userDao.getMaterialQuantity(materialId)
+    }
 }
