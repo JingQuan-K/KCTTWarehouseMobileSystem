@@ -16,8 +16,7 @@ interface UserDao {
 
 
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun addRack(rack: Rack)
+
 
     @Query("SELECT * FROM user_table")
     fun readAllData(): LiveData<List<User>>
@@ -34,6 +33,17 @@ interface UserDao {
 
     @Query("UPDATE material_table SET Quantity = :Quantity WHERE MaterialId = :MaterialId")
     fun setMaterialQuantity(Quantity: Int, MaterialId: Int)
+
+    //RACK
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun addRack(rack: Rack)
+
+    @Query("SELECT RackId FROM rack_table, material_table WHERE MaterialName = :MaterialName AND rack_table.MaterialId = material_table.MaterialId")
+    fun getRacksOfMaterial(MaterialName:String): List<String>
+
+    @Query("SELECT RackId FROM rack_table WHERE MaterialId = :MaterialId")
+    fun getRackOfMaterial(MaterialId: Int) : String
+
 
     //getTypeWithMaterials
     @Transaction

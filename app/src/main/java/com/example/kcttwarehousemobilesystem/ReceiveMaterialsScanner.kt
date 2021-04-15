@@ -56,7 +56,6 @@ class ReceiveMaterialsScanner : AppCompatActivity() {
                 val materialId = it.text.toInt()
                 val material = dao.getMaterial(materialId)
 
-
                 //intent
                 val intent = Intent(this@ReceiveMaterialsScanner, MaterialDetails::class.java)
                 intent.putExtra(MaterialDetails.MATERIAL_ID, materialId)
