@@ -11,7 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KCTTWarehouseMobileSystem">
-        <activity android:name=".WarehouseMap"></activity>
+        <activity android:name=".Reset"></activity>
+        <activity android:name=".Register" />
+        <activity android:name=".Login" />
+        <activity android:name=".forget_password_cont" />
+        <activity android:name=".forget_password" />
+        <activity android:name=".WarehouseMap" />
         <activity
             android:name=".PlaceToRackScanner"
             android:parentActivityName=".MaterialDetails" />
@@ -21,12 +26,8 @@
         <activity
             android:name=".ReceiveMaterialsScanner"
             android:parentActivityName=".MainActivity" />
-
-        <activity
-            android:name=".MainMaterialList"></activity>
-
-        <activity
-            android:name=".MainMaterialAct"/>
+        <activity android:name=".MainMaterialList" />
+        <activity android:name=".MainMaterialAct" />
         <activity
             android:name=".Homepage"
             android:parentActivityName=".MainActivity" />
