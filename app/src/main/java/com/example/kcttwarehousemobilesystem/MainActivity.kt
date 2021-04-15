@@ -9,7 +9,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.kcttwarehousemobilesystem.entity.Rack
-import com.example.kcttwarehousemobilesystem.entity.UserDatabase
+import com.example.kcttwarehousemobilesystem.database.UserDatabase
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.launch
 

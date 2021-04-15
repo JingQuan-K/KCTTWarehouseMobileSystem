@@ -4,26 +4,26 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.example.kcttwarehousemobilesystem.entity.MaterialType
+import com.example.kcttwarehousemobilesystem.entity.Material
 import com.example.kcttwarehousemobilesystem.database.UserDatabase
 import com.example.kcttwarehousemobilesystem.database.UserRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class MaterialTypeVM(application: Application): AndroidViewModel(application) {
+class MaterialVM(application: Application): AndroidViewModel(application) {
 
-    val getAllMaterialType: LiveData<List<MaterialType>>
+    val getAllMaterial: LiveData<List<Material>>
     private val repository: UserRepository
 
     init {
         val userDao = UserDatabase.getDatabase(application).userDao()
         repository = UserRepository(userDao)
-        getAllMaterialType = repository.getAllMaterialType
+        getAllMaterial = repository.getAllMaterial
     }
 
-    fun addMaterialType(mt: MaterialType){
+    fun addMaterial(mt: Material){
         viewModelScope.launch(Dispatchers.IO) {
-            repository.addMaterialType(mt)
+            repository.addMaterial(mt)
         }
     }
 }
