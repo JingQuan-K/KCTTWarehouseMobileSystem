@@ -23,10 +23,4 @@ class UserViewModel(application: Application): AndroidViewModel(application) {
             repository.addUser(user)
         }
     }
-
-    fun addMaterialType(mt: MaterialType){
-        viewModelScope.launch(Dispatchers.IO) {
-            repository.addMaterialType(mt)
-        }
-    }
 }

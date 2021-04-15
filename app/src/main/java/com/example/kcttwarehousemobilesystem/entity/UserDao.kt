@@ -35,6 +35,7 @@ interface UserDao {
     @Query("SELECT * FROM user_table WHERE userId = :userId")
     suspend fun getUserAndTrans(userId:String): List<UserAndTrans>
 
-
+    @Query("SELECT * FROM materialType_table ORDER BY MaterialTypeId DESC")
+    fun getAllMaterialType(): LiveData<List<MaterialType>>
 }
 
