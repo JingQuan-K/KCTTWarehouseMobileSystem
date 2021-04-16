@@ -18,6 +18,10 @@ class LoginPage : Fragment() {
         view.txtBtnSignUpFrag.setOnClickListener {
             findNavController().navigate(R.id.action_loginPage_to_register_acc)
         }
+
+        view.btnLoginFrag.setOnClickListener {
+            findNavController().navigate(R.id.action_loginPage_to_register_acc)
+        }
         return view
     }
 }

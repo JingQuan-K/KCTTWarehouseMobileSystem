@@ -28,6 +28,7 @@ class Register_acc : Fragment() {
         uUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
         view.btnSignUpFrag.setOnClickListener {
+            Toast.makeText(requireContext(), "wow", Toast.LENGTH_LONG).show()
             val username = view.username_et.text.toString()
             val email =  view.email_et.text.toString()
             val password = view.password_ti.editText?.text.toString()
@@ -41,21 +42,21 @@ class Register_acc : Fragment() {
                 Toast.makeText(requireContext(), "Successfully created!", Toast.LENGTH_LONG).show()
                 //Navigate Back
                 findNavController().navigate(R.id.action_register_acc_to_loginPage)
-            }
-            else if(!isEmailValid(email_et.text.toString())){
-                email_et.setError("Please enter valid email.")
-            }
-/*            else if(!password_ti.toString().equals(confirmPassword_ti.toString())){
-                confirmPassword_ti.
-            }*/
-            else{
+            }else{
                 Toast.makeText(requireContext(), "Please fill out all fields.", Toast.LENGTH_LONG).show()
             }
         }
         return view
     }
 
-    private fun isEmailValid(email: String): Boolean {
+/*    private fun isEmailValid(email: String): Boolean {
         return Patterns.EMAIL_ADDRESS.matcher(email).matches()
-    }
+    }*/
+    /*            else if(!isEmailValid(email_et.text.toString())){
+                email_et.setError("Please enter valid email.")
+            }*/
+/*            else if(!password_ti.toString().equals(confirmPassword_ti.toString())){
+                confirmPassword_ti.
+            }*/
+
 }

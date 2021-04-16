@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/register_acc"
-        android:name="com.example.kcttwarehousemobilesystem.Register_acc"
+        android:name="com.example.kcttwarehousemobilesystem.UserFragment.Register_acc"
         android:label="fragment_register_acc"
         tools:layout="@layout/fragment_register_acc" >
         <action
