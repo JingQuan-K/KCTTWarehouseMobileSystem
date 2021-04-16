@@ -10,6 +10,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.budiyev.android.codescanner.*
 import com.budiyev.android.codescanner.CodeScanner
+import com.example.kcttwarehousemobilesystem.entity.UserDatabase
 import kotlinx.android.synthetic.main.scanner.*
 
 private const val CAMERA_REQUEST_CODE = 101
@@ -38,10 +39,6 @@ class PlaceToRackScanner : AppCompatActivity() {
         //set scanner text
         scanner_text.text = "Scan Rack Barcode"
 
-
-
-
-
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -57,25 +54,64 @@ class PlaceToRackScanner : AppCompatActivity() {
             formats = CodeScanner.ALL_FORMATS
 
             autoFocusMode = AutoFocusMode.SAFE
-            scanMode = ScanMode.SINGLE
+            scanMode = ScanMode.CONTINUOUS
             isAutoFocusEnabled = true
             isFlashEnabled = false
 
             decodeCallback = DecodeCallback {
                 //get id & quantity
+                val rackId: String = it.text
                 val materialId = intent?.extras?.getInt(MaterialDetails.MATERIAL_ID).toString()
                 val quantity = intent?.extras?.getInt(MaterialDetails.QUANTITY).toString()
 
-                //Update Database (add quantity)
-/*                val dao = UserDatabase.getDatabase(this@PlaceToRackScanner).userDao()
-                var materialQuantity = dao.getMaterialQuantity(materialId.toInt())
-                materialQuantity += quantity.toInt()
-                dao.setMaterialQuantity(materialQuantity, materialId.toInt())*/
+                //Database
+                val dao = UserDatabase.getDatabase(this@PlaceToRackScanner).userDao()
+                //check if rack exists in database
+                if(dao.rackExists(rackId)) {
 
-                //intent
-                val intent = Intent(this@PlaceToRackScanner, MainActivity::class.java)
-                intent.putExtra(RACK_ID, it.text)
-                startActivity(intent)
+                    //Check if material belongs to rack
+                    val rackList = dao.getRackOfSpecificMaterial(materialId.toInt())
+                    var isBelongsTo = false
+                    rackList.forEach { it ->
+                        if (it == rackId)
+                            isBelongsTo = true
+                    }
+
+                    if(isBelongsTo){
+                        //update material quantity
+                        var materialQuantity = dao.getMaterialQuantity(materialId.toInt())
+                        materialQuantity += quantity.toInt()
+                        dao.setMaterialQuantity(materialQuantity, materialId.toInt())
+
+                        //update rack quantity
+                        var rackQuantity = dao.getRackQuantity(rackId)
+                        rackQuantity += quantity.toInt()
+                        dao.setRackQuantity(rackQuantity, rackId)
+
+                        //intent
+                        val intent = Intent(this@PlaceToRackScanner, MainActivity::class.java)
+                        intent.putExtra(RACK_ID, rackId)
+                        startActivity(intent)
+                    }
+                    else{
+                        //Material does not belong to this rack!
+                        runOnUiThread {
+                            scanner_message.text = "The Material does not belong on this Rack"
+                        }
+
+
+                    }
+
+
+
+
+                }else{
+                    //This rack does not exist!
+                        runOnUiThread {
+                            scanner_message.text = "This Rack does not exist"
+                        }
+
+                }
 
 
             }

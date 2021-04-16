@@ -21,13 +21,5 @@ class UserRepository(private val userDao: UserDao) {
         userDao.addRack(mt)
     }
 
-    suspend fun getRackOfMaterial(materialId:Int){
-        userDao.getRackOfMaterial(materialId)
-    }
 
-
-
-    suspend fun getMaterialQuantity(materialId: Int){
-        userDao.getMaterialQuantity(materialId)
-    }
 }

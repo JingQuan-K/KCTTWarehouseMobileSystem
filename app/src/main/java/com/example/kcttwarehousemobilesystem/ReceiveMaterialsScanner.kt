@@ -43,24 +43,40 @@ class ReceiveMaterialsScanner : AppCompatActivity() {
             formats = CodeScanner.ALL_FORMATS
 
             autoFocusMode = AutoFocusMode.SAFE
-            scanMode = ScanMode.SINGLE
+            scanMode = ScanMode.CONTINUOUS
             isAutoFocusEnabled = true
             isFlashEnabled = false
 
             decodeCallback = DecodeCallback {
 
-                //check if exist in database
+
 
                 //Get from Database
                 val dao = UserDatabase.getDatabase(this@ReceiveMaterialsScanner).userDao()
-                val materialId = it.text.toInt()
-                val material = dao.getMaterial(materialId)
 
-                //intent
-                val intent = Intent(this@ReceiveMaterialsScanner, MaterialDetails::class.java)
-                intent.putExtra(MaterialDetails.MATERIAL_ID, materialId)
-                intent.putExtra(MaterialDetails.MATERIAL_NAME, material.MaterialName)
-                startActivity(intent)
+                try {
+                    val materialId = it.text.toInt()
+                    //check if exist in database
+                    if(dao.materialExists(materialId)) {
+                        val material = dao.getMaterial(materialId)
+                        //intent
+                        val intent = Intent(this@ReceiveMaterialsScanner, MaterialDetails::class.java)
+                        intent.putExtra(MaterialDetails.MATERIAL_ID, materialId)
+                        intent.putExtra(MaterialDetails.MATERIAL_NAME, material.MaterialName)
+                        startActivity(intent)
+                    }else{
+                        //Material does not exist
+                        runOnUiThread {
+                            scanner_message.text = "This Material does not exist"
+                        }
+                    }
+
+                }catch (ex: NumberFormatException){
+                    //Material does not exist
+                    runOnUiThread {
+                        scanner_message.text = "This Material does not exist"
+                    }
+                }
 
 
             }

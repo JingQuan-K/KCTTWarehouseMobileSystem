@@ -29,26 +29,37 @@ interface UserDao {
     fun getMaterial(MaterialId: Int) : Material
 
     @Query("SELECT Quantity FROM material_table WHERE MaterialId = :MaterialId")
-    suspend fun getMaterialQuantity(MaterialId: Int) : Int
+    fun getMaterialQuantity(MaterialId: Int) : Int
 
     @Query("UPDATE material_table SET Quantity = :Quantity WHERE MaterialId = :MaterialId")
     fun setMaterialQuantity(Quantity: Int, MaterialId: Int)
+
+    @Query("SELECT EXISTS (SELECT * FROM material_table WHERE MaterialId = :MaterialId)")
+    fun materialExists(MaterialId: Int): Boolean
 
     //RACK
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addRack(rack: Rack)
 
-    //@Transaction
-    //@Query("SELECT RackId FROM rack_table, material_table WHERE MaterialName = :MaterialName AND rack_table.MaterialId = material_table.MaterialId")
-    //suspend fun getRacksOfMaterial(MaterialName:String): List<String>
+    @Query("SELECT RackId FROM rack_table")
+    suspend fun  getAllRacks():List<String>
+
+    @Query("SELECT Quantity FROM rack_table WHERE RackId = :RackId")
+    fun getRackQuantity(RackId: String) : Int
+
+    @Query("UPDATE rack_table SET Quantity = :Quantity WHERE RackId = :RackId")
+    fun setRackQuantity(Quantity: Int, RackId: String)
+
+    @Query("SELECT EXISTS (SELECT * FROM rack_table WHERE RackId = :RackId)")
+    fun rackExists(RackId: String): Boolean
+
+    @Transaction
+    @Query("SELECT rack_table.RackId FROM rack_table, material_table WHERE rack_table.MaterialId = material_table.MaterialId AND MaterialName LIKE '%' || :MaterialName || '%'")
+    suspend fun getRacksOfMaterial(MaterialName: String): List<String>
 
     @Transaction
     @Query("SELECT RackId FROM rack_table WHERE MaterialId = :MaterialId")
-    suspend fun getRacksOfMaterial(MaterialId: Int): List<String>
-
-    @Transaction
-    @Query("SELECT RackId FROM rack_table WHERE MaterialId = :MaterialId")
-    suspend fun getRackOfMaterial(MaterialId: Int) : String
+    fun getRackOfSpecificMaterial(MaterialId: Int) : List<String>
 
 
     //getTypeWithMaterials

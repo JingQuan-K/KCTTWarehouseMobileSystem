@@ -7,5 +7,6 @@ import androidx.room.PrimaryKey
 data class Rack(
     @PrimaryKey(autoGenerate = false )
     val RackId: String,
-    val MaterialId: Int
+    val MaterialId: Int,
+    val Quantity: Int
 )
