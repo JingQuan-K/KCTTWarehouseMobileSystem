@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/loginPage"
         android:name="com.example.kcttwarehousemobilesystem.UserFragment.LoginPage"
-        android:label="fragment_login_page"
+        android:label="Login Page"
         tools:layout="@layout/fragment_login_page" >
         <action
             android:id="@+id/action_loginPage_to_register_acc"
@@ -20,7 +20,7 @@
     <fragment
         android:id="@+id/register_acc"
         android:name="com.example.kcttwarehousemobilesystem.UserFragment.Register_acc"
-        android:label="fragment_register_acc"
+        android:label="Register Page"
         tools:layout="@layout/fragment_register_acc" >
         <action
             android:id="@+id/action_register_acc_to_loginPage"
@@ -29,6 +29,6 @@
     <fragment
         android:id="@+id/forget_password"
         android:name="com.example.kcttwarehousemobilesystem.UserFragment.Forget_password"
-        android:label="fragment_forget_password"
+        android:label="Forget Password Page"
         tools:layout="@layout/fragment_forget_password" />
 </navigation>
