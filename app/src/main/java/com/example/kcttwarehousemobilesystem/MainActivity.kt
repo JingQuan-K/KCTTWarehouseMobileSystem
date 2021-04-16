@@ -19,14 +19,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.register)
+        setContentView(R.layout.activity_register)
         //setContentView(R.layout.login)
         //setContentView(R.layout.forget_password)
         //setContentView(R.layout.forget_password_cont)
         //setContentView(R.layout.reset_password)
-        setContentView(R.layout.activity_main)
+        // setContentView(R.layout.activity_main)
         //setContentView(R.layout.fragment_login)
-        val dao = UserDatabase.getDatabase(this).userDao()
+/*        val dao = UserDatabase.getDatabase(this).userDao()
 
         val racks = listOf(
             Rack("A_01a_01", 1),
@@ -131,6 +131,6 @@ class MainActivity : AppCompatActivity() {
     //main menu
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.mainmenu, menu)
-        return true
+        return true*/
     }
 }

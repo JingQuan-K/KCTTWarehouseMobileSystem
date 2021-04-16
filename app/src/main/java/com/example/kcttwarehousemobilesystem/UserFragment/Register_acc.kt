@@ -2,6 +2,7 @@ package com.example.kcttwarehousemobilesystem.UserFragment
 
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.kcttwarehousemobilesystem.R
 import com.example.kcttwarehousemobilesystem.entity.User
 import com.example.kcttwarehousemobilesystem.materialType.UserViewModel
+import kotlinx.android.synthetic.main.fragment_register_acc.*
 import kotlinx.android.synthetic.main.fragment_register_acc.view.*
 
 class Register_acc : Fragment() {
@@ -39,10 +41,21 @@ class Register_acc : Fragment() {
                 Toast.makeText(requireContext(), "Successfully created!", Toast.LENGTH_LONG).show()
                 //Navigate Back
                 findNavController().navigate(R.id.action_register_acc_to_loginPage)
-            }else{
+            }
+            else if(!isEmailValid(email_et.text.toString())){
+                email_et.setError("Please enter valid email.")
+            }
+/*            else if(!password_ti.toString().equals(confirmPassword_ti.toString())){
+                confirmPassword_ti.
+            }*/
+            else{
                 Toast.makeText(requireContext(), "Please fill out all fields.", Toast.LENGTH_LONG).show()
             }
         }
         return view
+    }
+
+    private fun isEmailValid(email: String): Boolean {
+        return Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 }

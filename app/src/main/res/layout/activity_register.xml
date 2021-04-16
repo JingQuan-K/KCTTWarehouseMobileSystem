@@ -64,6 +64,7 @@
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
         android:textColorHint="@color/GrayishBlue"
+        android:textColor="@color/GrayishBlue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -100,6 +101,7 @@
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
         android:textColorHint="@color/GrayishBlue"
+        android:textColor="@color/GrayishBlue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -145,6 +147,8 @@
             android:drawableStart="@drawable/ic_password"
             android:drawablePadding="12dp"
             android:hint="Password"
+            android:textColorHint="@color/GrayishBlue"
+            android:textColor="@color/GrayishBlue"
             android:inputType="textPassword"
             android:textCursorDrawable="@color/Cyan"
             tools:ignore="MissingConstraints" />
@@ -188,6 +192,8 @@
             android:drawableStart="@drawable/ic_password"
             android:drawablePadding="12dp"
             android:hint="Confirm Password"
+            android:textColorHint="@color/GrayishBlue"
+            android:textColor="@color/GrayishBlue"
             android:inputType="textPassword"
             android:textCursorDrawable="@color/Cyan"
             tools:ignore="MissingConstraints" />
