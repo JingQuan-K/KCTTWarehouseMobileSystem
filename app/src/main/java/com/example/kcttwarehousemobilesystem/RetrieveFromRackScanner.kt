@@ -9,19 +9,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.budiyev.android.codescanner.*
-import com.budiyev.android.codescanner.CodeScanner
 import com.example.kcttwarehousemobilesystem.entity.UserDatabase
 import kotlinx.android.synthetic.main.scanner.*
 
 private const val CAMERA_REQUEST_CODE = 101
 
-
-class PlaceToRackScanner : AppCompatActivity() {
-
-    companion object {
-        const val RACK_ID = "rack_id"
-
-    }
+class RetrieveFromRackScanner : AppCompatActivity() {
 
     private lateinit var codeScanner: CodeScanner
 
@@ -33,16 +26,12 @@ class PlaceToRackScanner : AppCompatActivity() {
 
         //Action Bar
         val actionBar = supportActionBar
-        actionBar!!.title = "Place to Rack"
+        actionBar!!.title = "Retrieve from Rack"
         actionBar.setDisplayHomeAsUpEnabled(true)
 
         //set scanner text
         scanner_text.text = "Scan Rack Barcode"
 
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
     }
 
     private fun codeScanner(){
@@ -58,52 +47,43 @@ class PlaceToRackScanner : AppCompatActivity() {
             isFlashEnabled = false
 
             decodeCallback = DecodeCallback {
-                //get id & quantity
-                val rackId: String = it.text
-                val materialId = intent?.extras?.getInt(MaterialDetails.MATERIAL_ID).toString()
-                val quantity = intent?.extras?.getInt(MaterialDetails.QUANTITY).toString()
 
-                //Database
-                val dao = UserDatabase.getDatabase(this@PlaceToRackScanner).userDao()
-                //check if rack exists in database
+                //Get from Database
+                val dao = UserDatabase.getDatabase(this@RetrieveFromRackScanner).userDao()
+
+                val rackId = it.text
+                //check if exist in database
                 if(dao.rackExists(rackId)) {
+                    val rack = dao.getRack(rackId)
 
-                    //Check if material belongs to rack
-                    val rackList = dao.getRackOfSpecificMaterial(materialId.toInt())
-                    var isBelongsTo = false
-                    rackList.forEach { it ->
-                        if (it == rackId)
-                            isBelongsTo = true
-                    }
-                    if(isBelongsTo){
-                        //update material quantity
-                        var materialQuantity = dao.getMaterialQuantity(materialId.toInt())
-                        materialQuantity += quantity.toInt()
-                        dao.setMaterialQuantity(materialQuantity, materialId.toInt())
-
-                        //update rack quantity
-                        var rackQuantity = dao.getRackQuantity(rackId)
-                        rackQuantity += quantity.toInt()
-                        dao.setRackQuantity(rackQuantity, rackId)
-
+                    //check if rack is empty
+                    if(rack.Quantity > 0){
+                        val material = dao.getMaterial(rack.MaterialId)
                         //intent
-                        val intent = Intent(this@PlaceToRackScanner, MainActivity::class.java)
-                        intent.putExtra(RACK_ID, rackId)
+                        val intent = Intent(this@RetrieveFromRackScanner, MaterialDetailsRetrieve::class.java)
+                        intent.putExtra(MaterialDetailsRetrieve.RACK_ID, rackId)
+                        intent.putExtra(MaterialDetailsRetrieve.QUANTITY, rack.Quantity)
+                        intent.putExtra(MaterialDetailsRetrieve.MATERIAL_ID, material.MaterialId)
+                        intent.putExtra(MaterialDetailsRetrieve.MATERIAL_NAME, material.MaterialName)
                         startActivity(intent)
-                    }
-                    else{
-                        //Material does not belong to this rack!
+
+                    }else{
+                        //Rack is empty
                         runOnUiThread {
-                            scanner_message.text = "The Material does not belong on this Rack"
+                            scanner_message.text = "This Rack is empty"
                         }
                     }
 
                 }else{
-                    //This rack does not exist!
-                        runOnUiThread {
-                            scanner_message.text = "This Rack does not exist"
-                        }
+                    //Rack does not exist
+                    runOnUiThread {
+                        scanner_message.text = "This Rack does not exist"
+                    }
                 }
+
+
+
+
             }
 
             errorCallback = ErrorCallback {
@@ -163,6 +143,5 @@ class PlaceToRackScanner : AppCompatActivity() {
             }
         }
     }
-
 
 }

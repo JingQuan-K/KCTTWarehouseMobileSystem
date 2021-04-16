@@ -44,6 +44,9 @@ interface UserDao {
     @Query("SELECT RackId FROM rack_table")
     suspend fun  getAllRacks():List<String>
 
+    @Query("SELECT * FROM rack_table WHERE RackId = :RackId")
+    fun getRack(RackId: String) : Rack
+
     @Query("SELECT Quantity FROM rack_table WHERE RackId = :RackId")
     fun getRackQuantity(RackId: String) : Int
 
@@ -60,6 +63,8 @@ interface UserDao {
     @Transaction
     @Query("SELECT RackId FROM rack_table WHERE MaterialId = :MaterialId")
     fun getRackOfSpecificMaterial(MaterialId: Int) : List<String>
+
+
 
 
     //getTypeWithMaterials

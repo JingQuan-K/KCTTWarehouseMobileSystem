@@ -19,7 +19,6 @@ class WarehouseMapViewModel(private val database: UserDao,application: Applicati
 
     fun search(materialName: String){
         viewModelScope.launch {
-
             rackList = database.getRacksOfMaterial(materialName)
         }
     }

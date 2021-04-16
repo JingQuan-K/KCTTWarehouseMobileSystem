@@ -39,10 +39,13 @@ class MainActivity : AppCompatActivity() {
 
         val racks = listOf(
                 Rack("A_01a_01", 1,  20),
+                Rack("A_01b_01", 1,  0),
                 Rack("A_01a_02", 2,20),
                 Rack("A_02a_01", 3, 60),
                 Rack("B_02a_01", 4, 30),
-                Rack("B_02a_02", 4, 30)
+                Rack("B_02a_02", 4, 30),
+                Rack("B_05_05" , 0, 0)
+
         )
 
         lifecycleScope.launch{
@@ -100,7 +103,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         retrieve_from_rack_btn.setOnClickListener{
-
+            val intent = Intent(this, RetrieveFromRackScanner::class.java)
+            startActivity(intent)
         }
 
         warehouse_map_btn.setOnClickListener {
@@ -121,8 +125,13 @@ class MainActivity : AppCompatActivity() {
             val toastMsg = "Successfully Added to Rack $rackId"
             val toast = Toast.makeText(applicationContext, toastMsg, Toast.LENGTH_LONG)
             toast.show()
+        }else if(intent.hasExtra(MaterialDetailsRetrieve.MATERIAL_NAME) && intent.hasExtra(MaterialDetailsRetrieve.QUANTITY)){
+            val rackQuantity = intent?.extras?.getInt(MaterialDetailsRetrieve.QUANTITY).toString().toInt()
+            val materialName = intent?.extras?.getString(MaterialDetailsRetrieve.MATERIAL_NAME).toString()
+            val toastMsg = "Successfully retrieved $rackQuantity $materialName"
+            val toast = Toast.makeText(applicationContext, toastMsg, Toast.LENGTH_LONG)
+            toast.show()
         }
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

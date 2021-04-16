@@ -104,7 +104,7 @@
         app:layout_constraintTop_toTopOf="@+id/quantity_textFieldLayout" />
 
     <Button
-        android:id="@+id/place_to_rack_btn"
+        android:id="@+id/next_activity_btn"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="15dp"
