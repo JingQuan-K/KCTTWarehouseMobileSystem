@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.kcttwarehousemobilesystem.R
 import com.example.kcttwarehousemobilesystem.entity.User
-import com.example.kcttwarehousemobilesystem.entity.UserViewModel
+import com.example.kcttwarehousemobilesystem.materialType.UserViewModel
 import kotlinx.android.synthetic.main.fragment_register_acc.*
 import kotlinx.android.synthetic.main.fragment_register_acc.view.*
 

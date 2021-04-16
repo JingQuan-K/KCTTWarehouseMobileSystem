@@ -4,7 +4,6 @@ package com.example.kcttwarehousemobilesystem.MaterialFragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kcttwarehousemobilesystem.R
 import com.example.kcttwarehousemobilesystem.entity.Material
@@ -12,7 +11,7 @@ import com.example.kcttwarehousemobilesystem.entity.Transactions
 import kotlinx.android.synthetic.main.report.view.*
 
 
-class Report() : RecyclerView.Adapter<Report.MyViewHolder>() {
+class ReportAdapter() : RecyclerView.Adapter<ReportAdapter.MyViewHolder>() {
 
     private var materialList = emptyList<Material>()
     private var transactionsList = emptyList<Transactions>()
@@ -20,11 +19,11 @@ class Report() : RecyclerView.Adapter<Report.MyViewHolder>() {
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Report.MyViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReportAdapter.MyViewHolder {
         return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.report, parent, false))
     }
 
-    override fun onBindViewHolder(holder: Report.MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ReportAdapter.MyViewHolder, position: Int) {
         val materialDetail = materialList[position]
         val transactionDetail = transactionsList[position]
         holder.itemView.productId.text = materialDetail.MaterialId.toString()

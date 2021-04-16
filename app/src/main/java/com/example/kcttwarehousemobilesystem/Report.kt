@@ -1,9 +1,8 @@
 package com.example.kcttwarehousemobilesystem
 
 import android.os.Bundle
-import android.widget.ListAdapter
 import androidx.appcompat.app.AppCompatActivity
-import com.example.kcttwarehousemobilesystem.MaterialFragment.Report
+import com.example.kcttwarehousemobilesystem.MaterialFragment.ReportAdapter
 import com.example.kcttwarehousemobilesystem.materialType.MaterialVM
 
 class Report : AppCompatActivity() {
@@ -14,8 +13,7 @@ class Report : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.report)
 
-        val adapter = Report()
+        val adapter = ReportAdapter()
+
     }
-
-
 }
