@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.text.Editable
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
+import com.budiyev.android.codescanner.*
 import com.example.kcttwarehousemobilesystem.entity.UserDatabase
 import kotlinx.android.synthetic.main.activity_material_details.*
 
@@ -119,8 +120,6 @@ class MaterialDetailsRetrieve : AppCompatActivity() {
 
     private fun updateDatabase(){
         //Database
-
-
         val dao = UserDatabase.getDatabase(this@MaterialDetailsRetrieve).userDao()
         //update material quantity
         var materialQuantity = dao.getMaterialQuantity(2)
