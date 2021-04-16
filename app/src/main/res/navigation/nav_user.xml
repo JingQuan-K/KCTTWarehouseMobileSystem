@@ -30,5 +30,14 @@
         android:id="@+id/ForgetPasswordPage"
         android:name="com.example.kcttwarehousemobilesystem.UserFragment.Forget_password"
         android:label="Forget Password Page"
-        tools:layout="@layout/fragment_forget_password" />
+        tools:layout="@layout/fragment_forget_password" >
+        <action
+            android:id="@+id/action_ForgetPasswordPage_to_forget_password_cont"
+            app:destination="@id/ForgetPasswordContPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/ForgetPasswordContPage"
+        android:name="com.example.kcttwarehousemobilesystem.UserFragment.Forget_password_cont"
+        android:label="fragment_forget_password_cont"
+        tools:layout="@layout/fragment_forget_password_cont" />
 </navigation>
