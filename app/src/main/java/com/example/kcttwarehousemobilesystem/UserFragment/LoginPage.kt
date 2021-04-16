@@ -19,8 +19,8 @@ class LoginPage : Fragment() {
             findNavController().navigate(R.id.action_loginPage_to_register_acc)
         }
 
-        view.btnLoginFrag.setOnClickListener {
-            findNavController().navigate(R.id.action_loginPage_to_register_acc)
+        view.txtBtnForgetPassFrag.setOnClickListener {
+            findNavController().navigate(R.id.action_loginPage_to_forget_password)
         }
         return view
     }

@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_loginPage_to_register_acc"
             app:destination="@id/register_acc" />
+        <action
+            android:id="@+id/action_loginPage_to_forget_password"
+            app:destination="@id/forget_password" />
     </fragment>
     <fragment
         android:id="@+id/register_acc"
@@ -23,4 +26,9 @@
             android:id="@+id/action_register_acc_to_loginPage"
             app:destination="@id/loginPage" />
     </fragment>
+    <fragment
+        android:id="@+id/forget_password"
+        android:name="com.example.kcttwarehousemobilesystem.UserFragment.Forget_password"
+        android:label="fragment_forget_password"
+        tools:layout="@layout/fragment_forget_password" />
 </navigation>
