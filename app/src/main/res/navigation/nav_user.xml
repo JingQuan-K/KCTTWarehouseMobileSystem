@@ -2,32 +2,32 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_register"
-    app:startDestination="@id/loginPage">
+    android:id="@+id/nav_user"
+    app:startDestination="@id/LoginPage">
 
     <fragment
-        android:id="@+id/loginPage"
+        android:id="@+id/LoginPage"
         android:name="com.example.kcttwarehousemobilesystem.UserFragment.LoginPage"
         android:label="Login Page"
         tools:layout="@layout/fragment_login_page" >
         <action
             android:id="@+id/action_loginPage_to_register_acc"
-            app:destination="@id/register_acc" />
+            app:destination="@id/RegisterPage" />
         <action
             android:id="@+id/action_loginPage_to_forget_password"
-            app:destination="@id/forget_password" />
+            app:destination="@id/ForgetPasswordPage" />
     </fragment>
     <fragment
-        android:id="@+id/register_acc"
+        android:id="@+id/RegisterPage"
         android:name="com.example.kcttwarehousemobilesystem.UserFragment.Register_acc"
         android:label="Register Page"
         tools:layout="@layout/fragment_register_acc" >
         <action
             android:id="@+id/action_register_acc_to_loginPage"
-            app:destination="@id/loginPage" />
+            app:destination="@id/LoginPage" />
     </fragment>
     <fragment
-        android:id="@+id/forget_password"
+        android:id="@+id/ForgetPasswordPage"
         android:name="com.example.kcttwarehousemobilesystem.UserFragment.Forget_password"
         android:label="Forget Password Page"
         tools:layout="@layout/fragment_forget_password" />
