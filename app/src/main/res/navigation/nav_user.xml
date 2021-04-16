@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_loginPage_to_forget_password"
             app:destination="@id/ForgetPasswordPage" />
+        <action
+            android:id="@+id/action_LoginPage_to_homePage"
+            app:destination="@id/HomePage" />
     </fragment>
     <fragment
         android:id="@+id/RegisterPage"
@@ -38,6 +41,11 @@
     <fragment
         android:id="@+id/ForgetPasswordContPage"
         android:name="com.example.kcttwarehousemobilesystem.UserFragment.Forget_password_cont"
-        android:label="fragment_forget_password_cont"
+        android:label="Forget Password Cont Page"
         tools:layout="@layout/fragment_forget_password_cont" />
+    <fragment
+        android:id="@+id/HomePage"
+        android:name="com.example.kcttwarehousemobilesystem.HomePage"
+        android:label="Home Page"
+        tools:layout="@layout/fragment_home_page" />
 </navigation>
