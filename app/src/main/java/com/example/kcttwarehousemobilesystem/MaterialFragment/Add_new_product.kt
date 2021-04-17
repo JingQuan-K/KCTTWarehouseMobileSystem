@@ -4,9 +4,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextUtils
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -19,20 +17,27 @@ class Add_new_product : Fragment() {
     //private lateinit var mUserViewModel: UserViewModel
     private var selectedImage: Uri? = null
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_add_new_product, container, false)
 
-        view.testingAdd.setOnClickListener{
-            insertNewProductToDatabase()
-        }
+        //bundle argument from recycler view
+        var materialTypeName: String? = null
+        var id: Int?=null
+        materialTypeName = arguments?.getString("MaterialTypeName")
+        id = arguments?.getInt("id")
+        view.txt_materialType.setText(materialTypeName)
 
-        /*btn_uploadPhoto.setOnClickListener{
-            uploadImage()
-        }*/
+
+
+
+
+
+        view.btn_uploadPhoto.setOnClickListener{
+           // uploadImage()
+            Toast.makeText(activity,"testing 123123123", Toast.LENGTH_LONG).show()
+        }
         return view
     }
 
@@ -53,7 +58,7 @@ class Add_new_product : Fragment() {
 
         if(inputCheck(materialName, costPI)){
             Toast.makeText(requireContext(),"testing123",Toast.LENGTH_LONG).show()
-            findNavController().navigate(R.id.register_material)
+            //findNavController().navigate(R.id.register_material)
         }else{
             Toast.makeText(requireContext(), "Please fill out all fields", Toast.LENGTH_LONG).show()
         }
@@ -61,5 +66,27 @@ class Add_new_product : Fragment() {
 
     private fun inputCheck(materialName: String, costPI: Editable?): Boolean{
         return !(TextUtils.isEmpty(materialName) && (costPI==null))
+    }
+
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.register_product_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        var itemview = item.itemId
+        when(itemview){
+            R.id.register_productBtn -> Toast.makeText(requireContext(), "Add Product", Toast.LENGTH_SHORT).show()
+        }
+        //return false
+        return super.onOptionsItemSelected(item)
     }
 }
