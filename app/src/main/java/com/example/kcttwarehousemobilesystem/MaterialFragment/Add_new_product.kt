@@ -48,7 +48,7 @@ class Add_new_product : Fragment() {
         lifecycleScope.launch {
             val materialList: List<Material> = dao.getListMaterial()
             if (materialList.isEmpty()) {
-                view.txt_materialID.setText("10")
+                view.txt_materialID.setText("1")
             }else{
 
                     var materialId:Int = dao.getLastMId() + 1
