@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/DarkCyanBlue"
-    tools:context=".MaterialFragment.Register_material">
+    tools:context=".MaterialFragment.Register_material"
+    android:id="@+id/frag_register_material">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewMaterialType"

@@ -3,12 +3,10 @@ package com.example.kcttwarehousemobilesystem.MaterialFragment
 import android.app.AlertDialog
 import android.os.Bundle
 import android.text.TextUtils
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
-import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,18 +17,13 @@ import kotlinx.android.synthetic.main.fragment_register_material.view.*
 import kotlinx.android.synthetic.main.layout_add_material_type.view.*
 
 class Register_material : Fragment() {
-    //For insert material type(alert dialog)
     private lateinit var mtViewModel: MaterialTypeVM
 
-    lateinit var toggle: ActionBarDrawerToggle
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_register_material, container, false)
 
+        //recycler view
         val adapter = ListMaterialType()
         val recyclerView = view.recyclerViewMaterialType
         recyclerView.setHasFixedSize(true)
@@ -43,6 +36,7 @@ class Register_material : Fragment() {
             adapter.setData(materialType)
         })
 
+        //Floating button to register material type
         view.registerMT.setOnClickListener{
             val addMTView = LayoutInflater.from(context).inflate(R.layout.layout_add_material_type, null)
             val addMTViewBuilder = AlertDialog.Builder(context, R.style.PopUpWindow).setView(addMTView).setTitle("Material Type Name")
@@ -68,13 +62,6 @@ class Register_material : Fragment() {
                 displayDialog.dismiss()
             }
         }
-
-        /*toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
-        drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()*/
-
-
-
         return view
     }
 }

@@ -5,10 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:id="@+id/layout_registerP1">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp"
         tools:context=".MaterialFragment.Add_new_product"
         android:background="@color/DarkCyanBlue"
         android:id="@+id/layout_registerP">
@@ -176,7 +178,7 @@
             android:id="@+id/material_photo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Material Type"
+            android:text="Material Photo"
             android:textColor="@color/LabelColor"
             android:textSize="25sp"
             android:layout_marginStart="20dp"
@@ -202,15 +204,5 @@
             app:layout_constraintTop_toBottomOf="@+id/material_photo"
             app:strokeColor="@color/cyan"
             app:strokeWidth="2dp" />
-
-        <Button
-            android:id="@+id/testingAdd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_uploadPhoto"
-            android:text="Testing Add"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
