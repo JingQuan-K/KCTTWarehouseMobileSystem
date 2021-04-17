@@ -23,37 +23,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //database stuff
-        val dao = UserDatabase.getDatabase(this).userDao()
-
-        val material_type = listOf(
-                MaterialType(1, "Wood")
-        )
-
-        val materials = listOf(
-                Material(1, "Alpha Table", "photo path", 20, 45.00,100.00, 10, 1),
-                Material(2, "Beta Table", "photo path", 20, 100.00,9900.00, 5, 1),
-                Material(3, "Charlie Table", "photo path", 60, 100.00,9900.00, 5, 1),
-                Material(4, "Delta Table", "photo path", 30, 100.00,9900.00, 5, 1)
-        )
-
-        val racks = listOf(
-                Rack("A_01a_01", 1,  10),
-                Rack("A_01b_01", 1,  10),
-                Rack("A_01a_02", 2,20),
-                Rack("A_02a_01", 3, 60),
-                Rack("B_02a_01", 4, 30),
-                Rack("B_02a_02", 0, 0),
-                Rack("B_05a_05" , 0, 0)
-
-        )
-
-        lifecycleScope.launch{
-            material_type.forEach{dao.addMaterialType(it)}
-            materials.forEach{dao.addMaterial(it)}
-            racks.forEach{dao.addRack(it)}
-        }
-
+        populateDatabase()
 
         toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggle)
@@ -139,7 +109,7 @@ class MainActivity : AppCompatActivity() {
             return true
         }
 
-        var itemview = item.itemId
+        val itemview = item.itemId
         when(itemview){
 
             R.id.acc_manage_reset -> Toast.makeText(applicationContext, "Reset Clicked", Toast.LENGTH_SHORT).show()
@@ -154,5 +124,236 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.mainmenu, menu)
         return true
+    }
+
+    private fun populateDatabase(){
+        val dao = UserDatabase.getDatabase(this).userDao()
+
+        val materialTypes = listOf(
+                MaterialType(1, "Wood")
+        )
+
+        val materials = listOf(
+                Material(1, "Alpha Table", "photo path", 30, 45.00,100.00, 10, 1),
+                Material(2, "Beta Table", "photo path", 20, 100.00,9900.00, 5, 1),
+                Material(3, "Charlie Table", "photo path", 60, 100.00,9900.00, 5, 1),
+                Material(4, "Delta Table", "photo path", 30, 100.00,9900.00, 5, 1)
+        )
+
+        val racks = listOf(
+                Rack("A_01a_01", 1, 10),
+                Rack("A_01a_02", 1, 20),
+                Rack("A_01a_03", 0, 0),
+                Rack("A_01a_04", 0, 0),
+                Rack("A_01a_05", 0, 0),
+                Rack("A_01a_06", 0, 0),
+                Rack("A_01a_07", 0, 0),
+                Rack("A_01a_08", 0, 0),
+                Rack("A_01a_09", 0, 0),
+                Rack("A_01a_10", 0, 0),
+                Rack("A_01a_11", 0, 0),
+                Rack("A_01a_12", 0, 0),
+
+                Rack("A_01b_01", 0, 0),
+                Rack("A_01b_02", 0, 0),
+                Rack("A_01b_03", 0, 0),
+                Rack("A_01b_04", 0, 0),
+                Rack("A_01b_05", 0, 0),
+                Rack("A_01b_06", 0, 0),
+                Rack("A_01b_07", 0, 0),
+                Rack("A_01b_08", 0, 0),
+                Rack("A_01b_09", 0, 0),
+                Rack("A_01b_10", 0, 0),
+                Rack("A_01b_11", 0, 0),
+                Rack("A_01b_12", 0, 0),
+
+                Rack("A_02a_01", 2, 5),
+                Rack("A_02a_02", 2, 15),
+                Rack("A_02a_03", 0, 0),
+                Rack("A_02a_04", 0, 0),
+                Rack("A_02a_05", 0, 0),
+                Rack("A_02a_06", 0, 0),
+                Rack("A_02a_07", 0, 0),
+                Rack("A_02a_08", 0, 0),
+                Rack("A_02a_09", 0, 0),
+                Rack("A_02a_10", 0, 0),
+                Rack("A_02a_11", 0, 0),
+                Rack("A_02a_12", 0, 0),
+
+                Rack("A_02b_01", 0, 0),
+                Rack("A_02b_02", 0, 0),
+                Rack("A_02b_03", 0, 0),
+                Rack("A_02b_04", 0, 0),
+                Rack("A_02b_05", 0, 0),
+                Rack("A_02b_06", 0, 0),
+                Rack("A_02b_07", 0, 0),
+                Rack("A_02b_08", 0, 0),
+                Rack("A_02b_09", 0, 0),
+                Rack("A_02b_10", 0, 0),
+                Rack("A_02b_11", 0, 0),
+                Rack("A_02b_12", 0, 0),
+
+                Rack("A_03a_01", 0, 0),
+                Rack("A_03a_02", 0, 0),
+                Rack("A_03a_03", 0, 0),
+                Rack("A_03a_04", 0, 0),
+                Rack("A_03a_05", 0, 0),
+                Rack("A_03a_06", 0, 0),
+                Rack("A_03a_07", 0, 0),
+                Rack("A_03a_08", 0, 0),
+                Rack("A_03a_09", 0, 0),
+                Rack("A_03a_10", 0, 0),
+                Rack("A_03a_11", 0, 0),
+                Rack("A_03a_12", 0, 0),
+
+                Rack("A_03b_01", 0, 0),
+                Rack("A_03b_02", 0, 0),
+                Rack("A_03b_03", 0, 0),
+                Rack("A_03b_04", 0, 0),
+                Rack("A_03b_05", 0, 0),
+                Rack("A_03b_06", 0, 0),
+                Rack("A_03b_07", 0, 0),
+                Rack("A_03b_08", 0, 0),
+                Rack("A_03b_09", 0, 0),
+                Rack("A_03b_10", 0, 0),
+                Rack("A_03b_11", 0, 0),
+                Rack("A_03b_12", 0, 0),
+
+                Rack("B_01a_01", 3, 20),
+                Rack("B_01a_02", 3, 20),
+                Rack("B_01a_03", 0, 0),
+                Rack("B_01a_04", 0, 0),
+                Rack("B_01a_05", 0, 0),
+                Rack("B_01a_06", 0, 0),
+                Rack("B_01a_07", 0, 0),
+                Rack("B_01a_08", 0, 0),
+                Rack("B_01a_09", 0, 0),
+                Rack("B_01a_10", 0, 0),
+                Rack("B_01a_11", 0, 0),
+                Rack("B_01a_12", 0, 0),
+
+                Rack("B_01b_01", 3, 20),
+                Rack("B_01b_02", 0, 0),
+                Rack("B_01b_03", 0, 0),
+                Rack("B_01b_04", 0, 0),
+                Rack("B_01b_05", 0, 0),
+                Rack("B_01b_06", 0, 0),
+                Rack("B_01b_07", 0, 0),
+                Rack("B_01b_08", 0, 0),
+                Rack("B_01b_09", 0, 0),
+                Rack("B_01b_10", 0, 0),
+                Rack("B_01b_11", 0, 0),
+                Rack("B_01b_12", 0, 0),
+
+                Rack("B_02a_01", 0, 0),
+                Rack("B_02a_02", 0, 0),
+                Rack("B_02a_03", 0, 0),
+                Rack("B_02a_04", 0, 0),
+                Rack("B_02a_05", 0, 0),
+                Rack("B_02a_06", 0, 0),
+                Rack("B_02a_07", 0, 0),
+                Rack("B_02a_08", 0, 0),
+                Rack("B_02a_09", 0, 0),
+                Rack("B_02a_10", 0, 0),
+                Rack("B_02a_11", 0, 0),
+                Rack("B_02a_12", 0, 0),
+
+                Rack("B_02b_01", 0, 0),
+                Rack("B_02b_02", 0, 0),
+                Rack("B_02b_03", 0, 0),
+                Rack("B_02b_04", 0, 0),
+                Rack("B_02b_05", 0, 0),
+                Rack("B_02b_06", 0, 0),
+                Rack("B_02b_07", 0, 0),
+                Rack("B_02b_08", 0, 0),
+                Rack("B_02b_09", 0, 0),
+                Rack("B_02b_10", 0, 0),
+                Rack("B_02b_11", 0, 0),
+                Rack("B_02b_12", 0, 0),
+
+                Rack("B_03a_01", 0, 0),
+                Rack("B_03a_02", 0, 0),
+                Rack("B_03a_03", 0, 0),
+                Rack("B_03a_04", 0, 0),
+                Rack("B_03a_05", 0, 0),
+                Rack("B_03a_06", 0, 0),
+                Rack("B_03a_07", 0, 0),
+                Rack("B_03a_08", 0, 0),
+                Rack("B_03a_09", 0, 0),
+                Rack("B_03a_10", 0, 0),
+                Rack("B_03a_11", 0, 0),
+                Rack("B_03a_12", 0, 0),
+
+                Rack("B_03b_01", 0, 0),
+                Rack("B_03b_02", 0, 0),
+                Rack("B_03b_03", 0, 0),
+                Rack("B_03b_04", 0, 0),
+                Rack("B_03b_05", 0, 0),
+                Rack("B_03b_06", 0, 0),
+                Rack("B_03b_07", 0, 0),
+                Rack("B_03b_08", 0, 0),
+                Rack("B_03b_09", 0, 0),
+                Rack("B_03b_10", 0, 0),
+                Rack("B_03b_11", 0, 0),
+                Rack("B_03b_12", 0, 0),
+
+                Rack("B_04a_01", 0, 0),
+                Rack("B_04a_02", 0, 0),
+                Rack("B_04a_03", 0, 0),
+                Rack("B_04a_04", 0, 0),
+                Rack("B_04a_05", 0, 0),
+                Rack("B_04a_06", 0, 0),
+                Rack("B_04a_07", 0, 0),
+                Rack("B_04a_08", 0, 0),
+                Rack("B_04a_09", 0, 0),
+                Rack("B_04a_10", 0, 0),
+                Rack("B_04a_11", 0, 0),
+                Rack("B_04a_12", 0, 0),
+
+                Rack("B_04b_01", 0, 0),
+                Rack("B_04b_02", 0, 0),
+                Rack("B_04b_03", 0, 0),
+                Rack("B_04b_04", 0, 0),
+                Rack("B_04b_05", 0, 0),
+                Rack("B_04b_06", 0, 0),
+                Rack("B_04b_07", 0, 0),
+                Rack("B_04b_08", 0, 0),
+                Rack("B_04b_09", 0, 0),
+                Rack("B_04b_10", 0, 0),
+                Rack("B_04b_11", 0, 0),
+                Rack("B_04b_12", 0, 0),
+
+                Rack("B_05a_01", 4, 30),
+                Rack("B_05a_02", 0, 0),
+                Rack("B_05a_03", 0, 0),
+                Rack("B_05a_04", 0, 0),
+                Rack("B_05a_05", 0, 0),
+                Rack("B_05a_06", 0, 0),
+                Rack("B_05a_07", 0, 0),
+                Rack("B_05a_08", 0, 0),
+                Rack("B_05a_09", 0, 0),
+                Rack("B_05a_10", 0, 0),
+                Rack("B_05a_11", 0, 0),
+                Rack("B_05a_12", 0, 0),
+
+                Rack("B_05b_01", 0, 0),
+                Rack("B_05b_02", 0, 0),
+                Rack("B_05b_03", 0, 0),
+                Rack("B_05b_04", 0, 0),
+                Rack("B_05b_05", 0, 0),
+                Rack("B_05b_06", 0, 0),
+                Rack("B_05b_07", 0, 0),
+                Rack("B_05b_08", 0, 0),
+                Rack("B_05b_09", 0, 0),
+                Rack("B_05b_10", 0, 0),
+                Rack("B_05b_11", 0, 0),
+                Rack("B_05b_12", 0, 0),
+        )
+
+        lifecycleScope.launch{
+            materialTypes.forEach{dao.addMaterialType(it)}
+            materials.forEach{dao.addMaterial(it)}
+            racks.forEach{dao.addRack(it)}
+        }
     }
 }
