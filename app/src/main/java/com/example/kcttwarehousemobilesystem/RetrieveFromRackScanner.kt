@@ -9,13 +9,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.budiyev.android.codescanner.*
-import com.budiyev.android.codescanner.CodeScanner
 import com.example.kcttwarehousemobilesystem.entity.UserDatabase
 import kotlinx.android.synthetic.main.scanner.*
 
 private const val CAMERA_REQUEST_CODE = 101
 
-class ReceiveMaterialsScanner : AppCompatActivity() {
+class RetrieveFromRackScanner : AppCompatActivity() {
 
     private lateinit var codeScanner: CodeScanner
 
@@ -27,11 +26,11 @@ class ReceiveMaterialsScanner : AppCompatActivity() {
 
         //Action Bar
         val actionBar = supportActionBar
-        actionBar!!.title = "Receive Materials"
+        actionBar!!.title = "Retrieve from Rack"
         actionBar.setDisplayHomeAsUpEnabled(true)
 
         //set scanner text
-        scanner_text.text = "Scan Material Barcode"
+        scanner_text.text = "Scan Rack Barcode"
 
     }
 
@@ -49,34 +48,40 @@ class ReceiveMaterialsScanner : AppCompatActivity() {
 
             decodeCallback = DecodeCallback {
 
-
-
                 //Get from Database
-                val dao = UserDatabase.getDatabase(this@ReceiveMaterialsScanner).userDao()
+                val dao = UserDatabase.getDatabase(this@RetrieveFromRackScanner).userDao()
 
-                try {
-                    val materialId = it.text.toInt()
-                    //check if exist in database
-                    if(dao.materialExists(materialId)) {
-                        val material = dao.getMaterial(materialId)
+                val rackId = it.text
+                //check if exist in database
+                if(dao.rackExists(rackId)) {
+                    val rack = dao.getRack(rackId)
+
+                    //check if rack is empty
+                    if(rack.Quantity > 0){
+                        val material = dao.getMaterial(rack.MaterialId)
                         //intent
-                        val intent = Intent(this@ReceiveMaterialsScanner, MaterialDetails::class.java)
-                        intent.putExtra(MaterialDetails.MATERIAL_ID, materialId)
-                        intent.putExtra(MaterialDetails.MATERIAL_NAME, material.MaterialName)
+                        val intent = Intent(this@RetrieveFromRackScanner, MaterialDetailsRetrieve::class.java)
+                        intent.putExtra(MaterialDetailsRetrieve.RACK_ID, rackId)
+                        intent.putExtra(MaterialDetailsRetrieve.QUANTITY, rack.Quantity)
+                        intent.putExtra(MaterialDetailsRetrieve.MATERIAL_ID, material.MaterialId)
+                        intent.putExtra(MaterialDetailsRetrieve.MATERIAL_NAME, material.MaterialName)
                         startActivity(intent)
+
                     }else{
-                        //Material does not exist
+                        //Rack is empty
                         runOnUiThread {
-                            scanner_message.text = "This Material does not exist"
+                            scanner_message.text = "This Rack is empty"
                         }
                     }
 
-                }catch (ex: NumberFormatException){
-                    //Material does not exist
+                }else{
+                    //Rack does not exist
                     runOnUiThread {
-                        scanner_message.text = "This Material does not exist"
+                        scanner_message.text = "This Rack does not exist"
                     }
                 }
+
+
 
 
             }
@@ -138,6 +143,5 @@ class ReceiveMaterialsScanner : AppCompatActivity() {
             }
         }
     }
-
 
 }
