@@ -7,16 +7,26 @@ import android.text.TextUtils
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.kcttwarehousemobilesystem.R
+import com.example.kcttwarehousemobilesystem.database.UserDao
+import com.example.kcttwarehousemobilesystem.database.UserDatabase
+import com.example.kcttwarehousemobilesystem.entity.Material
+import com.example.kcttwarehousemobilesystem.materialType.MaterialTypeVM
+import com.example.kcttwarehousemobilesystem.materialType.MaterialVM
 import kotlinx.android.synthetic.main.fragment_add_new_product.*
 import kotlinx.android.synthetic.main.fragment_add_new_product.view.*
+import kotlinx.coroutines.launch
 
 class Add_new_product : Fragment() {
 
     //private lateinit var mUserViewModel: UserViewModel
     private var selectedImage: Uri? = null
-
+    //get material id to generate new id
+    //private lateinit var mViewModel: MaterialVM
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -29,9 +39,22 @@ class Add_new_product : Fragment() {
         id = arguments?.getInt("id")
         view.txt_materialType.setText(materialTypeName)
 
+        //generate new material id
+        //mViewModel = ViewModelProvider(this).get(MaterialVM::class.java)
+        //val allMaterial: LiveData<List<Material>>? = mViewModel.getAllMaterial
+        val dao: UserDao = UserDatabase.getDatabase(requireContext()).userDao()
 
 
+        lifecycleScope.launch {
+            val materialList: List<Material> = dao.getListMaterial()
+            if (materialList.isEmpty()) {
+                view.txt_materialID.setText("10")
+            }else{
 
+                    var materialId:Int = dao.getLastMId() + 1
+                    view.txt_materialID.setText(materialId.toString())
+            }
+        }
 
 
         view.btn_uploadPhoto.setOnClickListener{

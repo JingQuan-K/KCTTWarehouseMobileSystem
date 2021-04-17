@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.kcttwarehousemobilesystem.entity.Rack
 import com.example.kcttwarehousemobilesystem.database.UserDatabase
+import com.example.kcttwarehousemobilesystem.entity.Material
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.launch
 
@@ -32,9 +33,14 @@ class MainActivity : AppCompatActivity() {
             Rack("A_01a_01", 1),
             Rack("A_01a_02", 2)
         )
+        val material = listOf(
+            Material(1,"Table123","test",2,3.1,4.1,1,1),
+            Material(2,"Table123","test",2,3.1,4.1,1,1)
+        )
 
         lifecycleScope.launch{
             racks.forEach{dao.addRack(it)}
+            material.forEach{(dao.addMaterial(it))}
         }
 
         toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
