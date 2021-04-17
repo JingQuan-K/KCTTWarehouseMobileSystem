@@ -34,17 +34,17 @@ class MainActivity : AppCompatActivity() {
                 Material(1, "Alpha Table", "photo path", 20, 45.00,100.00, 10, 1),
                 Material(2, "Beta Table", "photo path", 20, 100.00,9900.00, 5, 1),
                 Material(3, "Charlie Table", "photo path", 60, 100.00,9900.00, 5, 1),
-                Material(4, "Delta Table", "photo path", 60, 100.00,9900.00, 5, 1)
+                Material(4, "Delta Table", "photo path", 30, 100.00,9900.00, 5, 1)
         )
 
         val racks = listOf(
-                Rack("A_01a_01", 1,  20),
-                Rack("A_01b_01", 1,  0),
+                Rack("A_01a_01", 1,  10),
+                Rack("A_01b_01", 1,  10),
                 Rack("A_01a_02", 2,20),
                 Rack("A_02a_01", 3, 60),
                 Rack("B_02a_01", 4, 30),
-                Rack("B_02a_02", 4, 30),
-                Rack("B_05_05" , 0, 0)
+                Rack("B_02a_02", 0, 0),
+                Rack("B_05a_05" , 0, 0)
 
         )
 

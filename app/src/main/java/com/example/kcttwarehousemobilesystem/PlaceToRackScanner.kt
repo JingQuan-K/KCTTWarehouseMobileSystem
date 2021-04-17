@@ -4,14 +4,19 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
 import com.budiyev.android.codescanner.*
 import com.budiyev.android.codescanner.CodeScanner
+import com.example.kcttwarehousemobilesystem.entity.Transactions
+import com.example.kcttwarehousemobilesystem.entity.UserDao
 import com.example.kcttwarehousemobilesystem.entity.UserDatabase
 import kotlinx.android.synthetic.main.scanner.*
+import kotlinx.coroutines.launch
 
 private const val CAMERA_REQUEST_CODE = 101
 
@@ -39,11 +44,20 @@ class PlaceToRackScanner : AppCompatActivity() {
         //set scanner text
         scanner_text.text = "Scan Rack Barcode"
 
+
+
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        var data = Intent()
+        setResult(RESULT_OK, data)
+        finish()
+        return true
     }
+
+
 
     private fun codeScanner(){
         codeScanner = CodeScanner(this, scanner_view)
@@ -67,42 +81,64 @@ class PlaceToRackScanner : AppCompatActivity() {
                 val dao = UserDatabase.getDatabase(this@PlaceToRackScanner).userDao()
                 //check if rack exists in database
                 if(dao.rackExists(rackId)) {
-
-                    //Check if material belongs to rack
                     val rackList = dao.getRackOfSpecificMaterial(materialId.toInt())
                     var isBelongsTo = false
-                    rackList.forEach { it ->
-                        if (it == rackId)
+
+                    //Check if material belongs to rack
+                    rackList.forEach { rack ->
+                        if (rack == rackId)
                             isBelongsTo = true
                     }
+
                     if(isBelongsTo){
-                        //update material quantity
-                        var materialQuantity = dao.getMaterialQuantity(materialId.toInt())
-                        materialQuantity += quantity.toInt()
-                        dao.setMaterialQuantity(materialQuantity, materialId.toInt())
+                        lifecycleScope.launch {
+                            //update material quantity & value
+                            updateMaterialDB(dao, materialId, quantity)
 
-                        //update rack quantity
-                        var rackQuantity = dao.getRackQuantity(rackId)
-                        rackQuantity += quantity.toInt()
-                        dao.setRackQuantity(rackQuantity, rackId)
+                            //update rack quantity
+                            var rackQuantity = dao.getRackQuantity(rackId)
+                            rackQuantity += quantity.toInt()
+                            dao.setRackQuantity(rackQuantity, rackId)
 
-                        //intent
+                            dao.addTransaction(Transactions(0,"Stock In", quantity.toInt(), materialId.toInt(),21 ))
+                        }
+                        intent
                         val intent = Intent(this@PlaceToRackScanner, MainActivity::class.java)
                         intent.putExtra(RACK_ID, rackId)
                         startActivity(intent)
                     }
                     else{
-                        //Material does not belong to this rack!
-                        runOnUiThread {
-                            scanner_message.text = "The Material does not belong on this Rack"
+                        //check if rack is empty
+                        if(dao.getRQty(rackId) > 0){
+                            //This rack belongs to another Material
+                            runOnUiThread {
+                                scanner_message.text = "This Rack belongs to another Material"
+                            }
+                        }
+                        else{
+                            //Rack is Empty
+                            lifecycleScope.launch{
+                                //update material quantity & value
+                                updateMaterialDB(dao, materialId, quantity)
+
+                                //set rack material id & quantity
+                                dao.setRackMaterialId(materialId.toInt(), rackId)
+                                dao.setRackQuantity(quantity.toInt(), rackId)
+
+                                dao.addTransaction(Transactions(0,"Stock In", quantity.toInt(), materialId.toInt(),21 ))
+                            }
+
+                            //intent
+                            val intent = Intent(this@PlaceToRackScanner, MainActivity::class.java)
+                            intent.putExtra(RACK_ID, rackId)
+                            startActivity(intent)
                         }
                     }
-
                 }else{
                     //This rack does not exist!
-                        runOnUiThread {
-                            scanner_message.text = "This Rack does not exist"
-                        }
+                    runOnUiThread {
+                        scanner_message.text = "This Rack does not exist"
+                    }
                 }
             }
 
@@ -115,6 +151,16 @@ class PlaceToRackScanner : AppCompatActivity() {
 
         scanner_view.setOnClickListener{
             codeScanner.startPreview()
+        }
+    }
+
+    private fun updateMaterialDB(dao:UserDao, materialId:String, quantity:String){
+        lifecycleScope.launch{
+            var materialQuantity = dao.getMaterialQuantity(materialId.toInt())
+            materialQuantity += quantity.toInt()
+            var materialTotalValue = materialQuantity * dao.getMaterialCostPerItem(materialId.toInt())
+            dao.setMaterialQuantity(materialQuantity, materialId.toInt())
+            dao.setMaterialTotalValue(materialTotalValue, materialId.toInt())
         }
     }
 
@@ -138,24 +184,24 @@ class PlaceToRackScanner : AppCompatActivity() {
 
     private fun makeRequest(){
         ActivityCompat.requestPermissions(
-            this,
-            arrayOf(android.Manifest.permission.CAMERA),
-            CAMERA_REQUEST_CODE
+                this,
+                arrayOf(android.Manifest.permission.CAMERA),
+                CAMERA_REQUEST_CODE
         )
     }
 
     override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
+            requestCode: Int,
+            permissions: Array<out String>,
+            grantResults: IntArray
     ) {
         when(requestCode){
             CAMERA_REQUEST_CODE -> {
                 if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
                     Toast.makeText(
-                        this,
-                        "You need the camera permission to be able to use this app!",
-                        Toast.LENGTH_SHORT
+                            this,
+                            "You need the camera permission to be able to use this app!",
+                            Toast.LENGTH_SHORT
                     ).show()
                 } else {
                     //successful

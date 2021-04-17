@@ -28,14 +28,20 @@ interface UserDao {
     @Query("SELECT * FROM material_table WHERE MaterialId = :MaterialId")
     fun getMaterial(MaterialId: Int) : Material
 
-    @Query("SELECT Quantity FROM material_table WHERE MaterialId = :MaterialId")
-    fun getMaterialQuantity(MaterialId: Int) : Int
-
-    @Query("UPDATE material_table SET Quantity = :Quantity WHERE MaterialId = :MaterialId")
-    fun setMaterialQuantity(Quantity: Int, MaterialId: Int)
-
     @Query("SELECT EXISTS (SELECT * FROM material_table WHERE MaterialId = :MaterialId)")
     fun materialExists(MaterialId: Int): Boolean
+
+    @Query("SELECT CostPI FROM material_table WHERE MaterialId = :MaterialId")
+    suspend fun getMaterialCostPerItem(MaterialId: Int) :Double
+
+    @Query("UPDATE material_table SET totalValue = :totalValue WHERE MaterialId = :MaterialId")
+    suspend fun setMaterialTotalValue(totalValue: Double, MaterialId: Int)
+
+    @Query("SELECT Quantity FROM material_table WHERE MaterialId = :MaterialId")
+    suspend fun getMaterialQuantity(MaterialId: Int) : Int
+
+    @Query("UPDATE material_table SET Quantity = :Quantity WHERE MaterialId = :MaterialId")
+    suspend fun setMaterialQuantity(Quantity: Int, MaterialId: Int)
 
     //RACK
     @Insert(onConflict = OnConflictStrategy.IGNORE)
@@ -48,13 +54,19 @@ interface UserDao {
     fun getRack(RackId: String) : Rack
 
     @Query("SELECT Quantity FROM rack_table WHERE RackId = :RackId")
-    fun getRackQuantity(RackId: String) : Int
+    suspend fun getRackQuantity(RackId: String) : Int
+
+    @Query("SELECT Quantity FROM rack_table WHERE RackId = :RackId")
+    fun getRQty(RackId: String) : Int
 
     @Query("UPDATE rack_table SET Quantity = :Quantity WHERE RackId = :RackId")
-    fun setRackQuantity(Quantity: Int, RackId: String)
+    suspend fun setRackQuantity(Quantity: Int, RackId: String)
 
     @Query("SELECT EXISTS (SELECT * FROM rack_table WHERE RackId = :RackId)")
     fun rackExists(RackId: String): Boolean
+
+    @Query("UPDATE rack_table SET MaterialId = :MaterialId WHERE RackId = :RackId")
+    suspend fun setRackMaterialId(MaterialId: Int, RackId: String)
 
     @Transaction
     @Query("SELECT rack_table.RackId FROM rack_table, material_table WHERE rack_table.MaterialId = material_table.MaterialId AND MaterialName LIKE '%' || :MaterialName || '%'")

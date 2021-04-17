@@ -28,13 +28,16 @@ class MaterialDetails : AppCompatActivity() {
         actionBar.setDisplayHomeAsUpEnabled(true)
 
         //get material id from intent
-        materialId = intent?.extras?.getInt(MATERIAL_ID).toString().toInt()
+        if(intent?.extras?.getInt(MATERIAL_ID) != null){
+            materialId = intent?.extras?.getInt(MATERIAL_ID).toString().toInt()
+        }
+
+
         materialName = intent?.extras?.getString(MATERIAL_NAME).toString()
 
         //set text
         material_id.text = materialId.toString()
         material_name.text = materialName
-
 
         //set default quantity
         quantity_textField.text = Editable.Factory.getInstance().newEditable(DEFAULT_QUANTITY)
@@ -56,7 +59,6 @@ class MaterialDetails : AppCompatActivity() {
             }else{
                 quantity_textField.text = Editable.Factory.getInstance().newEditable("1")
             }
-
         }
 
         //Increase quantity
@@ -80,9 +82,7 @@ class MaterialDetails : AppCompatActivity() {
                 if(quantity_textField.text.toString().toInt() > 0)
                     minus_quantity.isEnabled = true
             }
-
         }
-
 
         //check if quantity is valid
         next_activity_btn.setOnClickListener {
@@ -106,19 +106,6 @@ class MaterialDetails : AppCompatActivity() {
 
     }
 
-/*    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
 
-        val currentId = materialId
-        outState.putInt("savedCurrentId", materialId)
-    }
-
-    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-        super.onRestoreInstanceState(savedInstanceState)
-
-        val currentId = savedInstanceState.getInt("savedCurrentId", 0)
-        materialId = currentId
-        material_id.text = materialId.toString()
-    }*/
 
 }

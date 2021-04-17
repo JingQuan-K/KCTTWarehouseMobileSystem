@@ -1,12 +1,16 @@
 package com.example.kcttwarehousemobilesystem
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
+import androidx.lifecycle.lifecycleScope
 import com.budiyev.android.codescanner.*
+import com.example.kcttwarehousemobilesystem.entity.Transactions
 import com.example.kcttwarehousemobilesystem.entity.UserDatabase
 import kotlinx.android.synthetic.main.activity_material_details.*
+import kotlinx.coroutines.launch
 
 class MaterialDetailsRetrieve : AppCompatActivity() {
 
@@ -100,7 +104,7 @@ class MaterialDetailsRetrieve : AppCompatActivity() {
 
                     var quantity = quantity_textField.text.toString().toInt()
                     if (quantity <= rackQuantity) {
-                        updateDatabase()
+                        updateDatabase(quantity)
 
 
                     } else {
@@ -118,25 +122,35 @@ class MaterialDetailsRetrieve : AppCompatActivity() {
         }
     }
 
-    private fun updateDatabase(){
+    private fun updateDatabase(quantity:Int){
         //Database
         val dao = UserDatabase.getDatabase(this@MaterialDetailsRetrieve).userDao()
-        //update material quantity
-        var materialQuantity = dao.getMaterialQuantity(2)
 
-        //materialQuantity -= rackQuantity
-        //dao.setMaterialQuantity(materialQuantity, materialId)
+        lifecycleScope.launch{
+            //update material quantity
+            var materialQuantity = dao.getMaterialQuantity(materialId)
+            materialQuantity -= quantity
+            var materialTotalValue = materialQuantity * dao.getMaterialCostPerItem(materialId)
+            dao.setMaterialQuantity(materialQuantity, materialId)
+            dao.setMaterialTotalValue(materialTotalValue, materialId)
 
-        //update rack quantity
-        //var rQuantity = dao.getRackQuantity(rackId)
-        //rQuantity -= rackQuantity
-        //dao.setRackQuantity(rQuantity, rackId)
+            //update rack quantity
+            var rQuantity = dao.getRackQuantity(rackId)
+            rQuantity -= quantity
+            dao.setRackQuantity(rQuantity, rackId)
+            //if rack quantity id 0, it does not belong to a material id
+            if(rQuantity == 0){
+                dao.setRackMaterialId(0,rackId)
+            }
+
+            dao.addTransaction(Transactions(0,"Stock Out", quantity, materialId,21 ))
+        }
 
         //intent
-        //val intent = Intent(this, MainActivity::class.java)
-        //intent.putExtra(MATERIAL_NAME, materialName)
-        //intent.putExtra(QUANTITY,quantity)
-        //startActivity(intent)
+        val intent = Intent(this, MainActivity::class.java)
+        intent.putExtra(MATERIAL_NAME, materialName)
+        intent.putExtra(QUANTITY,quantity)
+        startActivity(intent)
     }
 
 
