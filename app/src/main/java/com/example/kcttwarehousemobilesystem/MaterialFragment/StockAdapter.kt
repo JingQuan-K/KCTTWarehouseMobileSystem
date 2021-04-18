@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
@@ -35,8 +36,12 @@ class StockAdapter: RecyclerView.Adapter<StockAdapter.MyViewHolder>() {
 
         holder.itemView.edit_btn.setOnClickListener {view->
             val bundle = Bundle()
-            bundle.putString("MaterialTypeName", stockDetail[position].MaterialName)
+            bundle.putString("MaterialName", stockDetail[position].MaterialName)
             bundle.putInt("id", stockDetail[position].MaterialId)
+            bundle.putInt("ttlQ", stockDetail[position].Quantity)
+            bundle.putDouble("ttlV", stockDetail[position].totalValue)
+            bundle.putDouble("costPI", stockDetail[position].CostPI)
+            bundle.putInt("reorderLvl", stockDetail[position].reorderLvl)
             view.findNavController().navigate(R.id.action_stockDetail_to_editProduct, bundle)
         }
     }

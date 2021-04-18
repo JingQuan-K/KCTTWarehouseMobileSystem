@@ -19,6 +19,9 @@ class MaterialVM(application: Application): AndroidViewModel(application) {
     val materialVal: MutableLiveData<List<Material>> by lazy {
         MutableLiveData<List<Material>>()
     }
+    val materialValLow: MutableLiveData<List<Material>> by lazy {
+        MutableLiveData<List<Material>>()
+    }
 
     init {
         val userDao = UserDatabase.getDatabase(application).userDao()

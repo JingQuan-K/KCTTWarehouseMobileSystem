@@ -30,8 +30,14 @@ interface UserDao {
     @Query("SELECT * FROM material_table ORDER BY MaterialId DESC")
     fun getAllMaterial(): LiveData<List<Material>>
 
-    @Query("SELECT * FROM material_table WHERE MaterialTypeId = :MaterialTypeId ORDER BY MaterialId DESC")
+    @Query("SELECT * FROM material_table WHERE MaterialTypeId = :MaterialTypeId AND Quantity > reorderLvl ORDER BY MaterialId ")
     suspend fun getMTIDMaterial(MaterialTypeId: Int): List<Material>
+
+    @Query("SELECT * FROM material_table WHERE MaterialTypeId = :MaterialTypeId AND Quantity <= reorderLvl ORDER BY MaterialId ")
+    suspend fun getMTIDMaterialLow(MaterialTypeId: Int): List<Material>
+
+    @Query("UPDATE material_table SET MaterialName = :MaterialName, Quantity = :Quantity, CostPI = :CostPI, totalValue = :totalValue, reorderLvl = :reorderLvl")
+    suspend fun updateMaterial(MaterialName: String, Quantity: Int, CostPI:Double, totalValue: Double, reorderLvl: Int)
 
     @Query("SELECT * FROM rack_table ORDER BY RackId DESC")
     fun getAllRack(): LiveData<List<Rack>>
@@ -122,6 +128,10 @@ interface UserDao {
     @Transaction
     @Query("SELECT * FROM user_table WHERE userId = :userId")
     suspend fun getUserWithTransactions(userId:String): List<UserAndTrans>
+
+    //IMAGE
+    @Query("SELECT Image FROM material_table WHERE MaterialId = :MaterialId")
+    suspend fun getImageOfMaterial(MaterialId: Int): ByteArray
 }
 
 

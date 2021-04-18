@@ -20,4 +20,6 @@
     <color name="cyan">#66FCF1</color>
     <color name="LabelColor">#abacb0</color>
     <color name="InputText">#484848</color>
+
+    <color name="tabColor">#272727</color>
 </resources>

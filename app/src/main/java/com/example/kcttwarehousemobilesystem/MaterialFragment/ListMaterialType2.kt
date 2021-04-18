@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.material_type_view2.view.*
 
 class ListMaterialType2: RecyclerView.Adapter<ListMaterialType2.MyViewHolder>() {
     private var materialTypeList = emptyList<MaterialType>()
+    val bundle = Bundle()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.material_type_view2, parent, false))
@@ -27,7 +28,7 @@ class ListMaterialType2: RecyclerView.Adapter<ListMaterialType2.MyViewHolder>() 
         holder.itemView.button_materialType2.text = currentItem.MaterialTypeName.toString()
 
         holder.itemView.button_materialType2.setOnClickListener {view->
-            val bundle = Bundle()
+
             bundle.putInt("id", materialTypeList[position].MaterialTypeId)
             view.findNavController().navigate(R.id.action_materialList_to_stockDetail, bundle)
         }
