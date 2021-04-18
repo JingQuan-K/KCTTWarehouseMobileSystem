@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/material_nav_graph"
     app:startDestination="@id/register_material">
+
     <fragment
         android:id="@+id/register_material"
         android:name="com.example.kcttwarehousemobilesystem.MaterialFragment.Register_material"
@@ -16,7 +17,7 @@
     <fragment
         android:id="@+id/add_new_product"
         android:name="com.example.kcttwarehousemobilesystem.MaterialFragment.Add_new_product"
-        android:label="New Poduct"
+        android:label="New Product"
         tools:layout="@layout/fragment_add_new_product" >
         <action
             android:id="@+id/action_add_new_product_to_register_material"

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -21,8 +22,6 @@ import kotlinx.android.synthetic.main.fragment_stock_detail.view.*
 import kotlinx.coroutines.launch
 
 class StockDetail : Fragment() {
-
-    private lateinit var stkViewModel: MaterialVM
     //Tab things
     lateinit var tabLayout: TabLayout
     lateinit var viewPager: ViewPager
@@ -33,30 +32,23 @@ class StockDetail : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_stock_detail, container, false)
 
-        var id: Int?=null
-        id = arguments?.getInt("id")
-        if(id != null){
-            val adapter = StockAdapter()
-            val recyclerView = view.recyclerView
-            recyclerView.setHasFixedSize(true)
-            recyclerView.adapter = adapter
-            recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-            /*val viewPager: ViewPager = findViewById(R.id.view_pager)
-            val tabs: TabLayout = findViewById(R.id.tabs)
-            tabs.setupWithViewPager(viewPager)*/
-            val dao = UserDatabase.getDatabase(requireContext()).userDao()
-            stkViewModel = ViewModelProvider(this).get(MaterialVM::class.java)
-            lifecycleScope.launch {
-                stkViewModel.materialVal.value = dao.getMTIDMaterial(id)
+        tabLayout = view.findViewById(R.id.tabs)
+        viewPager = view.findViewById(R.id.view_pager)
+        tabLayout.addTab(tabLayout.newTab().setText("Stock Details"))
+        tabLayout.addTab(tabLayout.newTab().setText("Low Stock"))
+        tabLayout.tabGravity = TabLayout.GRAVITY_FILL
+        val activity = context as AppCompatActivity
+        val adapter = StockDetailPagerAdapter(requireContext(), activity.supportFragmentManager, tabLayout.tabCount)
+        viewPager.adapter = adapter
+        viewPager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabLayout))
+        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab) {
+                viewPager.currentItem = tab.position
             }
-            stkViewModel.materialVal.observe(viewLifecycleOwner, Observer { material ->
-                adapter.setData(material)
-            })
-        }
-
-
-
+            override fun onTabUnselected(tab: TabLayout.Tab) {}
+            override fun onTabReselected(tab: TabLayout.Tab) {}
+        })
 
 
 
