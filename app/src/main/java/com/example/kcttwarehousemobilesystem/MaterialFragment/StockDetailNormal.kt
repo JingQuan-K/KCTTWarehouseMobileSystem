@@ -15,7 +15,7 @@ import com.example.kcttwarehousemobilesystem.materialType.MaterialVM
 import kotlinx.android.synthetic.main.stock_details_normal.view.*
 import kotlinx.coroutines.launch
 
-class StockDetailNormal:Fragment() {
+class StockDetailNormal(val bundle: Bundle):Fragment() {
 
     private lateinit var stkViewModel: MaterialVM
 
@@ -23,24 +23,21 @@ class StockDetailNormal:Fragment() {
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.stock_details_normal, container, false)
 
-        var id: Int?=null
-        id = arguments?.getInt("id")
-        if(id != null){
-            val adapter = StockAdapter()
-            val recyclerView = root.rvNormal
-            recyclerView.setHasFixedSize(true)
-            recyclerView.adapter = adapter
-            recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        val id:Int = bundle.getInt("id")
+        val adapter = StockAdapter()
+        val recyclerView = root.rvNormal
+        recyclerView.setHasFixedSize(true)
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-            val dao = UserDatabase.getDatabase(requireContext()).userDao()
-            stkViewModel = ViewModelProvider(this).get(MaterialVM::class.java)
-            lifecycleScope.launch {
-                stkViewModel.materialVal.value = dao.getMTIDMaterial(id)
-            }
-            stkViewModel.materialVal.observe(viewLifecycleOwner, Observer { material ->
-                adapter.setData(material)
-            })
+        val dao = UserDatabase.getDatabase(requireContext()).userDao()
+        stkViewModel = ViewModelProvider(this).get(MaterialVM::class.java)
+        lifecycleScope.launch {
+            stkViewModel.materialVal.value = dao.getMTIDMaterial(id)
         }
+        stkViewModel.materialVal.observe(viewLifecycleOwner, Observer { material ->
+            adapter.setData(material)
+        })
 
         return root
     }

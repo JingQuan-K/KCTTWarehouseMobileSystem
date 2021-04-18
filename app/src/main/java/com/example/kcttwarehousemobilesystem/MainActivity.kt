@@ -143,7 +143,7 @@ class MainActivity : AppCompatActivity() {
 
         val materials = listOf(
                 Material(1, "Alpha Table", "photo path", 30, 45.00,100.00, 10, 1),
-                Material(2, "Beta Table", "photo path", 20, 100.00,9900.00, 5, 1),
+                Material(2, "Beta Table", "photo path", 1, 100.00,9900.00, 5, 1),
                 Material(3, "Charlie Table", "photo path", 60, 100.00,9900.00, 5, 1),
                 Material(4, "Delta Table", "photo path", 30, 100.00,9900.00, 5, 1)
         )
