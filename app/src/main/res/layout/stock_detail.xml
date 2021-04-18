@@ -12,8 +12,7 @@
         android:layout_height="match_parent"
         android:paddingTop="150dp"
         tools:layout_editor_absoluteX="-52dp"
-        tools:layout_editor_absoluteY="73dp"
-        >
+        tools:layout_editor_absoluteY="73dp">
 
         <TableRow
             android:layout_width="match_parent"

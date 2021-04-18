@@ -29,6 +29,9 @@
         <activity
             android:name=".Homepage"
             android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Report"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

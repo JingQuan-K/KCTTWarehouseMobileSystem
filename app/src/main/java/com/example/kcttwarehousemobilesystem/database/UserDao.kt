@@ -20,8 +20,7 @@ interface UserDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addRack(rack: Rack)
-
-
+    
     @Query("SELECT * FROM user_table")
     fun readAllData(): LiveData<List<User>>
 

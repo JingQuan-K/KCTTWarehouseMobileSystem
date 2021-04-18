@@ -10,6 +10,7 @@ import com.example.kcttwarehousemobilesystem.R
 import com.example.kcttwarehousemobilesystem.entity.Material
 import com.example.kcttwarehousemobilesystem.entity.Transactions
 import kotlinx.android.synthetic.main.report.view.*
+import kotlinx.android.synthetic.main.report2.view.*
 
 
 class Report() : RecyclerView.Adapter<Report.MyViewHolder>() {
@@ -21,7 +22,7 @@ class Report() : RecyclerView.Adapter<Report.MyViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Report.MyViewHolder {
-        return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.report, parent, false))
+        return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.report2, parent, false))
     }
 
     override fun onBindViewHolder(holder: Report.MyViewHolder, position: Int) {
@@ -34,8 +35,12 @@ class Report() : RecyclerView.Adapter<Report.MyViewHolder>() {
 
     }
 
-    fun setData(material: List<Material>, transactions: List<Transactions>){
+    fun setDataM(material: List<Material>){
         this.materialList = material
+        notifyDataSetChanged()
+    }
+
+    fun setDataT(transactions: List<Transactions>){
         this.transactionsList = transactions
         notifyDataSetChanged()
     }
@@ -43,5 +48,4 @@ class Report() : RecyclerView.Adapter<Report.MyViewHolder>() {
     override fun getItemCount(): Int {
         return materialList.size
     }
-
 }

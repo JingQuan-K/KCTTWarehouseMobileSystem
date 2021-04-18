@@ -11,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import com.example.kcttwarehousemobilesystem.entity.Rack
 import com.example.kcttwarehousemobilesystem.database.UserDatabase
 import com.example.kcttwarehousemobilesystem.entity.Material
+import com.example.kcttwarehousemobilesystem.entity.Transactions
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.launch
 
@@ -34,13 +35,18 @@ class MainActivity : AppCompatActivity() {
             Rack("A_01a_02", 2)
         )
         val material = listOf(
-            Material(1,"Table123","test",2,3.1,4.1,1,1),
-            Material(2,"Table123","test",2,3.1,4.1,1,1)
+            Material(1,"table","aaa",500,10.00,50.00,100,1) ,
+                Material(2,"table","aaa",500,10.00,50.00,100,2)
         )
 
+        val transactions = listOf(
+                Transactions(1,"Stock In", 50, 60, 70, 1, 1),
+                Transactions(2,"Stock In", 50, 60, 70, 2, 2)
+        )
         lifecycleScope.launch{
             racks.forEach{dao.addRack(it)}
-            material.forEach{(dao.addMaterial(it))}
+            material.forEach{dao.addMaterial(it)}
+            transactions.forEach{dao.addTransactions(it)}
         }
 
         toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
@@ -102,7 +108,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         report_btn.setOnClickListener {
-
+            val intent = Intent(this,Report::class.java)
+            startActivity(intent)
         }
 
         //Display Toast if successfully placed material to rack
