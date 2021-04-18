@@ -36,7 +36,7 @@ interface UserDao {
     @Query("SELECT * FROM rack_table ORDER BY RackId DESC")
     fun getAllRack(): LiveData<List<Rack>>
 
-    @Query("SELECT * FROM transaction_table ORDER BY TransactionId DESC")
+    @Query("SELECT * FROM transaction_table ORDER BY TransactionId ASC")
     fun getAllTransactions(): LiveData<List<Transactions>>
 
     @Transaction
@@ -123,4 +123,5 @@ interface UserDao {
     @Query("SELECT * FROM user_table WHERE userId = :userId")
     suspend fun getUserWithTransactions(userId:String): List<UserAndTrans>
 }
+
 

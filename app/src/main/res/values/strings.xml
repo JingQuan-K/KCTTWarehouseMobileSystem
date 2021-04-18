@@ -56,11 +56,11 @@
     <string name="material_nameN">Material Name</string>
     <string name="welcome_to_pop_up">Welcome to Pop up</string>
 
-    <string name="monthly_stock_report">Monthly Stock Report</string>
+    <string name="transactions_report">Transactions Report</string>
     <string name="product_id">Product ID</string>
-    <string name="stock_in">Stock In</string>
-    <string name="stock_out">Stock Out</string>
-    <string name="total_quantity">Total Quantity</string>
+    <string name="transaction_type">Transaction Type</string>
+    <string name="transaction_id">Transaction ID</string>
+    <string name="total_quantity">Quantity</string>
 
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>

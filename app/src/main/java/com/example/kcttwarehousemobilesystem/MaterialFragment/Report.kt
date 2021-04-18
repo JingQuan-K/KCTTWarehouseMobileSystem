@@ -4,9 +4,12 @@ package com.example.kcttwarehousemobilesystem.MaterialFragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kcttwarehousemobilesystem.R
+import com.example.kcttwarehousemobilesystem.database.UserDatabase
 import com.example.kcttwarehousemobilesystem.entity.Material
 import com.example.kcttwarehousemobilesystem.entity.Transactions
 import kotlinx.android.synthetic.main.report.view.*
@@ -15,8 +18,10 @@ import kotlinx.android.synthetic.main.report2.view.*
 
 class Report() : RecyclerView.Adapter<Report.MyViewHolder>() {
 
-    private var materialList = emptyList<Material>()
     private var transactionsList = emptyList<Transactions>()
+
+    var material:Int = 0
+
     class MyViewHolder(itemView:View): RecyclerView.ViewHolder(itemView){
 
     }
@@ -26,16 +31,12 @@ class Report() : RecyclerView.Adapter<Report.MyViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: Report.MyViewHolder, position: Int) {
-        val materialDetail = materialList[position]
         val transactionDetail = transactionsList[position]
-        holder.itemView.productId.text = materialDetail.MaterialId.toString()
-        holder.itemView.totalQuantity.text = materialDetail.Quantity.toString()
 
-    }
-
-    fun setDataM(material: List<Material>){
-        this.materialList = material
-        notifyDataSetChanged()
+        holder.itemView.quantity.text = transactionDetail.Quantity.toString()
+        holder.itemView.transactionType.text = transactionDetail.TransactionType.toString()
+        holder.itemView.productId.text = transactionDetail.MaterialId.toString()
+        holder.itemView.transactionId.text = transactionDetail.TransactionId.toString()
     }
 
     fun setDataT(transactions: List<Transactions>){
@@ -44,6 +45,8 @@ class Report() : RecyclerView.Adapter<Report.MyViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        return materialList.size
+        return transactionsList.size
     }
 }
+
+

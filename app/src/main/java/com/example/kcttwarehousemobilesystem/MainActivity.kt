@@ -149,7 +149,10 @@ class MainActivity : AppCompatActivity() {
         )
         val transactions = listOf(
                 Transactions(1,"Stock In", 50, 1, 1),
-                Transactions(2,"Stock In", 50, 2, 2)
+                Transactions(2,"Stock In", 20, 2, 2),
+                Transactions(3,"Stock Out", 40, 2, 3),
+                Transactions(3,"Stock In", 30, 2, 3),
+                Transactions(4,"Stock Out", 50, 3, 4)
         )
 
         val racks = listOf(

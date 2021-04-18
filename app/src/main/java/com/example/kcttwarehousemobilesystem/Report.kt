@@ -16,7 +16,6 @@ import kotlinx.android.synthetic.main.report.*
 
 class Report : AppCompatActivity() {
 
-    private lateinit var mMaterialVM: MaterialVM
     private lateinit var rMaterialVM: TransactionsVM
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,10 +29,6 @@ class Report : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         //view model
-        mMaterialVM = ViewModelProvider(this).get(MaterialVM::class.java)
-        mMaterialVM.getAllMaterial.observe(this, Observer { material ->
-            adapter.setDataM(material)
-        })
         rMaterialVM = ViewModelProvider(this).get(TransactionsVM::class.java)
         rMaterialVM.getAllTransactions.observe(this, Observer { transactions ->
             adapter.setDataT(transactions)
