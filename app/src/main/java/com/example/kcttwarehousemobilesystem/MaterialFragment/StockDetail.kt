@@ -23,6 +23,9 @@ import kotlinx.coroutines.launch
 class StockDetail : Fragment() {
 
     private lateinit var stkViewModel: MaterialVM
+    //Tab things
+    lateinit var tabLayout: TabLayout
+    lateinit var viewPager: ViewPager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,7 +36,6 @@ class StockDetail : Fragment() {
         var id: Int?=null
         id = arguments?.getInt("id")
         if(id != null){
-
             val adapter = StockAdapter()
             val recyclerView = view.recyclerView
             recyclerView.setHasFixedSize(true)
@@ -52,30 +54,16 @@ class StockDetail : Fragment() {
                 adapter.setData(material)
             })
         }
+
+
+
+
+
+
+
+
+
         // Inflate the layout for this fragment
         return view
-    }
-
-
-
-    companion object {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private const val ARG_SECTION_NUMBER = "section_number"
-
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        @JvmStatic
-        fun newInstance(sectionNumber: Int): StockDetail {
-            return StockDetail().apply {
-                arguments = Bundle().apply {
-                    putInt(ARG_SECTION_NUMBER, sectionNumber)
-                }
-            }
-        }
     }
 }
