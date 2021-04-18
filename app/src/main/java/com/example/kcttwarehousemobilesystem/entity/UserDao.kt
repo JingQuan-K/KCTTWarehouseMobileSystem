@@ -74,7 +74,6 @@ interface UserDao {
     fun getRackOfSpecificMaterial(MaterialId: Int) : List<String>
 
 
-
     //getTypeWithMaterials
     @Transaction
     @Query("SELECT * FROM materialType_table WHERE MaterialTypeId = :MaterialTypeId ")
