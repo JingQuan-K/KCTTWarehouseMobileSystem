@@ -8,11 +8,8 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.example.kcttwarehousemobilesystem.entity.Material
-import com.example.kcttwarehousemobilesystem.entity.MaterialType
-import com.example.kcttwarehousemobilesystem.entity.Rack
-import com.example.kcttwarehousemobilesystem.entity.Transactions
 import com.example.kcttwarehousemobilesystem.database.UserDatabase
+import com.example.kcttwarehousemobilesystem.entity.Rack
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.launch
 
@@ -22,13 +19,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.register)
-        //setContentView(R.layout.login)
-        //setContentView(R.layout.forget_password)
-        //setContentView(R.layout.forget_password_cont)
-        //setContentView(R.layout.reset_password)
         setContentView(R.layout.activity_main)
-        //setContentView(R.layout.fragment_login)
 
         populateDatabase()
 
@@ -137,7 +128,7 @@ class MainActivity : AppCompatActivity() {
     private fun populateDatabase(){
         val dao = UserDatabase.getDatabase(this).userDao()
 
-        val materialTypes = listOf(
+/*        val materialTypes = listOf(
                 MaterialType(1, "Wood")
         )
 
@@ -147,10 +138,11 @@ class MainActivity : AppCompatActivity() {
                 Material(3, "Charlie Table", "photo path", 60, 100.00,9900.00, 5, 1),
                 Material(4, "Delta Table", "photo path", 30, 100.00,9900.00, 5, 1)
         )
+
         val transactions = listOf(
                 Transactions(1,"Stock In", 50, 1, 1),
                 Transactions(2,"Stock In", 50, 2, 2)
-        )
+        )*/
 
         val racks = listOf(
                 Rack("A_01a_01", 1, 10),
@@ -363,10 +355,10 @@ class MainActivity : AppCompatActivity() {
         )
 
         lifecycleScope.launch{
-            materialTypes.forEach{dao.addMaterialType(it)}
-            materials.forEach{dao.addMaterial(it)}
+            //materialTypes.forEach{dao.addMaterialType(it)}
+            //materials.forEach{dao.addMaterial(it)}
             racks.forEach{dao.addRack(it)}
-            transactions.forEach{dao.addTransactions(it)}
+            //transactions.forEach{dao.addTransactions(it)}
         }
     }
 }

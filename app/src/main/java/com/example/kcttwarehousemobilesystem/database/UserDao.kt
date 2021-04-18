@@ -6,23 +6,20 @@ import com.example.kcttwarehousemobilesystem.entity.*
 
 @Dao
 interface UserDao {
+    //USER
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addUser(user: User)
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun addTransactions(transactions: Transactions)
+    @Query("SELECT * FROM user_table")
+    fun readAllData(): LiveData<List<User>>
 
+
+    //MATERIAL
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addMaterial(material: Material)
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addMaterialType(mt: MaterialType)
-
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun addRack(rack: Rack)
-    
-    @Query("SELECT * FROM user_table")
-    fun readAllData(): LiveData<List<User>>
 
     @Query("SELECT * FROM materialType_table ORDER BY MaterialTypeId DESC")
     fun getAllMaterialType(): LiveData<List<MaterialType>>
@@ -33,32 +30,11 @@ interface UserDao {
     @Query("SELECT * FROM material_table WHERE MaterialTypeId = :MaterialTypeId ORDER BY MaterialId DESC")
     suspend fun getMTIDMaterial(MaterialTypeId: Int): List<Material>
 
-    @Query("SELECT * FROM rack_table ORDER BY RackId DESC")
-    fun getAllRack(): LiveData<List<Rack>>
-
-    @Query("SELECT * FROM transaction_table ORDER BY TransactionId DESC")
-    fun getAllTransactions(): LiveData<List<Transactions>>
-
-    @Transaction
-    @Query("SELECT * FROM materialType_table WHERE MaterialTypeId = :MaterialTypeId ")
-    suspend fun getMaterialAndType(MaterialTypeId:String): List<MaterialAndType>
-
-    @Transaction
-    @Query("SELECT * FROM material_table WHERE MaterialId = :MaterialId")
-    suspend fun getMaterialAndTrans(MaterialId:String): List<MaterialAndTrans>
-
-    @Transaction
-    @Query("SELECT * FROM user_table WHERE userId = :userId")
-    suspend fun getUserAndTrans(userId:String): List<UserAndTrans>
-
     @Query("SELECT MaterialId FROM material_table ORDER BY MaterialId DESC LIMIT 1")
     suspend fun getLastMId(): Int
 
     @Query("SELECT * FROM material_table")
     suspend fun getListMaterial(): List<Material>
-
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun addTransaction(transactions: Transactions)
 
     @Query("SELECT * FROM material_table WHERE MaterialId = :MaterialId")
     fun getMaterial(MaterialId: Int) : Material
@@ -77,6 +53,14 @@ interface UserDao {
 
     @Query("UPDATE material_table SET Quantity = :Quantity WHERE MaterialId = :MaterialId")
     suspend fun setMaterialQuantity(Quantity: Int, MaterialId: Int)
+
+
+    //RACK
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun addRack(rack: Rack)
+
+    @Query("SELECT * FROM rack_table ORDER BY RackId DESC")
+    fun getAllRack(): LiveData<List<Rack>>
 
     @Query("SELECT RackId FROM rack_table")
     suspend fun  getAllRacks():List<String>
@@ -108,6 +92,38 @@ interface UserDao {
     fun getRackOfSpecificMaterial(MaterialId: Int) : List<String>
 
 
+    //TRANSACTIONS
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun addTransactions(transactions: Transactions)
+
+    @Query("SELECT * FROM transaction_table ORDER BY TransactionId DESC")
+    fun getAllTransactions(): LiveData<List<Transactions>>
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun addTransaction(transactions: Transactions)
+
+
+    //CAN REMOVE
+    @Transaction
+    @Query("SELECT * FROM materialType_table WHERE MaterialTypeId = :MaterialTypeId ")
+    suspend fun getMaterialAndType(MaterialTypeId:String): List<MaterialAndType>
+
+    @Transaction
+    @Query("SELECT * FROM material_table WHERE MaterialId = :MaterialId")
+    suspend fun getMaterialAndTrans(MaterialId:String): List<MaterialAndTrans>
+
+    @Transaction
+    @Query("SELECT * FROM user_table WHERE userId = :userId")
+    suspend fun getUserAndTrans(userId:String): List<UserAndTrans>
+
+
+
+
+
+
+
+
+
     //getTypeWithMaterials
     @Transaction
     @Query("SELECT * FROM materialType_table WHERE MaterialTypeId = :MaterialTypeId ")
@@ -122,5 +138,14 @@ interface UserDao {
     @Transaction
     @Query("SELECT * FROM user_table WHERE userId = :userId")
     suspend fun getUserWithTransactions(userId:String): List<UserAndTrans>
+
+
+    @Query("SELECT Quantity FROM transaction_table WHERE TransactionType = :TransactionType AND MaterialId = :MaterialId")
+    suspend fun getTotalQuantity(TransactionType:Int, MaterialId: Int) : List<Int>
+
+    //IMAGE
+    @Query("SELECT Image FROM material_table WHERE MaterialId = :MaterialId")
+    suspend fun getImageOfMaterial(MaterialId: Int): ByteArray
+
 }
 
