@@ -4,14 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kcttwarehousemobilesystem.R
 import com.example.kcttwarehousemobilesystem.entity.Material
-import com.example.kcttwarehousemobilesystem.entity.MaterialType
-import kotlinx.android.synthetic.main.material_type_view.view.*
-import kotlinx.android.synthetic.main.report2.view.*
 import kotlinx.android.synthetic.main.stock_detail.view.*
 
 class StockAdapter: RecyclerView.Adapter<StockAdapter.MyViewHolder>() {

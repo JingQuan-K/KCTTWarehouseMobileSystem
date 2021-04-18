@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/materialList"
         android:name="com.example.kcttwarehousemobilesystem.MaterialFragment.MaterialList"
-        android:label="fragment_material_list"
+        android:label="Material List"
         tools:layout="@layout/fragment_material_list" >
         <action
             android:id="@+id/action_materialList_to_stockDetail"
@@ -17,8 +17,8 @@
     <fragment
         android:id="@+id/stockDetail"
         android:name="com.example.kcttwarehousemobilesystem.MaterialFragment.StockDetail"
-        android:label="fragment_stock_detail"
-        tools:layout="@layout/fragment_stock_detail" >
+        android:label="Material Detail"
+        tools:layout="@layout/activity_stock_tab" >
         <action
             android:id="@+id/action_stockDetail_to_materialList"
             app:destination="@id/materialList" />
@@ -29,7 +29,7 @@
     <fragment
         android:id="@+id/editProduct"
         android:name="com.example.kcttwarehousemobilesystem.MaterialFragment.EditProduct"
-        android:label="fragment_edit_product"
+        android:label="Edit Product"
         tools:layout="@layout/fragment_edit_product" >
         <action
             android:id="@+id/action_editProduct_to_stockDetail"

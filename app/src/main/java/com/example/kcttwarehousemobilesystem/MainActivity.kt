@@ -12,10 +12,12 @@ import com.example.kcttwarehousemobilesystem.entity.Rack
 import com.example.kcttwarehousemobilesystem.database.UserDatabase
 import com.example.kcttwarehousemobilesystem.entity.Material
 import com.example.kcttwarehousemobilesystem.entity.Transactions
+import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
+
 
     lateinit var toggle: ActionBarDrawerToggle
 
@@ -28,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         //setContentView(R.layout.reset_password)
         setContentView(R.layout.activity_main)
         //setContentView(R.layout.fragment_login)
+
         val dao = UserDatabase.getDatabase(this).userDao()
 
         val racks = listOf(
