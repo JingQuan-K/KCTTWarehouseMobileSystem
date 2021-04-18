@@ -53,5 +53,11 @@ interface UserDao {
 
     @Query("SELECT * FROM material_table")
     suspend fun getListMaterial(): List<Material>
+
+
+    //IMAGE
+    @Query("SELECT Image FROM material_table WHERE MaterialId = :MaterialId")
+    suspend fun getImageOfMaterial(MaterialId: Int): ByteArray
+
 }
 

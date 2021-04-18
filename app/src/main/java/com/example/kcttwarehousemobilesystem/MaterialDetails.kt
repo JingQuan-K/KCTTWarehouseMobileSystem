@@ -1,11 +1,15 @@
 package com.example.kcttwarehousemobilesystem
 
 import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.text.Editable
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
+import androidx.lifecycle.lifecycleScope
+import com.example.kcttwarehousemobilesystem.database.UserDatabase
 import kotlinx.android.synthetic.main.activity_material_details.*
+import kotlinx.coroutines.launch
 
 class MaterialDetails : AppCompatActivity() {
 
@@ -26,6 +30,14 @@ class MaterialDetails : AppCompatActivity() {
 
         //get material id from intent
         val materialId = intent?.extras?.getString(MATERIAL_ID).toString()
+
+        //SET IMAGE__________________________________________
+        val dao = UserDatabase.getDatabase(this).userDao()
+        lifecycleScope.launch {
+            val image = dao.getImageOfMaterial(materialId.toInt())
+            val bitmap:Bitmap = Utils.getImage(image)
+            material_image.setImageBitmap(bitmap)
+        }
 
         //set text
         material_id.text = materialId

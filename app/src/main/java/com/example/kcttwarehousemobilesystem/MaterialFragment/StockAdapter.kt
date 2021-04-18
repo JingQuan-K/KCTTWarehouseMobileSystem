@@ -7,8 +7,6 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kcttwarehousemobilesystem.R
 import com.example.kcttwarehousemobilesystem.entity.Material
-import com.example.kcttwarehousemobilesystem.entity.MaterialType
-import kotlinx.android.synthetic.main.material_type_view.view.*
 
 private val TAB_TITLES = arrayOf(
         R.string.tab_text_1,
@@ -31,9 +29,9 @@ class StockAdapter: RecyclerView.Adapter<StockAdapter.MyViewHolder>() {
         val currentItem = stockDetail[position]
     }
 
-    fun getPageTitle(position: Int): CharSequence? {
-        return context.resources.getString(TAB_TITLES[position])
-    }
+/*    fun getPageTitle(position: Int): CharSequence? {
+        //return context.resources.getString(TAB_TITLES[position])
+    }*/
 
     fun getCount(): Int {
         // Show 2 total pages.

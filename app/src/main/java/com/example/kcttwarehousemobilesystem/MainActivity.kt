@@ -8,9 +8,8 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.example.kcttwarehousemobilesystem.entity.Rack
 import com.example.kcttwarehousemobilesystem.database.UserDatabase
-import com.example.kcttwarehousemobilesystem.entity.Material
+import com.example.kcttwarehousemobilesystem.entity.Rack
 import com.example.kcttwarehousemobilesystem.entity.Transactions
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.launch
@@ -34,10 +33,6 @@ class MainActivity : AppCompatActivity() {
             Rack("A_01a_01", 1),
             Rack("A_01a_02", 2)
         )
-        val material = listOf(
-            Material(1,"table","aaa",500,10.00,50.00,100,1) ,
-                Material(2,"table","aaa",500,10.00,50.00,100,2)
-        )
 
         val transactions = listOf(
                 Transactions(1,"Stock In", 50, 60, 70, 1, 1),
@@ -45,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         )
         lifecycleScope.launch{
             racks.forEach{dao.addRack(it)}
-            material.forEach{dao.addMaterial(it)}
+
             transactions.forEach{dao.addTransactions(it)}
         }
 

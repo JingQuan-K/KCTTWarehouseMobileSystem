@@ -5,14 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.viewpager.widget.ViewPager
 import com.example.kcttwarehousemobilesystem.R
-import com.example.kcttwarehousemobilesystem.materialType.MaterialTypeVM
 import com.example.kcttwarehousemobilesystem.materialType.MaterialVM
-import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.fragment_register_material.view.*
 
 class StockDetail : Fragment() {
@@ -31,14 +26,14 @@ class StockDetail : Fragment() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        val viewPager: ViewPager = findViewById(R.id.view_pager)
-        val tabs: TabLayout = findViewById(R.id.tabs)
-        tabs.setupWithViewPager(viewPager)
+        //val viewPager: ViewPager = findViewById(R.id.view_pager)
+        //val tabs: TabLayout = findViewById(R.id.tabs)
+        //tabs.setupWithViewPager(viewPager)
 
-        stkViewModel = ViewModelProvider(this).get(MaterialVM::class.java)
+/*        stkViewModel = ViewModelProvider(this).get(MaterialVM::class.java)
         stkViewModel.getAllMaterial.observe(viewLifecycleOwner, Observer { material ->
             adapter.setData(material)
-        })
+        })*/
         // Inflate the layout for this fragment
         return view
     }

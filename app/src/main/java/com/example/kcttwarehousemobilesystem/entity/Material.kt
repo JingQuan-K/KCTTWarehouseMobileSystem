@@ -5,9 +5,10 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "material_table")
 data class Material(
-    @PrimaryKey(autoGenerate = true ) val MaterialId: Int,
+    @PrimaryKey(autoGenerate = true )
+    val MaterialId: Int,
     val MaterialName: String,
-    val MaterialPhotoPath: String,
+    val Image: ByteArray,
     val Quantity: Int,
     val CostPI: Double,
     val totalValue: Double,
