@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.kcttwarehousemobilesystem.entity.Material
 import com.example.kcttwarehousemobilesystem.database.UserDatabase
 import com.example.kcttwarehousemobilesystem.database.UserRepository
+import com.example.kcttwarehousemobilesystem.entity.MaterialType
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

@@ -48,6 +48,10 @@ interface UserDao {
     @Query("SELECT * FROM user_table WHERE userId = :userId")
     suspend fun getUserAndTrans(userId:String): List<UserAndTrans>
 
+    @Query("SELECT MaterialId FROM material_table ORDER BY MaterialId DESC LIMIT 1")
+    suspend fun getLastMId(): Int
 
+    @Query("SELECT * FROM material_table")
+    suspend fun getListMaterial(): List<Material>
 }
 
