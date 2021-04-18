@@ -49,8 +49,6 @@ class ReceiveMaterialsScanner : AppCompatActivity() {
 
             decodeCallback = DecodeCallback {
 
-
-
                 //Get from Database
                 val dao = UserDatabase.getDatabase(this@ReceiveMaterialsScanner).userDao()
 
