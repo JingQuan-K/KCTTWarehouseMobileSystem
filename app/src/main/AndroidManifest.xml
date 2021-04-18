@@ -14,7 +14,15 @@
         <activity android:name=".Reset"></activity>
         <activity android:name=".Register" />
         <activity android:name=".Login" />
-        <activity android:name=".WarehouseMap" />
+        <activity
+            android:name=".MaterialDetailsRetrieve"
+            android:parentActivityName=".RetrieveFromRackScanner"/>
+        <activity
+            android:name=".RetrieveFromRackScanner"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".WarehouseMap"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".PlaceToRackScanner"
             android:parentActivityName=".MaterialDetails" />
@@ -24,11 +32,12 @@
         <activity
             android:name=".ReceiveMaterialsScanner"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".MainMaterialList" />
-        <activity android:name=".MainMaterialAct" />
         <activity
             android:name=".Homepage"
             android:parentActivityName=".MainActivity" />
+
+        <activity android:name=".MainMaterialList"/>
+        <activity android:name=".MainMaterialAct" />
         <activity
             android:name=".Report"
             android:parentActivityName=".MainActivity" />

@@ -29,8 +29,6 @@ class Report() : RecyclerView.Adapter<Report.MyViewHolder>() {
         val materialDetail = materialList[position]
         val transactionDetail = transactionsList[position]
         holder.itemView.productId.text = materialDetail.MaterialId.toString()
-        holder.itemView.stockIn.text = transactionDetail.StockIn.toString()
-        holder.itemView.stockOut.text = transactionDetail.StockOut.toString()
         holder.itemView.totalQuantity.text = materialDetail.Quantity.toString()
 
     }
