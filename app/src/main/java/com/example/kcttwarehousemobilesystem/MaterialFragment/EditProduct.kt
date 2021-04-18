@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.kcttwarehousemobilesystem.R
 import kotlinx.android.synthetic.main.fragment_add_new_product.view.*
+import kotlinx.android.synthetic.main.fragment_edit_product.*
 import kotlinx.android.synthetic.main.fragment_edit_product.view.*
 
 class EditProduct : Fragment() {
@@ -29,15 +30,14 @@ class EditProduct : Fragment() {
         materialName = arguments?.getString("MaterialName")
         id = arguments?.getInt("id")
         qty = arguments?.getInt("ttlQ")
-        ttlV = arguments?.getDouble("ttlV")
         costPI = arguments?.getDouble("costPI")
         reorderLvl = arguments?.getInt("reorderLvl")
         view.txt_materialIDE.setText(id.toString())
         view.txt_materialNameE.setText(materialName.toString())
         view.txt_quantity.setText(qty.toString())
-        view.txt_ttlValue.setText(ttlV.toString())
         view.txt_costPIE.setText(costPI.toString())
         view.txt_reorderLvl.setText(reorderLvl.toString())
+
 
         return  view
     }
@@ -56,6 +56,7 @@ class EditProduct : Fragment() {
         var itemview = item.itemId
         when(itemview){
             R.id.edit_product_btn -> {
+                val totalValue = txt_costPIE.text.toString().toDouble() * txt_quantity.text.toString().toInt()
                 Toast.makeText(context,"abc",Toast.LENGTH_LONG).show()
             }
         }
