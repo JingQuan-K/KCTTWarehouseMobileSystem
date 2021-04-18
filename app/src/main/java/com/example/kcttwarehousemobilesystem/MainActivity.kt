@@ -19,14 +19,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.fragment_register_acc)
-        //setContentView(R.layout.login)
-        //setContentView(R.layout.forget_password)
-        //setContentView(R.layout.forget_password_cont)
-        //setContentView(R.layout.reset_password)
-        // setContentView(R.layout.activity_main)
-        setContentView(R.layout.activity_login)
-/*        val dao = UserDatabase.getDatabase(this).userDao()
+        setContentView(R.layout.activity_main)
+
+        val dao = UserDatabase.getDatabase(this).userDao()
 
         val racks = listOf(
             Rack("A_01a_01", 1),
@@ -121,7 +116,10 @@ class MainActivity : AppCompatActivity() {
         when(itemview){
 
             R.id.acc_manage_reset -> Toast.makeText(applicationContext, "Reset Clicked", Toast.LENGTH_SHORT).show()
-            R.id.acc_manage_logout -> Toast.makeText(applicationContext, "Log out Clicked", Toast.LENGTH_SHORT).show()
+            R.id.acc_manage_logout -> {
+                val intent = Intent(this, Login::class.java)
+                startActivity(intent)
+            }
         }
 
         //return false
@@ -131,6 +129,6 @@ class MainActivity : AppCompatActivity() {
     //main menu
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.mainmenu, menu)
-        return true*/
+        return true
     }
 }

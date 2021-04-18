@@ -7,7 +7,6 @@
     android:background="@color/DarkCyanBlue"
     tools:context=".UserFragment.Register_acc">
 
-
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"

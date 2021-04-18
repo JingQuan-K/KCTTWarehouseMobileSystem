@@ -15,9 +15,11 @@
 
         <item name="android:actionOverflowButtonStyle">@style/SettingIcon</item>
     </style>
+
     <style name="SettingIcon" parent="android:style/Widget.Holo.ActionButton.Overflow">
         <item name="android:src">@drawable/ic_manage_acc</item>
     </style>
+
     <style name="Theme.KCTTWarehouseMobileSystem.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

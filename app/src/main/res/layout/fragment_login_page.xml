@@ -75,7 +75,7 @@
         app:layout_constraintVertical_bias="0.408" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
+        android:id="@+id/password_login_ti"
         android:layout_width="317dp"
         android:layout_height="60dp"
         android:layout_marginStart="40dp"
@@ -90,7 +90,6 @@
         app:passwordToggleTint="@color/Cyan">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditText2"
             android:layout_width="317dp"
             android:layout_height="60dp"
             android:background="@color/DarkGrey"
@@ -130,7 +129,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/password_login_ti" />
 
     <Button
         android:id="@+id/btnLoginFrag"

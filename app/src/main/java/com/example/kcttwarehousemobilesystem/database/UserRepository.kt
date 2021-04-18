@@ -26,6 +26,7 @@ class UserRepository(private val userDao: UserDao) {
         userDao.addTransactions(mt)
     }
 
+
     val getAllMaterialType: LiveData<List<MaterialType>> = userDao.getAllMaterialType()
     val getAllMaterial: LiveData<List<Material>> = userDao.getAllMaterial()
     val getAllRack: LiveData<List<Rack>> = userDao.getAllRack()

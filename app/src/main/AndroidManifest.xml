@@ -11,9 +11,12 @@
         android:roundIcon="@mipmap/ic_app_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.KCTTWarehouseMobileSystem">
-        <activity android:name=".Reset"></activity>
         <activity android:name=".Register" />
-        <activity android:name=".Login" />
+        <activity
+            android:name=".Login"
+            android:label="@string/title_activity_login"
+            android:theme="@style/Theme.KCTTWarehouseMobileSystem.NoActionBar" />
+        <activity android:name=".Reset" />
         <activity android:name=".WarehouseMap" />
         <activity
             android:name=".PlaceToRackScanner"
@@ -26,9 +29,6 @@
             android:parentActivityName=".MainActivity" />
         <activity android:name=".MainMaterialList" />
         <activity android:name=".MainMaterialAct" />
-        <activity
-            android:name=".Homepage"
-            android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
