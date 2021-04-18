@@ -103,7 +103,7 @@ class Add_new_product : Fragment() {
             val bitmap = (img_materialPhoto.drawable as BitmapDrawable).bitmap
             //validate bitmap size
             val byteArray:ByteArray = Utils.getBytes(bitmap)
-            if(byteArray.size < 1025){
+            if(byteArray.size < 1024*1024){
                 val material = Material(materialId, materialName, byteArray, 0, costPI, 0.00, 10, 1)
                 lifecycleScope.launch {
                     val dao: UserDao = UserDatabase.getDatabase(requireContext()).userDao()

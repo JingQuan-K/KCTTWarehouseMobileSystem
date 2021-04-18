@@ -127,5 +127,9 @@ interface UserDao {
     @Transaction
     @Query("SELECT * FROM user_table WHERE userId = :userId")
     suspend fun getUserWithTransactions(userId:String): List<UserAndTrans>
+
+    //IMAGE
+    @Query("SELECT Image FROM material_table WHERE MaterialId = :MaterialId")
+    suspend fun getImageOfMaterial(MaterialId: Int): ByteArray
 }
 
