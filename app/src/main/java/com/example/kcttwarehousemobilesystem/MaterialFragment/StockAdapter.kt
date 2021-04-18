@@ -1,19 +1,18 @@
 package com.example.kcttwarehousemobilesystem.MaterialFragment
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kcttwarehousemobilesystem.R
 import com.example.kcttwarehousemobilesystem.entity.Material
 import com.example.kcttwarehousemobilesystem.entity.MaterialType
 import kotlinx.android.synthetic.main.material_type_view.view.*
-
-private val TAB_TITLES = arrayOf(
-        R.string.tab_text_1,
-        R.string.tab_text_2
-)
+import kotlinx.android.synthetic.main.report2.view.*
+import kotlinx.android.synthetic.main.stock_detail.view.*
 
 class StockAdapter: RecyclerView.Adapter<StockAdapter.MyViewHolder>() {
 
@@ -28,27 +27,24 @@ class StockAdapter: RecyclerView.Adapter<StockAdapter.MyViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val currentItem = stockDetail[position]
-    }
+        val material = stockDetail[position]
+        holder.itemView.material_id.text = material.MaterialId.toString()
+        holder.itemView.material_name.text = material.MaterialName.toString()
+        holder.itemView.total_quantity.text = material.Quantity.toString()
+        holder.itemView.total_value.text = material.totalValue.toString()
 
-    fun getPageTitle(position: Int): CharSequence? {
-        return context.resources.getString(TAB_TITLES[position])
-    }
-
-    fun getCount(): Int {
-        // Show 2 total pages.
-        return 2
+        holder.itemView.edit_btn.setOnClickListener {view->
+            val bundle = Bundle()
+            bundle.putString("MaterialTypeName", stockDetail[position].MaterialName)
+            bundle.putInt("id", stockDetail[position].MaterialId)
+            view.findNavController().navigate(R.id.action_stockDetail_to_editProduct, bundle)
+        }
     }
     fun setData(newList: List<Material>){
         this.stockDetail = newList
         notifyDataSetChanged()
     }
 
-    fun getItem(position: Int): Fragment {
-        // getItem is called to instantiate the fragment for the given page.
-        // Return a PlaceholderFragment (defined as a static inner class below).
-        return StockDetail.newInstance(position + 1)
-    }
 
     class MyViewHolder(val view: View): RecyclerView.ViewHolder(view){}
 }

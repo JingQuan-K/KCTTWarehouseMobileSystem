@@ -7,15 +7,7 @@
     android:background="@color/DarkCyanBlue"
     tools:context=".MaterialFragment.StockDetail">
 
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="-16dp"
-        tools:layout_editor_absoluteY="331dp" />
-
-    <Button
+    <!--<Button
         android:id="@+id/button6"
         android:layout_width="205dp"
         android:layout_height="80dp"
@@ -40,28 +32,32 @@
         app:backgroundTint="@color/Black"
         app:iconTint="@color/Cyan"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.tabs.TabLayout
+        app:layout_constraintTop_toTopOf="parent" />-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/stock_detail"
+        tools:ignore="MissingConstraints" />
+    <!--<com.google.android.material.tabs.TabLayout
         android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="148dp"
         android:background="?attr/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"
-        android:layout_width="409dp"
-        android:layout_height="532dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tabs" />
+        app:layout_constraintTop_toBottomOf="@+id/tabs" >
+
+
+    </androidx.viewpager.widget.ViewPager>-->
 </androidx.constraintlayout.widget.ConstraintLayout>
 

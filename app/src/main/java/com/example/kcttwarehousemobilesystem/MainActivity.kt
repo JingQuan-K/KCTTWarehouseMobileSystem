@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         )
         val material = listOf(
             Material(1,"table","aaa",500,10.00,50.00,100,1) ,
-                Material(2,"table","aaa",500,10.00,50.00,100,2)
+                Material(2,"table","aaa",500,10.00,50.00,100,1)
         )
 
         val transactions = listOf(

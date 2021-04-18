@@ -30,6 +30,9 @@ interface UserDao {
     @Query("SELECT * FROM material_table ORDER BY MaterialId DESC")
     fun getAllMaterial(): LiveData<List<Material>>
 
+    @Query("SELECT * FROM material_table WHERE MaterialTypeId = :MaterialTypeId ORDER BY MaterialId DESC")
+    suspend fun getMTIDMaterial(MaterialTypeId: Int): List<Material>
+
     @Query("SELECT * FROM rack_table ORDER BY RackId DESC")
     fun getAllRack(): LiveData<List<Rack>>
 

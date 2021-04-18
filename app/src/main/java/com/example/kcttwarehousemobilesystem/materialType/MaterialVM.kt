@@ -3,6 +3,7 @@ package com.example.kcttwarehousemobilesystem.materialType
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.kcttwarehousemobilesystem.entity.Material
 import com.example.kcttwarehousemobilesystem.database.UserDatabase
@@ -15,6 +16,9 @@ class MaterialVM(application: Application): AndroidViewModel(application) {
 
     val getAllMaterial: LiveData<List<Material>>
     private val repository: UserRepository
+    val materialVal: MutableLiveData<List<Material>> by lazy {
+        MutableLiveData<List<Material>>()
+    }
 
     init {
         val userDao = UserDatabase.getDatabase(application).userDao()
