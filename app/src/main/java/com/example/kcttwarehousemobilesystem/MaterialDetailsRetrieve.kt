@@ -1,6 +1,7 @@
 package com.example.kcttwarehousemobilesystem
 
 import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.text.Editable
 import androidx.appcompat.app.AppCompatActivity
@@ -42,6 +43,14 @@ class MaterialDetailsRetrieve : AppCompatActivity() {
         rackQuantity = intent?.extras?.getInt(QUANTITY).toString().toInt()
         materialId = intent?.extras?.getInt(MATERIAL_ID).toString().toInt()
         materialName = intent?.extras?.getString(MATERIAL_NAME).toString()
+
+        //SET IMAGE__________________________________________
+        val dao = UserDatabase.getDatabase(this).userDao()
+        lifecycleScope.launch {
+            val image = dao.getImageOfMaterial(materialId)
+            val bitmap: Bitmap = Utils.getImage(image)
+            material_image.setImageBitmap(bitmap)
+        }
 
         //set text
         next_activity_btn.text = "Retrieve From Rack"
