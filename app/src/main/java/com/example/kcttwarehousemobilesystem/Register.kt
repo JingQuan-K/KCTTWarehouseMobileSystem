@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_register.*
 
 class Register : AppCompatActivity() {
@@ -33,27 +35,28 @@ class Register : AppCompatActivity() {
             return
         }
 
-        if(!Patterns.EMAIL_ADDRESS.matcher(editEmail.text.toString()).matches()){
+        else if(!Patterns.EMAIL_ADDRESS.matcher(editEmail.text.toString()).matches()){
             editEmail.error = "Please enter a valid email"
             editEmail.requestFocus()
             return
         }
 
-        if(password.text.toString().isEmpty()){
+        else if(password.text.toString().isEmpty()){
             password.error = "Please enter password"
             password.requestFocus()
             return
         }
-        auth.createUserWithEmailAndPassword(editEmail.text.toString(), password.text.toString())
-                .addOnCompleteListener(this) { task ->
+        else {
+            auth.createUserWithEmailAndPassword(editEmail.text.toString(), password.text.toString())
+                .addOnCompleteListener(this, OnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        Toast.makeText(this,"Sign Up Successfully", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Sign Up Successfully", Toast.LENGTH_SHORT).show()
                         startActivity(Intent(this, Login::class.java))
                         finish()
+                    } else {
+                        Toast.makeText(this, "Sign Up Failed", Toast.LENGTH_SHORT).show()
                     }
-                    else {
-                        Toast.makeText(this,"Sign Up Failed", Toast.LENGTH_SHORT).show()
-                    }
-                }
+                })
+        }
     }
 }

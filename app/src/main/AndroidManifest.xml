@@ -3,6 +3,7 @@
     package="com.example.kcttwarehousemobilesystem">
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,6 +12,7 @@
         android:roundIcon="@mipmap/ic_app_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.KCTTWarehouseMobileSystem">
+        <activity android:name=".ForgetPassword"></activity>
         <activity android:name=".Register" />
         <activity
             android:name=".Login"

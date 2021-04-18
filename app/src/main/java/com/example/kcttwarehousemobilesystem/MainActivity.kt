@@ -10,16 +10,20 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.kcttwarehousemobilesystem.entity.Rack
 import com.example.kcttwarehousemobilesystem.database.UserDatabase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var toggle: ActionBarDrawerToggle
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        auth = FirebaseAuth.getInstance()
 
         val dao = UserDatabase.getDatabase(this).userDao()
 
@@ -115,10 +119,17 @@ class MainActivity : AppCompatActivity() {
         var itemview = item.itemId
         when(itemview){
 
-            R.id.acc_manage_reset -> Toast.makeText(applicationContext, "Reset Clicked", Toast.LENGTH_SHORT).show()
-            R.id.acc_manage_logout -> {
+            R.id.acc_manage_reset -> {
                 val intent = Intent(this, Login::class.java)
                 startActivity(intent)
+            }
+            R.id.acc_manage_logout -> {
+                val user = auth.currentUser
+                if (user != null) {
+                    updateUI(user)
+                } else {
+                    updateUI(null)
+                }
             }
         }
 
@@ -130,5 +141,19 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.mainmenu, menu)
         return true
+    }
+
+    private fun updateUI(currentUser : FirebaseUser?){
+        if(currentUser!=null){
+            auth.signOut()
+            updateUI(null)
+            Toast.makeText(this, "You Signed Out", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, Login::class.java))
+            finish()
+        }
+        else{
+            auth.signOut()
+            Toast.makeText(this, "Log Out Failed", Toast.LENGTH_SHORT).show()
+        }
     }
 }
