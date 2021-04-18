@@ -50,9 +50,8 @@ class Add_new_product : Fragment() {
             if (materialList.isEmpty()) {
                 view.txt_materialID.setText("1")
             }else{
-
-                    var materialId:Int = dao.getLastMId() + 1
-                    view.txt_materialID.setText(materialId.toString())
+                var materialId:Int = dao.getLastMId() + 1
+                view.txt_materialID.setText(materialId.toString())
             }
         }
 
@@ -77,21 +76,19 @@ class Add_new_product : Fragment() {
 
     private fun insertNewProductToDatabase() {
         val materialName = txt_materialName.text.toString()
-        val costPI = txt_costPI.text
-
-        if(inputCheck(materialName, costPI)){
-            Toast.makeText(requireContext(),"testing123",Toast.LENGTH_LONG).show()
-            //findNavController().navigate(R.id.register_material)
+        val costPIText = txt_costPI.text.toString()
+        var costPI: Double = 0.0
+        if(!TextUtils.isEmpty(costPIText)){
+            costPI = costPIText.toDouble()
+        }
+        if(!(TextUtils.isEmpty(materialName)) && (costPI != 0.0)){
+            Toast.makeText(requireContext(), "Successfully Added Product", Toast.LENGTH_SHORT).show()
+            findNavController().navigateUp()
         }else{
             Toast.makeText(requireContext(), "Please fill out all fields", Toast.LENGTH_LONG).show()
         }
+
     }
-
-    private fun inputCheck(materialName: String, costPI: Editable?): Boolean{
-        return !(TextUtils.isEmpty(materialName) && (costPI==null))
-    }
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -107,7 +104,9 @@ class Add_new_product : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         var itemview = item.itemId
         when(itemview){
-            R.id.register_productBtn -> Toast.makeText(requireContext(), "Add Product", Toast.LENGTH_SHORT).show()
+            R.id.register_productBtn -> {
+                insertNewProductToDatabase()
+            }
         }
         //return false
         return super.onOptionsItemSelected(item)

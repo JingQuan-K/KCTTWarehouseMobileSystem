@@ -3,25 +3,31 @@
 
     <item
         android:id="@+id/mItem1"
-        android:title="Register Material"/>
+        android:icon="@drawable/ic_register_material"
+        android:title="Register Material" />
 
     <item
         android:id="@+id/mItem2"
+        android:icon="@drawable/ic_material_list"
         android:title="Material List"/>
 
     <item
         android:id="@+id/mItem3"
+        android:icon="@drawable/ic_receive_materials"
         android:title="Receive Materials"/>
 
     <item
         android:id="@+id/mItem4"
+        android:icon="@drawable/ic_retrieve_from_rack"
         android:title="Retrieve from Rack"/>
 
     <item
         android:id="@+id/mItem5"
+        android:icon="@drawable/ic_warehouse_map"
         android:title="Warehouse Map"/>
 
     <item
         android:id="@+id/mItem6"
+        android:icon="@drawable/ic_report"
         android:title="Report"/>
 </menu>
