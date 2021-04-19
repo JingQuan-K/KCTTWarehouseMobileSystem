@@ -29,46 +29,7 @@ class Register : AppCompatActivity() {
         passwordEt = findViewById(R.id.password_login)
 
         btnSignUp.setOnClickListener {
-            /*signUpUser()*/
-            var email: String = emailEt.text.toString()
-            var password: String = passwordEt.text.toString()
-
-            if(TextUtils.isEmpty(email)){
-                Toast.makeText(this, "Please enter your email", Toast.LENGTH_SHORT).show()
-            }
-
-            else if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-                Toast.makeText(this, "Please enter a valid email", Toast.LENGTH_SHORT).show()
-            }
-
-            else if(TextUtils.isEmpty(password)){
-                Toast.makeText(this, "Please enter your password", Toast.LENGTH_SHORT).show()
-            }
-
-            else {
-                auth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(this) { task ->
-                        if (task.isSuccessful) {
-
-// Below three lines added for sending the authentication link to the user's email
-                            auth.currentUser?.sendEmailVerification()
-                                ?.addOnCompleteListener { task ->
-                                    if (task.isSuccessful) {
-
-                                        val user = auth.currentUser
-
-// below message changed and user is navigated to Sign In activity
-                                        Toast.makeText(this, "Sign Up Successfully. Verification link sent to the Email address", Toast.LENGTH_SHORT).show()
-                                        startActivity(Intent(this, Login::class.java))
-                                        finish()
-                                    }
-                                    else {
-                                        Toast.makeText(this, "Sign Up Failed", Toast.LENGTH_SHORT).show()
-                                    }
-                                }
-                        }
-                    }
-            }
+            signUpUser()
         }
 
         textBtnSignInAc.setOnClickListener {
@@ -76,4 +37,40 @@ class Register : AppCompatActivity() {
         }
     }
 
+    private fun signUpUser() {
+        var email: String = emailEt.text.toString()
+        var password: String = passwordEt.text.toString()
+
+        if (TextUtils.isEmpty(email)) {
+            Toast.makeText(this, "Please enter your email", Toast.LENGTH_SHORT).show()
+        }
+
+        else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            Toast.makeText(this, "Please enter a valid email", Toast.LENGTH_SHORT).show()
+        }
+
+        else if (TextUtils.isEmpty(password)) {
+            Toast.makeText(this, "Please enter your password", Toast.LENGTH_SHORT).show()
+        }
+
+        else {
+            auth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this) { task ->
+                        if (task.isSuccessful) {
+                            Toast.makeText(this,"Sign Up Successfully", Toast.LENGTH_SHORT).show()
+                            val intent = Intent(this, Login::class.java)
+                            intent.putExtra("from", "register")
+                            startActivity(intent)
+                            finish()
+
+                        } else {
+                            Toast.makeText(this, "Sign Up Failed", Toast.LENGTH_SHORT).show()
+
+                        }
+                    }
+        }
+    }
 }
+
+
+

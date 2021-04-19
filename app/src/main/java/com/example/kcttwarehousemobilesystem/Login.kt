@@ -28,11 +28,6 @@ class Login : AppCompatActivity() {
         emailEt = findViewById(R.id.email_login_et)
         passwordEt = findViewById(R.id.password_login)
 
-/*        if (auth.currentUser != null) {
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
-        }*/
-
         txtBtnSignUpAc.setOnClickListener {
             startActivity(Intent(this, Register::class.java))
             finish()
@@ -46,8 +41,8 @@ class Login : AppCompatActivity() {
             startActivity(Intent(this, ForgetPassword::class.java))
             finish()
         }
-
     }
+
     private fun doLogin(){
         var email: String = emailEt.text.toString()
         var password: String = passwordEt.text.toString()
@@ -68,17 +63,12 @@ class Login : AppCompatActivity() {
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-                        // Sign in success, update UI with the signed-in user's information
                         Toast.makeText(this, "Sign In Successfully", Toast.LENGTH_SHORT).show()
                         val user = auth.currentUser
                         updateUI(user)
-                        /*Toast.makeText(this, "Successfully Logged In", Toast.LENGTH_LONG).show()
-                        val intent = Intent(this, MainActivity::class.java)
-                        startActivity(intent)
-                        finish()*/
-                    } else {
-                        // If sign in fails, display a message to the user.
-                        /* updateUI(null)*/
+                    }
+
+                    else {
                         Toast.makeText(this, "Invalid Email or Password", Toast.LENGTH_LONG).show()
                     }
                 }
@@ -87,22 +77,22 @@ class Login : AppCompatActivity() {
 
     private fun updateUI(currentUser: FirebaseUser?){
         if(currentUser!=null){
-
-// Below  if statement is added to check if email is verified
-            if(currentUser.isEmailVerified) {
-                startActivity(Intent(this, MainActivity::class.java))
-                finish()
-            }
-            else{
-                Toast.makeText(this, "Please verify your email address", Toast.LENGTH_SHORT).show()
-            }
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
         }
     }
 
 //Add onStart method to auto sign in next time when app is launched
     public override fun onStart() {
         super.onStart()
-        val currentUser = auth.currentUser
-        updateUI(currentUser)
-    }
+        val intent = intent
+        intent.extras
+        if(intent.hasExtra("from")) {
+            updateUI(null)
+        }
+        else{
+            val currentUser = auth.currentUser
+            updateUI(currentUser)
+            }
+        }
 }
