@@ -19,6 +19,7 @@ class TransactionsVM(application: Application): AndroidViewModel(application) {
         val userDao = UserDatabase.getDatabase(application).userDao()
         repository = UserRepository(userDao)
         getAllTransactions = repository.getAllTransactions
+
     }
 
     fun addTransactions(mt: Transactions){

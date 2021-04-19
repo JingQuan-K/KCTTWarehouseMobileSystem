@@ -42,7 +42,7 @@ interface UserDao {
     @Query("SELECT * FROM rack_table ORDER BY RackId DESC")
     fun getAllRack(): LiveData<List<Rack>>
 
-    @Query("SELECT * FROM transaction_table ORDER BY TransactionId DESC")
+    @Query("SELECT * FROM transaction_table ORDER BY TransactionId ASC")
     fun getAllTransactions(): LiveData<List<Transactions>>
 
     @Transaction
@@ -133,4 +133,5 @@ interface UserDao {
     @Query("SELECT Image FROM material_table WHERE MaterialId = :MaterialId")
     suspend fun getImageOfMaterial(MaterialId: Int): ByteArray
 }
+
 
