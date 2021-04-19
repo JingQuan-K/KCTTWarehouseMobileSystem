@@ -3,6 +3,7 @@
     package="com.example.kcttwarehousemobilesystem">
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,12 +12,20 @@
         android:roundIcon="@mipmap/ic_app_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.KCTTWarehouseMobileSystem">
-        <activity android:name=".Reset"></activity>
+        <activity android:name=".ForgetPassword"></activity>
+        <activity android:name=".Reset" />
         <activity android:name=".Register" />
-        <activity android:name=".Login" />
+        <activity android:name=".Login">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".MaterialDetailsRetrieve"
-            android:parentActivityName=".RetrieveFromRackScanner"/>
+            android:parentActivityName=".RetrieveFromRackScanner" />
         <activity
             android:name=".RetrieveFromRackScanner"
             android:parentActivityName=".MainActivity" />
@@ -32,18 +41,17 @@
         <activity
             android:name=".ReceiveMaterialsScanner"
             android:parentActivityName=".MainActivity" />
-
-        <activity android:name=".MainMaterialList" android:parentActivityName=".MainActivity"/>
-        <activity android:name=".MainMaterialAct" android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".MainMaterialList"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".MainMaterialAct"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".Report"
             android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

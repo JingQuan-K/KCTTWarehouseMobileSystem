@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="85dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="120dp"
         android:text="@string/reset_password_text"
         android:textColor="@color/Cyan"
         android:textSize="30sp"
@@ -26,7 +26,7 @@
         android:id="@+id/textView22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="65dp"
         android:layout_marginTop="8dp"
         android:text="@string/reset_password_msg"
         android:textColor="@color/GrayishBlue"
@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="45dp"
-        android:text="@string/new_password_title"
+        android:text="@string/current_password_title"
         android:textColor="@color/Cyan"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -56,85 +56,140 @@
         android:layout_width="317dp"
         android:layout_height="60dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="64dp"
+        android:textColorHint="@color/GrayishBlue"
         app:boxStrokeColor="@color/Cyan"
         app:hintTextColor="@color/GrayishBlue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView22"
+        app:layout_constraintTop_toBottomOf="@+id/textView23"
         app:passwordToggleEnabled="true"
         app:passwordToggleTint="@color/Cyan">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditText"
+            android:id="@+id/current_password_reset"
             android:layout_width="317dp"
             android:layout_height="60dp"
             android:background="@color/DarkGrey"
             android:drawableStart="@drawable/ic_password"
             android:drawablePadding="12dp"
-            android:hint="New Password"
+            android:hint="Current Password"
             android:inputType="textPassword"
+            android:textColor="@color/GrayishBlue"
             android:textCursorDrawable="@color/Cyan" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
+
     <TextView
-        android:id="@+id/textView24"
+        android:id="@+id/textView27"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="28dp"
-        android:text="@string/confirm_password_title"
+        android:layout_marginTop="40dp"
+        android:text="@string/new_password_text"
         android:textColor="@color/Cyan"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayout4"
+        android:textColorHint="@color/GrayishBlue"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
         app:layout_constraintVertical_bias="1.0" />
 
+
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout4"
+        android:id="@+id/textInputLayout7"
         android:layout_width="317dp"
         android:layout_height="60dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="44dp"
+        android:textColorHint="@color/GrayishBlue"
         app:boxStrokeColor="@color/Cyan"
         app:hintTextColor="@color/GrayishBlue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+        app:layout_constraintTop_toBottomOf="@+id/textView27"
         app:passwordToggleEnabled="true"
         app:passwordToggleTint="@color/Cyan">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditText4"
+            android:id="@+id/new_password_reset"
             android:layout_width="317dp"
             android:layout_height="60dp"
-            android:layout_marginBottom="204dp"
+            android:background="@color/DarkGrey"
+            android:drawableStart="@drawable/ic_password"
+            android:paddingStart="12dp"
+            android:drawablePadding="12dp"
+            android:hint="New Password"
+            android:inputType="textPassword"
+            android:textColor="@color/GrayishBlue"
+            android:textColorHint="@color/GrayishBlue"
+            android:textCursorDrawable="@color/Cyan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/confirm_password_title"
+        android:textColor="@color/Cyan"
+        android:textColorHint="@color/GrayishBlue"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout7"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout3"
+        android:layout_width="317dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="40dp"
+        android:textColorHint="@color/GrayishBlue"
+        app:boxStrokeColor="@color/Cyan"
+        app:hintTextColor="@color/GrayishBlue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/Cyan">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/confirm_password_reset"
+            android:layout_width="317dp"
+            android:layout_height="60dp"
             android:background="@color/DarkGrey"
             android:drawableStart="@drawable/ic_password"
             android:drawablePadding="12dp"
             android:hint="Confirm Password"
             android:inputType="textPassword"
-            android:textCursorDrawable="@color/Cyan" />
+            android:paddingStart="12dp"
+            android:textColor="@color/GrayishBlue"
+            android:textColorHint="@color/GrayishBlue"
+            android:textCursorDrawable="@color/Cyan"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btnChgPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="60dp"
         android:backgroundTint="@color/Grey"
         android:text="Reset"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout4"
-        app:layout_constraintVertical_bias="0.0" />
-
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
+        app:layout_constraintVertical_bias="0.515" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "937602557815",
-    "project_id": "kctt-warehouse-mobile-system",
-    "storage_bucket": "kctt-warehouse-mobile-system.appspot.com"
+    "project_number": "343100480069",
+    "project_id": "kctt-warehouse-mobile-sy-33811",
+    "storage_bucket": "kctt-warehouse-mobile-sy-33811.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:937602557815:android:a1a9dcd2ca2585a544a372",
+        "mobilesdk_app_id": "1:343100480069:android:40b23d0e2240fa2724612c",
         "android_client_info": {
           "package_name": "com.example.kcttwarehousemobilesystem"
         }
       },
       "oauth_client": [
         {
-          "client_id": "937602557815-o4uo2epuihr2r9cfvbnd62c4s19hfr9n.apps.googleusercontent.com",
+          "client_id": "343100480069-rqtrub0ao0an99vdmnau4vnhn2c17oq6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.kcttwarehousemobilesystem",
+            "certificate_hash": "dffc2e85c7702250fabc6ca2788befdb5a4c8ad3"
+          }
+        },
+        {
+          "client_id": "343100480069-a8ns43qcc3h3t6g2rse92eelp0m83v8f.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCZ98QjY_Xk3WG17vPfbB0yCD4VisHcDgE"
+          "current_key": "AIzaSyD98Qiav0Ho0qS0xGPRw4knTFmmUqrxqQ4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "937602557815-o4uo2epuihr2r9cfvbnd62c4s19hfr9n.apps.googleusercontent.com",
+              "client_id": "343100480069-a8ns43qcc3h3t6g2rse92eelp0m83v8f.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

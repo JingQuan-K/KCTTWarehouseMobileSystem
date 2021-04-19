@@ -10,16 +10,19 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.kcttwarehousemobilesystem.database.KCTTDatabase
 import com.example.kcttwarehousemobilesystem.entity.Rack
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var toggle: ActionBarDrawerToggle
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        auth = FirebaseAuth.getInstance()
 
         populateDatabase()
 
@@ -116,8 +119,22 @@ class MainActivity : AppCompatActivity() {
         var itemview = item.itemId
         when(itemview){
 
-            R.id.acc_manage_reset -> Toast.makeText(applicationContext, "Reset Clicked", Toast.LENGTH_SHORT).show()
-            R.id.acc_manage_logout -> Toast.makeText(applicationContext, "Log out Clicked", Toast.LENGTH_SHORT).show()
+            R.id.acc_manage_reset -> {
+                val intent = Intent(this, Reset::class.java)
+                startActivity(intent)
+            }
+            R.id.acc_manage_logout -> {
+                val user = auth.currentUser
+                if (user != null) {
+                    auth.signOut()
+                    Toast.makeText(this,"Log Out Successfully", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, Login::class.java)
+                    startActivity(intent)
+                } else {
+                    val intent = Intent(this, Login::class.java)
+                    startActivity(intent)
+                }
+            }
         }
 
         //return false
