@@ -43,14 +43,18 @@ class MainActivity : AppCompatActivity() {
                     val intent = Intent(this, ReceiveMaterialsScanner::class.java)
                     startActivity(intent)
                 }
-                R.id.mItem4 -> Toast.makeText(applicationContext,
-                        "Clicked Retrieve from Rack", Toast.LENGTH_SHORT).show()
+                R.id.mItem4 -> {
+                    val intent = Intent(this, RetrieveFromRackScanner::class.java)
+                    startActivity(intent)
+                }
                 R.id.mItem5 -> {
                     val intent = Intent(this, WarehouseMap::class.java)
                     startActivity(intent)
                 }
-                R.id.mItem6 -> Toast.makeText(applicationContext,
-                        "Clicked Report", Toast.LENGTH_SHORT).show()
+                R.id.mItem6 -> {
+                    val intent = Intent(this, Report::class.java)
+                    startActivity(intent)
+                }
             }
             true
         }
@@ -85,7 +89,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        //Display Toast if successfully placed material to rack
+        //Display Toast if successfully placed material to rack or retrieved material from rack
         val intent = intent
         intent.extras
         if (intent.hasExtra(PlaceToRackScanner.RACK_ID))
@@ -127,22 +131,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun populateDatabase(){
         val dao = UserDatabase.getDatabase(this).userDao()
-
-/*        val materialTypes = listOf(
-                MaterialType(1, "Wood")
-        )
-
-        val materials = listOf(
-                Material(1, "Alpha Table", "photo path", 30, 45.00,100.00, 10, 1),
-                Material(2, "Beta Table", "photo path", 1, 100.00,9900.00, 5, 1),
-                Material(3, "Charlie Table", "photo path", 60, 100.00,9900.00, 5, 1),
-                Material(4, "Delta Table", "photo path", 30, 100.00,9900.00, 5, 1)
-        )
-
-        val transactions = listOf(
-                Transactions(1,"Stock In", 50, 1, 1),
-                Transactions(2,"Stock In", 50, 2, 2)
-        )*/
 
         val racks = listOf(
                 Rack("A_01a_01", 0, 0),
@@ -355,10 +343,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         lifecycleScope.launch{
-            //materialTypes.forEach{dao.addMaterialType(it)}
-            //materials.forEach{dao.addMaterial(it)}
             racks.forEach{dao.addRack(it)}
-            //transactions.forEach{dao.addTransactions(it)}
         }
     }
 }
