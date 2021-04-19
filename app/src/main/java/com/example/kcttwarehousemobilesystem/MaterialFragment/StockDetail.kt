@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager.widget.ViewPager
 import com.example.kcttwarehousemobilesystem.R
 import com.example.kcttwarehousemobilesystem.entity.WarehouseMapViewModel
+import com.google.android.material.tabs.TabItem
 import com.google.android.material.tabs.TabLayout
 
 class StockDetail : Fragment() {
@@ -18,20 +19,17 @@ class StockDetail : Fragment() {
     lateinit var viewPager: ViewPager
     val bundle = Bundle()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_stock_detail, container, false)
 
+        /*var id: Int? = arguments?.getInt("id")
+        id?.let { bundle.putInt("id", it) }*/
         var id: Int? = arguments?.getInt("id")
-        id?.let { bundle.putInt("id", it) }
+        bundle.putInt("id", id!!)
 
 
         tabLayout = view.findViewById(R.id.tabs)
         viewPager = view.findViewById(R.id.view_pager)
-        tabLayout.addTab(tabLayout.newTab().setText("Stock Details"))
-        tabLayout.addTab(tabLayout.newTab().setText("Low Stock"))
         tabLayout.tabGravity = TabLayout.GRAVITY_FILL
         val activity = context as AppCompatActivity
         val adapter = StockDetailPagerAdapter(requireContext(), activity.supportFragmentManager, tabLayout.tabCount, bundle)
@@ -46,11 +44,6 @@ class StockDetail : Fragment() {
             override fun onTabUnselected(tab: TabLayout.Tab) {}
             override fun onTabReselected(tab: TabLayout.Tab) {}
         })
-
-
-
-
-
 
         // Inflate the layout for this fragment
         return view

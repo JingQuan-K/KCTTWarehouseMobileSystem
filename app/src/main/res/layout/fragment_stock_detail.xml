@@ -14,7 +14,18 @@
         android:background="@color/tabColor"
         app:tabTextColor="@color/cyan"
         app:tabIndicatorColor="@color/cyan"
-        app:tabIconTint="@color/cyan"/>
+        app:tabIconTint="@color/cyan">
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/stockDetailTab"
+            android:text="Stock Detail"/>
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lowStockTab"
+            android:text="Low Stock"/>
+    </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"
