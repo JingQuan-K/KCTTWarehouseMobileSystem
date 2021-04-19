@@ -145,8 +145,8 @@ class MainActivity : AppCompatActivity() {
         )*/
 
         val racks = listOf(
-                Rack("A_01a_01", 1, 10),
-                Rack("A_01a_02", 1, 20),
+                Rack("A_01a_01", 0, 0),
+                Rack("A_01a_02", 0, 0),
                 Rack("A_01a_03", 0, 0),
                 Rack("A_01a_04", 0, 0),
                 Rack("A_01a_05", 0, 0),
@@ -171,8 +171,8 @@ class MainActivity : AppCompatActivity() {
                 Rack("A_01b_11", 0, 0),
                 Rack("A_01b_12", 0, 0),
 
-                Rack("A_02a_01", 2, 5),
-                Rack("A_02a_02", 2, 15),
+                Rack("A_02a_01", 0, 0),
+                Rack("A_02a_02", 0, 0),
                 Rack("A_02a_03", 0, 0),
                 Rack("A_02a_04", 0, 0),
                 Rack("A_02a_05", 0, 0),
@@ -223,8 +223,8 @@ class MainActivity : AppCompatActivity() {
                 Rack("A_03b_11", 0, 0),
                 Rack("A_03b_12", 0, 0),
 
-                Rack("B_01a_01", 3, 20),
-                Rack("B_01a_02", 3, 20),
+                Rack("B_01a_01", 0, 0),
+                Rack("B_01a_02", 0, 0),
                 Rack("B_01a_03", 0, 0),
                 Rack("B_01a_04", 0, 0),
                 Rack("B_01a_05", 0, 0),
@@ -236,7 +236,7 @@ class MainActivity : AppCompatActivity() {
                 Rack("B_01a_11", 0, 0),
                 Rack("B_01a_12", 0, 0),
 
-                Rack("B_01b_01", 3, 20),
+                Rack("B_01b_01", 0, 0),
                 Rack("B_01b_02", 0, 0),
                 Rack("B_01b_03", 0, 0),
                 Rack("B_01b_04", 0, 0),
@@ -327,7 +327,7 @@ class MainActivity : AppCompatActivity() {
                 Rack("B_04b_11", 0, 0),
                 Rack("B_04b_12", 0, 0),
 
-                Rack("B_05a_01", 4, 30),
+                Rack("B_05a_01", 0, 0),
                 Rack("B_05a_02", 0, 0),
                 Rack("B_05a_03", 0, 0),
                 Rack("B_05a_04", 0, 0),
