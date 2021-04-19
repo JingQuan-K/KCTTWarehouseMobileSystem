@@ -79,7 +79,8 @@ class EditProduct : Fragment() {
                 dao.updateMaterial(name.toString(),qty,costPI.toDouble(),totalValue,reorderLvl.toInt(),id)
             }
             Toast.makeText(context,"Successfully Updated",Toast.LENGTH_LONG).show()
-            findNavController().navigateUp()
+            findNavController().popBackStack(R.id.materialList,false)
+            //findNavController().navigateUp()
         }else{
             Toast.makeText(context,"Please fill out all fields",Toast.LENGTH_LONG).show()
         }

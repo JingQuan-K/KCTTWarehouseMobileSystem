@@ -36,8 +36,8 @@
             android:name=".Homepage"
             android:parentActivityName=".MainActivity" />
 
-        <activity android:name=".MainMaterialList"/>
-        <activity android:name=".MainMaterialAct" />
+        <activity android:name=".MainMaterialList" android:parentActivityName=".MainActivity"/>
+        <activity android:name=".MainMaterialAct" android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".Report"
             android:parentActivityName=".MainActivity" />

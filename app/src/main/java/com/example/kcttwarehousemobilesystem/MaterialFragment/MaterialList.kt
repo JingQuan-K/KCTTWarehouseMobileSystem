@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -19,6 +20,10 @@ class MaterialList : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_material_list, container, false)
+
+        val activity = activity as AppCompatActivity
+        val actionBar = activity.supportActionBar
+        actionBar!!.setDisplayHomeAsUpEnabled(true)
 
         val adapter = ListMaterialType2()
         val recyclerView = view.recyclerViewMaterialType2
