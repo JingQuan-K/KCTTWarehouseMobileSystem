@@ -1,25 +1,37 @@
 package com.example.kcttwarehousemobilesystem
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Patterns
+import android.widget.EditText
 import android.widget.Toast
-import com.google.android.gms.tasks.OnCompleteListener
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.fragment_register_acc.view.*
 
 class Login : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
 
+    private lateinit var emailEt: EditText
+    private lateinit var passwordEt: EditText
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        auth = FirebaseAuth.getInstance()
+        auth = Firebase.auth
+
+        emailEt = findViewById(R.id.email_login_et)
+        passwordEt = findViewById(R.id.password_login)
+
+/*        if (auth.currentUser != null) {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }*/
 
         txtBtnSignUpAc.setOnClickListener {
             startActivity(Intent(this, Register::class.java))
@@ -37,55 +49,60 @@ class Login : AppCompatActivity() {
 
     }
     private fun doLogin(){
-        val email =  email_login_et.text.toString()
-        val password = password_login.text.toString()
+        var email: String = emailEt.text.toString()
+        var password: String = passwordEt.text.toString()
 
-        if(email_login_et.text.toString().isEmpty()){
-            email_login_et.error = "Please enter your email"
-            email_login_et.requestFocus()
-            return
+        if(TextUtils.isEmpty(email)){
+            Toast.makeText(this, "Please enter your email", Toast.LENGTH_SHORT).show()
         }
 
-        else if(!Patterns.EMAIL_ADDRESS.matcher(email_login_et.text.toString()).matches()){
-            email_login_et.error = "Please enter a valid email"
-            email_login_et.requestFocus()
-            return
+        else if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            Toast.makeText(this, "Please enter a valid email", Toast.LENGTH_SHORT).show()
         }
 
-        else if(password_login.text.toString().isEmpty()){
-            password_login.error = "Please enter password"
-            password_login.requestFocus()
-            return
+        else if(TextUtils.isEmpty(password)){
+            Toast.makeText(this, "Please enter your password", Toast.LENGTH_SHORT).show()
         }
+
         else {
             auth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, OnCompleteListener { task ->
+                .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
                         // Sign in success, update UI with the signed-in user's information
+                        Toast.makeText(this, "Sign In Successfully", Toast.LENGTH_SHORT).show()
                         val user = auth.currentUser
                         updateUI(user)
+                        /*Toast.makeText(this, "Successfully Logged In", Toast.LENGTH_LONG).show()
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()*/
                     } else {
                         // If sign in fails, display a message to the user.
-                        updateUI(null)
+                        /* updateUI(null)*/
+                        Toast.makeText(this, "Invalid Email or Password", Toast.LENGTH_LONG).show()
                     }
-                })
+                }
         }
     }
 
+    private fun updateUI(currentUser: FirebaseUser?){
+        if(currentUser!=null){
+
+// Below  if statement is added to check if email is verified
+            if(currentUser.isEmailVerified) {
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+            }
+            else{
+                Toast.makeText(this, "Please verify your email address", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+//Add onStart method to auto sign in next time when app is launched
     public override fun onStart() {
         super.onStart()
-        val currentUser: FirebaseUser? = auth.currentUser
+        val currentUser = auth.currentUser
         updateUI(currentUser)
-    }
-
-    private fun updateUI(currentUser : FirebaseUser?){
-        if(currentUser!=null){
-            Toast.makeText(this, "Login Successfully", Toast.LENGTH_SHORT).show()
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
-        }
-        else{
-            Toast.makeText(this, "Invalid Email or Password", Toast.LENGTH_SHORT).show()
-        }
     }
 }

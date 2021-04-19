@@ -126,9 +126,14 @@ class MainActivity : AppCompatActivity() {
             R.id.acc_manage_logout -> {
                 val user = auth.currentUser
                 if (user != null) {
-                    updateUI(user)
+                    auth.signOut()
+                    /*updateUI(user)*/
+                    val intent = Intent(this, Login::class.java)
+                    startActivity(intent)
                 } else {
-                    updateUI(null)
+                    /*updateUI(null)*/
+                    val intent = Intent(this, Login::class.java)
+                    startActivity(intent)
                 }
             }
         }
@@ -143,7 +148,7 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-    private fun updateUI(currentUser : FirebaseUser?){
+    /*private fun updateUI(currentUser : FirebaseUser?){
         if(currentUser!=null){
             auth.signOut()
             updateUI(null)
@@ -155,5 +160,5 @@ class MainActivity : AppCompatActivity() {
             auth.signOut()
             Toast.makeText(this, "Log Out Failed", Toast.LENGTH_SHORT).show()
         }
-    }
+    }*/
 }
