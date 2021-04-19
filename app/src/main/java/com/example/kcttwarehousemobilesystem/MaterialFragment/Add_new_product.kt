@@ -36,9 +36,7 @@ class Add_new_product : Fragment() {
 
         //bundle argument from recycler view
         var materialTypeName: String? = null
-        var id: Int?=null
         materialTypeName = arguments?.getString("MaterialTypeName")
-        id = arguments?.getInt("id")
         view.txt_materialType.setText(materialTypeName)
 
         //generate new material id
@@ -92,7 +90,8 @@ class Add_new_product : Fragment() {
         val materialName = txt_materialName.text.toString()
         val costPIText = txt_costPI.text.toString()
         var costPI: Double = 0.0
-
+        var id: Int?=null
+        id = arguments?.getInt("id")
 
         if(!TextUtils.isEmpty(costPIText)){
             costPI = costPIText.toDouble()
@@ -104,7 +103,7 @@ class Add_new_product : Fragment() {
             //validate bitmap size
             val byteArray:ByteArray = Utils.getBytes(bitmap)
             if(byteArray.size < 1024*1024){
-                val material = Material(materialId, materialName, byteArray, 0, costPI, 0.00, 10, 1)
+                val material = Material(materialId, materialName, byteArray, 0, costPI, 0.00, 10, id!!)
                 lifecycleScope.launch {
                     val dao: UserDao = UserDatabase.getDatabase(requireContext()).userDao()
                     dao.addMaterial(material)

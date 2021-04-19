@@ -62,8 +62,7 @@ class EditProduct : Fragment() {
         var itemview = item.itemId
         when(itemview){
             R.id.edit_product_btn -> {
-
-
+                updateToDatabase()
             }
         }
         //return false
@@ -72,15 +71,15 @@ class EditProduct : Fragment() {
 
     private fun updateToDatabase(){
         val id = txt_materialIDE.text.toString().toInt()
-        val name = txt_materialNameE.text.toString()
+        val name = txt_materialNameE.text
         val qty = txt_quantity.text.toString().toInt()
-        val costPI = txt_costPIE.text.toString().toDouble()
-        val reorderLvl = txt_reorderLvl.text.toString().toInt()
-        if((id!= null) && !(TextUtils.isEmpty(name)) && (qty!=null) && (costPI!=null) && (reorderLvl!=null)) {
-            val totalValue = txt_costPIE.text.toString().toDouble() * txt_quantity.text.toString().toInt()
+        val costPI = txt_costPIE.text.toString()
+        val reorderLvl = txt_reorderLvl.text.toString()
+        if((id!= null) && !(TextUtils.isEmpty(name)) && (qty!=null) && !(TextUtils.isEmpty(costPI)) && !(TextUtils.isEmpty(reorderLvl))) {
+            val totalValue = costPI.toDouble() * qty
             lifecycleScope.launch {
                 val dao: UserDao = UserDatabase.getDatabase(requireContext()).userDao()
-                dao.updateMaterial(name,qty,costPI,totalValue,reorderLvl,id)
+                dao.updateMaterial(name.toString(),qty,costPI.toDouble(),totalValue,reorderLvl.toInt(),id)
             }
             Toast.makeText(context,"Successfully Updated",Toast.LENGTH_LONG).show()
             findNavController().navigateUp()
