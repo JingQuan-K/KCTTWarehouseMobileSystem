@@ -36,8 +36,8 @@ interface UserDao {
     @Query("SELECT * FROM material_table WHERE MaterialTypeId = :MaterialTypeId AND Quantity <= reorderLvl ORDER BY MaterialId ")
     suspend fun getMTIDMaterialLow(MaterialTypeId: Int): List<Material>
 
-    @Query("UPDATE material_table SET MaterialName = :MaterialName, Quantity = :Quantity, CostPI = :CostPI, totalValue = :totalValue, reorderLvl = :reorderLvl")
-    suspend fun updateMaterial(MaterialName: String, Quantity: Int, CostPI:Double, totalValue: Double, reorderLvl: Int)
+    @Query("UPDATE material_table SET MaterialName = :MaterialName, Quantity = :Quantity, CostPI = :CostPI, totalValue = :totalValue, reorderLvl = :reorderLvl WHERE MaterialId = :MaterialId")
+    suspend fun updateMaterial(MaterialName: String, Quantity: Int, CostPI:Double, totalValue: Double, reorderLvl: Int, MaterialId: Int)
 
     @Query("SELECT * FROM rack_table ORDER BY RackId DESC")
     fun getAllRack(): LiveData<List<Rack>>

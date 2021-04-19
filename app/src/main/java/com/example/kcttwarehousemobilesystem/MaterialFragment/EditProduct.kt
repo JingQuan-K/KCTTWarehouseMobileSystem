@@ -2,14 +2,20 @@ package com.example.kcttwarehousemobilesystem.MaterialFragment
 
 import android.os.Bundle
 import android.text.Editable
+import android.text.TextUtils
 import android.view.*
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.example.kcttwarehousemobilesystem.R
+import com.example.kcttwarehousemobilesystem.database.UserDao
+import com.example.kcttwarehousemobilesystem.database.UserDatabase
 import kotlinx.android.synthetic.main.fragment_add_new_product.view.*
 import kotlinx.android.synthetic.main.fragment_edit_product.*
 import kotlinx.android.synthetic.main.fragment_edit_product.view.*
+import kotlinx.coroutines.launch
 
 class EditProduct : Fragment() {
 
@@ -56,11 +62,30 @@ class EditProduct : Fragment() {
         var itemview = item.itemId
         when(itemview){
             R.id.edit_product_btn -> {
-                val totalValue = txt_costPIE.text.toString().toDouble() * txt_quantity.text.toString().toInt()
-                Toast.makeText(context,"abc",Toast.LENGTH_LONG).show()
+
+
             }
         }
         //return false
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun updateToDatabase(){
+        val id = txt_materialIDE.text.toString().toInt()
+        val name = txt_materialNameE.text.toString()
+        val qty = txt_quantity.text.toString().toInt()
+        val costPI = txt_costPIE.text.toString().toDouble()
+        val reorderLvl = txt_reorderLvl.text.toString().toInt()
+        if((id!= null) && !(TextUtils.isEmpty(name)) && (qty!=null) && (costPI!=null) && (reorderLvl!=null)) {
+            val totalValue = txt_costPIE.text.toString().toDouble() * txt_quantity.text.toString().toInt()
+            lifecycleScope.launch {
+                val dao: UserDao = UserDatabase.getDatabase(requireContext()).userDao()
+                dao.updateMaterial(name,qty,costPI,totalValue,reorderLvl,id)
+            }
+            Toast.makeText(context,"Successfully Updated",Toast.LENGTH_LONG).show()
+            findNavController().navigateUp()
+        }else{
+            Toast.makeText(context,"Please fill out all fields",Toast.LENGTH_LONG).show()
+        }
     }
 }
