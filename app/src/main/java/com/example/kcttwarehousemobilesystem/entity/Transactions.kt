@@ -10,5 +10,4 @@ data class Transactions(
     val TransactionType: String,
     val Quantity: Int,
     val MaterialId: Int,
-    val userId: Int
 )

@@ -7,9 +7,9 @@ import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import com.example.kcttwarehousemobilesystem.database.UserDatabase
-import com.example.kcttwarehousemobilesystem.entity.WarehouseMapViewModel
-import com.example.kcttwarehousemobilesystem.entity.WarehouseMapViewModelFactory
+import com.example.kcttwarehousemobilesystem.database.KCTTDatabase
+import com.example.kcttwarehousemobilesystem.ViewModel.WarehouseMapViewModel
+import com.example.kcttwarehousemobilesystem.ViewModel.WarehouseMapViewModelFactory
 import kotlinx.android.synthetic.main.activity_material_details.*
 import kotlinx.android.synthetic.main.activity_warehouse_map.*
 import kotlinx.coroutines.launch
@@ -31,7 +31,7 @@ class WarehouseMap : AppCompatActivity() {
         title = "Warehouse Map"
 
         //viewModel
-        val dataSource = UserDatabase.getDatabase(application).userDao()
+        val dataSource = KCTTDatabase.getDatabase(application).userDao()
         val viewModelFactory = WarehouseMapViewModelFactory(dataSource, application)
         val viewModel = ViewModelProvider(this,viewModelFactory).get(WarehouseMapViewModel::class.java)
         viewModel.searchedRackList.observe(this, {
@@ -62,7 +62,7 @@ class WarehouseMap : AppCompatActivity() {
             override fun onQueryTextChange(newText: String?): Boolean {
 
                 //search
-                val dao = UserDatabase.getDatabase(this@WarehouseMap).userDao()
+                val dao = KCTTDatabase.getDatabase(this@WarehouseMap).userDao()
                 if(newText.toString() == ""){
                     viewModel.searchedRackList.value = listOf()
                 }else{

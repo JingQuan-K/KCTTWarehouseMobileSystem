@@ -1,11 +1,11 @@
-package com.example.kcttwarehousemobilesystem.entity
+package com.example.kcttwarehousemobilesystem.ViewModel
 
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.kcttwarehousemobilesystem.database.UserDao
+import com.example.kcttwarehousemobilesystem.database.KCTTDao
 
-class WarehouseMapViewModelFactory (private val dataSource: UserDao, private val application: Application)
+class WarehouseMapViewModelFactory (private val dataSource: KCTTDao, private val application: Application)
     : ViewModelProvider.Factory {
     @Suppress("unchecked_cast")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {

@@ -7,7 +7,7 @@ import android.text.Editable
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.lifecycleScope
-import com.example.kcttwarehousemobilesystem.database.UserDatabase
+import com.example.kcttwarehousemobilesystem.database.KCTTDatabase
 import kotlinx.android.synthetic.main.activity_material_details.*
 import kotlinx.coroutines.launch
 
@@ -37,7 +37,7 @@ class MaterialDetails : AppCompatActivity() {
         }
 
         //SET IMAGE
-        val dao = UserDatabase.getDatabase(this).userDao()
+        val dao = KCTTDatabase.getDatabase(this).userDao()
         lifecycleScope.launch {
             val image = dao.getImageOfMaterial(materialId)
             val bitmap: Bitmap = Utils.getImage(image)

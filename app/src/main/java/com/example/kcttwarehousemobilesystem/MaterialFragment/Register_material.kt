@@ -14,7 +14,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kcttwarehousemobilesystem.R
 import com.example.kcttwarehousemobilesystem.entity.MaterialType
-import com.example.kcttwarehousemobilesystem.materialType.MaterialTypeVM
+import com.example.kcttwarehousemobilesystem.ViewModel.MaterialTypeVM
 import kotlinx.android.synthetic.main.fragment_register_material.view.*
 import kotlinx.android.synthetic.main.layout_add_material_type.view.*
 

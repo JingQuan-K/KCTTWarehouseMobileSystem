@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.kcttwarehousemobilesystem.R
-import com.example.kcttwarehousemobilesystem.database.UserDao
-import com.example.kcttwarehousemobilesystem.database.UserDatabase
+import com.example.kcttwarehousemobilesystem.database.KCTTDao
+import com.example.kcttwarehousemobilesystem.database.KCTTDatabase
 import kotlinx.android.synthetic.main.fragment_edit_product.*
 import kotlinx.android.synthetic.main.fragment_edit_product.view.*
 import kotlinx.coroutines.launch
@@ -75,7 +75,7 @@ class EditProduct : Fragment() {
         if((id!= null) && !(TextUtils.isEmpty(name)) && (qty!=null) && !(TextUtils.isEmpty(costPI)) && !(TextUtils.isEmpty(reorderLvl))) {
             val totalValue = costPI.toDouble() * qty
             lifecycleScope.launch {
-                val dao: UserDao = UserDatabase.getDatabase(requireContext()).userDao()
+                val dao: KCTTDao = KCTTDatabase.getDatabase(requireContext()).userDao()
                 dao.updateMaterial(name.toString(),qty,costPI.toDouble(),totalValue,reorderLvl.toInt(),id)
             }
             Toast.makeText(context,"Successfully Updated",Toast.LENGTH_LONG).show()

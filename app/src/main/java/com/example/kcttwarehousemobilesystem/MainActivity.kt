@@ -8,7 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.example.kcttwarehousemobilesystem.database.UserDatabase
+import com.example.kcttwarehousemobilesystem.database.KCTTDatabase
 import com.example.kcttwarehousemobilesystem.entity.Rack
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.launch
@@ -131,7 +131,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun populateDatabase(){
-        val dao = UserDatabase.getDatabase(this).userDao()
+        val dao = KCTTDatabase.getDatabase(this).userDao()
 
         val racks = listOf(
                 Rack("A_01a_01", 0, 0),

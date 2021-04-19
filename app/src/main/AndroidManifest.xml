@@ -32,9 +32,6 @@
         <activity
             android:name=".ReceiveMaterialsScanner"
             android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".Homepage"
-            android:parentActivityName=".MainActivity" />
 
         <activity android:name=".MainMaterialList" android:parentActivityName=".MainActivity"/>
         <activity android:name=".MainMaterialAct" android:parentActivityName=".MainActivity"/>

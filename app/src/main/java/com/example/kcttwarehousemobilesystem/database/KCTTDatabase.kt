@@ -4,19 +4,22 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.kcttwarehousemobilesystem.entity.*
+import com.example.kcttwarehousemobilesystem.entity.Material
+import com.example.kcttwarehousemobilesystem.entity.MaterialType
+import com.example.kcttwarehousemobilesystem.entity.Rack
+import com.example.kcttwarehousemobilesystem.entity.Transactions
 
-@Database(entities = [User::class, Material::class, MaterialType::class, Rack::class, Transactions::class], version = 1, exportSchema = false )
+@Database(entities = [Material::class, MaterialType::class, Rack::class, Transactions::class], version = 1, exportSchema = false )
 
-abstract class UserDatabase : RoomDatabase() {
+abstract class KCTTDatabase : RoomDatabase() {
 
-    abstract fun userDao(): UserDao
+    abstract fun userDao(): KCTTDao
 
     companion object {
         @Volatile
-        private var INSTANCE: UserDatabase? = null
+        private var INSTANCE: KCTTDatabase? = null
 
-        fun getDatabase(context: Context): UserDatabase {
+        fun getDatabase(context: Context): KCTTDatabase {
             val tempInstance = INSTANCE
             if(tempInstance != null){
                 return tempInstance
@@ -24,7 +27,7 @@ abstract class UserDatabase : RoomDatabase() {
             synchronized(this){
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
-                    UserDatabase::class.java,
+                    KCTTDatabase::class.java,
                     "user_database"
 
                 ).build()

@@ -4,15 +4,9 @@ package com.example.kcttwarehousemobilesystem.MaterialFragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kcttwarehousemobilesystem.R
-import com.example.kcttwarehousemobilesystem.database.UserDatabase
-import com.example.kcttwarehousemobilesystem.entity.Material
 import com.example.kcttwarehousemobilesystem.entity.Transactions
-import kotlinx.android.synthetic.main.report.view.*
 import kotlinx.android.synthetic.main.report2.view.*
 
 

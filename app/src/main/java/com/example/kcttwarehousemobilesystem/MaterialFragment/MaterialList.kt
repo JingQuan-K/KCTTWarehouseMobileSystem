@@ -10,7 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kcttwarehousemobilesystem.R
-import com.example.kcttwarehousemobilesystem.materialType.MaterialTypeVM
+import com.example.kcttwarehousemobilesystem.ViewModel.MaterialTypeVM
 import kotlinx.android.synthetic.main.fragment_material_list.view.*
 
 class MaterialList : Fragment() {

@@ -1,13 +1,13 @@
-package com.example.kcttwarehousemobilesystem.entity
+package com.example.kcttwarehousemobilesystem.ViewModel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.kcttwarehousemobilesystem.database.UserDao
+import com.example.kcttwarehousemobilesystem.database.KCTTDao
 import kotlinx.coroutines.launch
 
-class WarehouseMapViewModel(private val database: UserDao, application: Application): AndroidViewModel(application) {
+class WarehouseMapViewModel(private val database: KCTTDao, application: Application): AndroidViewModel(application) {
 
     var allRacks: List<String> = listOf()
 

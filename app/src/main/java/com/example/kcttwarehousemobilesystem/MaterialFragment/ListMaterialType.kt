@@ -4,25 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelLazy
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kcttwarehousemobilesystem.MainMaterialAct
 import com.example.kcttwarehousemobilesystem.R
-import com.example.kcttwarehousemobilesystem.Register
 import com.example.kcttwarehousemobilesystem.entity.MaterialType
-import com.example.kcttwarehousemobilesystem.materialType.MaterialTypeVM
-import kotlinx.android.synthetic.main.activity_reset.view.*
-import kotlinx.android.synthetic.main.fragment_register_material.view.*
 import kotlinx.android.synthetic.main.material_type_view.view.*
 
 class ListMaterialType: RecyclerView.Adapter<ListMaterialType.MyViewHolder>() {

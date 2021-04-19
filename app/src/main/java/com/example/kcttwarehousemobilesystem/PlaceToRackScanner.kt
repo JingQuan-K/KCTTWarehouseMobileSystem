@@ -12,8 +12,8 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import com.budiyev.android.codescanner.*
 import com.budiyev.android.codescanner.CodeScanner
-import com.example.kcttwarehousemobilesystem.database.UserDao
-import com.example.kcttwarehousemobilesystem.database.UserDatabase
+import com.example.kcttwarehousemobilesystem.database.KCTTDao
+import com.example.kcttwarehousemobilesystem.database.KCTTDatabase
 import com.example.kcttwarehousemobilesystem.entity.Transactions
 import kotlinx.android.synthetic.main.scanner.*
 import kotlinx.coroutines.launch
@@ -78,7 +78,7 @@ class PlaceToRackScanner : AppCompatActivity() {
                 val quantity = intent?.extras?.getInt(MaterialDetails.QUANTITY).toString()
 
                 //Database
-                val dao = UserDatabase.getDatabase(this@PlaceToRackScanner).userDao()
+                val dao = KCTTDatabase.getDatabase(this@PlaceToRackScanner).userDao()
                 //check if rack exists in database
                 if(dao.rackExists(rackId)) {
                     val rackList = dao.getRackOfSpecificMaterial(materialId.toInt())
@@ -100,7 +100,7 @@ class PlaceToRackScanner : AppCompatActivity() {
                             rackQuantity += quantity.toInt()
                             dao.setRackQuantity(rackQuantity, rackId)
 
-                            dao.addTransaction(Transactions(0,"Stock In", quantity.toInt(), materialId.toInt(),21 ))
+                            dao.addTransaction(Transactions(0,"Stock In", quantity.toInt(), materialId.toInt()))
                         }
                         intent
                         val intent = Intent(this@PlaceToRackScanner, MainActivity::class.java)
@@ -125,7 +125,7 @@ class PlaceToRackScanner : AppCompatActivity() {
                                 dao.setRackMaterialId(materialId.toInt(), rackId)
                                 dao.setRackQuantity(quantity.toInt(), rackId)
 
-                                dao.addTransaction(Transactions(0,"Stock In", quantity.toInt(), materialId.toInt(),21 ))
+                                dao.addTransaction(Transactions(0,"Stock In", quantity.toInt(), materialId.toInt()))
                             }
 
                             //intent
@@ -154,7 +154,7 @@ class PlaceToRackScanner : AppCompatActivity() {
         }
     }
 
-    private fun updateMaterialDB(dao: UserDao, materialId:String, quantity:String){
+    private fun updateMaterialDB(dao: KCTTDao, materialId:String, quantity:String){
         lifecycleScope.launch{
             var materialQuantity = dao.getMaterialQuantity(materialId.toInt())
             materialQuantity += quantity.toInt()

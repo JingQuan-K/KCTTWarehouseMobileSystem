@@ -5,9 +5,8 @@ import androidx.room.*
 import com.example.kcttwarehousemobilesystem.entity.*
 
 @Dao
-interface UserDao {
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun addUser(user: User)
+interface KCTTDao {
+
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addTransactions(transactions: Transactions)
@@ -20,9 +19,6 @@ interface UserDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addRack(rack: Rack)
-    
-    @Query("SELECT * FROM user_table")
-    fun readAllData(): LiveData<List<User>>
 
     @Query("SELECT * FROM materialType_table ORDER BY MaterialTypeId DESC")
     fun getAllMaterialType(): LiveData<List<MaterialType>>
@@ -52,10 +48,6 @@ interface UserDao {
     @Transaction
     @Query("SELECT * FROM material_table WHERE MaterialId = :MaterialId")
     suspend fun getMaterialAndTrans(MaterialId:String): List<MaterialAndTrans>
-
-    @Transaction
-    @Query("SELECT * FROM user_table WHERE userId = :userId")
-    suspend fun getUserAndTrans(userId:String): List<UserAndTrans>
 
     @Query("SELECT MaterialId FROM material_table ORDER BY MaterialId DESC LIMIT 1")
     suspend fun getLastMId(): Int
@@ -124,10 +116,6 @@ interface UserDao {
     @Query("SELECT * FROM material_table WHERE MaterialId = :MaterialId")
     suspend fun getMaterialWithTransactions(MaterialId:String): List<MaterialAndTrans>
 
-    //getUserWithTransactions
-    @Transaction
-    @Query("SELECT * FROM user_table WHERE userId = :userId")
-    suspend fun getUserWithTransactions(userId:String): List<UserAndTrans>
 
     //IMAGE
     @Query("SELECT Image FROM material_table WHERE MaterialId = :MaterialId")

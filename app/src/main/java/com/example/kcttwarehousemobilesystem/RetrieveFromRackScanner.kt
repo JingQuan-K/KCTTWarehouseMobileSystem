@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.budiyev.android.codescanner.*
-import com.example.kcttwarehousemobilesystem.database.UserDatabase
+import com.example.kcttwarehousemobilesystem.database.KCTTDatabase
 import kotlinx.android.synthetic.main.scanner.*
 
 private const val CAMERA_REQUEST_CODE = 101
@@ -49,7 +49,7 @@ class RetrieveFromRackScanner : AppCompatActivity() {
             decodeCallback = DecodeCallback {
 
                 //Get from Database
-                val dao = UserDatabase.getDatabase(this@RetrieveFromRackScanner).userDao()
+                val dao = KCTTDatabase.getDatabase(this@RetrieveFromRackScanner).userDao()
 
                 val rackId = it.text
                 //check if exist in database

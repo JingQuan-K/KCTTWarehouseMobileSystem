@@ -13,8 +13,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.kcttwarehousemobilesystem.R
 import com.example.kcttwarehousemobilesystem.Utils
-import com.example.kcttwarehousemobilesystem.database.UserDao
-import com.example.kcttwarehousemobilesystem.database.UserDatabase
+import com.example.kcttwarehousemobilesystem.database.KCTTDao
+import com.example.kcttwarehousemobilesystem.database.KCTTDatabase
 import com.example.kcttwarehousemobilesystem.entity.Material
 import kotlinx.android.synthetic.main.fragment_add_new_product.*
 import kotlinx.android.synthetic.main.fragment_add_new_product.view.*
@@ -42,7 +42,7 @@ class Add_new_product : Fragment() {
         //generate new material id
         //mViewModel = ViewModelProvider(this).get(MaterialVM::class.java)
         //val allMaterial: LiveData<List<Material>>? = mViewModel.getAllMaterial
-        val dao: UserDao = UserDatabase.getDatabase(requireContext()).userDao()
+        val dao: KCTTDao = KCTTDatabase.getDatabase(requireContext()).userDao()
 
 
         lifecycleScope.launch {
@@ -105,7 +105,7 @@ class Add_new_product : Fragment() {
             if(byteArray.size < 1024*1024){
                 val material = Material(materialId, materialName, byteArray, 0, costPI, 0.00, 10, id!!)
                 lifecycleScope.launch {
-                    val dao: UserDao = UserDatabase.getDatabase(requireContext()).userDao()
+                    val dao: KCTTDao = KCTTDatabase.getDatabase(requireContext()).userDao()
                     dao.addMaterial(material)
                 }
 

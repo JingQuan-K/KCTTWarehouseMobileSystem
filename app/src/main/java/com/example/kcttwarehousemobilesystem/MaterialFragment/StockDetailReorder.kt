@@ -10,10 +10,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kcttwarehousemobilesystem.R
-import com.example.kcttwarehousemobilesystem.database.UserDatabase
-import com.example.kcttwarehousemobilesystem.materialType.MaterialVM
-import kotlinx.android.synthetic.main.stock_details_normal.view.*
-import kotlinx.android.synthetic.main.stock_details_normal.view.rvNormal
+import com.example.kcttwarehousemobilesystem.database.KCTTDatabase
+import com.example.kcttwarehousemobilesystem.ViewModel.MaterialVM
 import kotlinx.android.synthetic.main.stock_details_reorder.view.*
 import kotlinx.coroutines.launch
 
@@ -32,7 +30,7 @@ class StockDetailReorder(val bundle: Bundle):Fragment() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        val dao = UserDatabase.getDatabase(requireContext()).userDao()
+        val dao = KCTTDatabase.getDatabase(requireContext()).userDao()
         stkViewModel = ViewModelProvider(this).get(MaterialVM::class.java)
         lifecycleScope.launch {
             stkViewModel.materialValLow.value = dao.getMTIDMaterialLow(id)

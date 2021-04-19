@@ -1,17 +1,12 @@
 package com.example.kcttwarehousemobilesystem
 
 import android.os.Bundle
-import android.widget.ListAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.kcttwarehousemobilesystem.MaterialFragment.ListMaterialType2
 import com.example.kcttwarehousemobilesystem.MaterialFragment.Report
-import com.example.kcttwarehousemobilesystem.materialType.MaterialTypeVM
-import com.example.kcttwarehousemobilesystem.materialType.MaterialVM
-import com.example.kcttwarehousemobilesystem.materialType.TransactionsVM
-import kotlinx.android.synthetic.main.fragment_material_list.view.*
+import com.example.kcttwarehousemobilesystem.ViewModel.TransactionsVM
 import kotlinx.android.synthetic.main.report.*
 
 class Report : AppCompatActivity() {

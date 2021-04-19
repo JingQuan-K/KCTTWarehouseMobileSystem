@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.lifecycleScope
 import com.budiyev.android.codescanner.*
-import com.example.kcttwarehousemobilesystem.database.UserDatabase
+import com.example.kcttwarehousemobilesystem.database.KCTTDatabase
 import com.example.kcttwarehousemobilesystem.entity.Transactions
 import kotlinx.android.synthetic.main.activity_material_details.*
 import kotlinx.coroutines.launch
@@ -45,7 +45,7 @@ class MaterialDetailsRetrieve : AppCompatActivity() {
         materialName = intent?.extras?.getString(MATERIAL_NAME).toString()
 
         //SET IMAGE__________________________________________
-        val dao = UserDatabase.getDatabase(this).userDao()
+        val dao = KCTTDatabase.getDatabase(this).userDao()
         lifecycleScope.launch {
             val image = dao.getImageOfMaterial(materialId)
             val bitmap: Bitmap = Utils.getImage(image)
@@ -133,7 +133,7 @@ class MaterialDetailsRetrieve : AppCompatActivity() {
 
     private fun updateDatabase(quantity:Int){
         //Database
-        val dao = UserDatabase.getDatabase(this@MaterialDetailsRetrieve).userDao()
+        val dao = KCTTDatabase.getDatabase(this@MaterialDetailsRetrieve).userDao()
 
         lifecycleScope.launch{
             //update material quantity
@@ -152,7 +152,7 @@ class MaterialDetailsRetrieve : AppCompatActivity() {
                 dao.setRackMaterialId(0,rackId)
             }
 
-            dao.addTransaction(Transactions(0,"Stock Out", quantity, materialId,21 ))
+            dao.addTransaction(Transactions(0,"Stock Out", quantity, materialId ))
         }
 
         //intent
