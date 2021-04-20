@@ -27,8 +27,10 @@ class MainActivity : AppCompatActivity() {
         populateDatabase()
 
         toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
+        toggle.drawerArrowDrawable.color = resources.getColor(R.color.Cyan)
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
+
 
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
